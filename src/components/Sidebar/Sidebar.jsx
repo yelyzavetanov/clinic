@@ -3,7 +3,7 @@ import s from "./Sidebar.module.css";
 
 function Sidebar() {
     return (
-        <div>this is sidebar</div>
+        <div>start sidebar</div>
     )
 }
 
