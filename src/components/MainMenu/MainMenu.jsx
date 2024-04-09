@@ -3,7 +3,9 @@ import s from "./MainMenu.module.css";
 
 function MainMenu() {
     return (
-        <div className={s.redText}>this is the main menu</div>
+        <div className={s.redText}>
+            <div>logo gogo</div>
+        </div>
     )
 }
 
