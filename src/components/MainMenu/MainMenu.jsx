@@ -1,10 +1,11 @@
 import React from "react";
 import s from "./MainMenu.module.css";
+import Logo from "../common/Logo/Logo";
 
 function MainMenu() {
     return (
-        <div className={s.redText}>
-            <div>logo gogo</div>
+        <div>
+            <Logo/>
         </div>
     )
 }
