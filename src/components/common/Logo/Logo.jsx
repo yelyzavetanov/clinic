@@ -3,7 +3,10 @@ import s from "./Logo.module.css";
 
 function Logo() {
     return (
-        <div>LOGO</div>
+        <div className={s.logo}>
+            <div className={s.logoImg}>L</div>
+            <div className={s.title}>Clinic</div>
+        </div>
     )
 }
 
