@@ -3,7 +3,11 @@ import s from "./Shedule.module.css";
 
 function Schedule() {
     return (
-        <div>SCHEDULE</div>
+        <div className={s.scheduleContainer}>
+            <div className={s.schedule}>
+                SCHEDULE
+            </div>
+        </div>
     )
 }
 
