@@ -1,0 +1,5 @@
+.weekScale {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4em;
+}

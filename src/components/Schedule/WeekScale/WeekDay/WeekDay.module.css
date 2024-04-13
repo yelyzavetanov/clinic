@@ -1,0 +1,28 @@
+.weekDay, .currentWeekDay {
+    padding: 1em 1em 0;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*box-sizing: border-box;*/
+}
+
+.weekDay {
+    color: #999999;
+}
+
+.dayNumber {
+    margin: 0.5em;
+    /*padding: 0.5em 1em;*/
+    border-radius: 0.3em;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.currentWeekDay .dayNumber {
+    background: #1877F2;
+    color: #ffffff;
+}
