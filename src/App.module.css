@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainContent {
+  width: 80%;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}

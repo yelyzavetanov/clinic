@@ -1,15 +1,21 @@
 import logo from './logo.svg';
-import './App.css';
+import s from './App.module.css';
 import MainMenu from "./components/MainMenu/MainMenu";
 import Schedule from "./components/Schedule/Schedule";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <div className="App">
+    <div className={s.App}>
         <MainMenu/>
-        <Schedule/>
-        <Sidebar/>
+        <div className={s.mainContent}>
+            <Header/>
+            <div className={s.content}>
+                <Schedule/>
+                <Sidebar/>
+            </div>
+        </div>
     </div>
   );
 }
