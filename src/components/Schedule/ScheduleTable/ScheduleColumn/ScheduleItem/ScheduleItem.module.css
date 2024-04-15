@@ -1,12 +1,10 @@
 .scheduleItem, .scheduleActiveItem{
-    /*width: 10em;*/
     padding: 0.5em;
     box-sizing: border-box;
-    /*border: red 0.1em solid;*/
     border-bottom: #999999 0.1em solid;
     border-right: #999999 0.1em solid;
     height: 8.3em;
-    /*border-radius: 0.5em;*/
+    border-radius: 0.5em;
 }
 
 .scheduleActiveItem {
