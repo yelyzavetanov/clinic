@@ -1,7 +1,5 @@
 import React from "react";
 import s from "./Shedule.module.css";
-// import arrowIcon from "../../img/arrow.svg";
-import arrowIcon from "./../../img/system-solid-11-arrow-up.png";
 import ScheduleHeader from "./ScheduleHeader/ScheduleHeader";
 import WeekScale from "./WeekScale/WeekScale";
 import TimeScale from "./TimeScale/TimeScale";
