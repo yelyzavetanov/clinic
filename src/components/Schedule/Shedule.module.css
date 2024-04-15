@@ -1,9 +1,17 @@
 .scheduleContainer {
     background: #eef0f2;
+    width: 100%;
 }
 
 .schedule {
     background: #ffffff;
     border-top-left-radius: 1.5em;
     padding: 2em;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.scheduleVerticalContainer {
+    display: flex;
 }
