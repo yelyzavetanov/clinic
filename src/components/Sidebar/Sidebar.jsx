@@ -1,9 +1,12 @@
 import React from "react";
 import s from "./Sidebar.module.css";
+import Calendar from "./Calendar/Calendar.jsx";
 
 function Sidebar() {
     return (
-        <div>start sidebar</div>
+        <div>
+            <Calendar/>
+        </div>
     )
 }
 
