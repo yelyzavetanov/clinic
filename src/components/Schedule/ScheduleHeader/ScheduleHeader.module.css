@@ -6,12 +6,14 @@
 }
 
 .newButton {
-    background: #1877F2;
+    /*background: #1877F2;*/
+    background: #a32cdf;
     color: #ffffff;
     border: none;
     padding: 0.5em 1.5em;
     border-radius: 0.5em;
     font-size: 0.9em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
 }
 
 .title {

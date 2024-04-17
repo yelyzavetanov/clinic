@@ -12,6 +12,7 @@ function WeekScale() {
                     weekDay={e}
                     dayNumber={weekDays.indexOf(e) + 1}
                     currentDay={"Friday"}
+                    key={weekDays.indexOf(e)}
                 />
             )}
         </div>

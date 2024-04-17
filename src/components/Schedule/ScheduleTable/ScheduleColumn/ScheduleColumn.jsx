@@ -4,9 +4,9 @@ import ScheduleItem from "./ScheduleItem/ScheduleItem";
 
 function ScheduleColumn(props) {
     return(
-        <div className={s.ScheduleColumn}>
+        <div className={s.scheduleColumn}>
             {props.dayInfo.map(e =>
-                <ScheduleItem patient={e.patient} description={e.description} time={e.time}/>
+                <ScheduleItem patient={e.patient} description={e.description} time={e.time} key={props.dayInfo.indexOf(e)}/>
             )}
         </div>
     )
