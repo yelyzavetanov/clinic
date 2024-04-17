@@ -1,10 +1,10 @@
 import React from "react";
 import s from "./Sidebar.module.css";
-import Calendar from "./Calendar/Calendar.jsx";
+import Calendar from "./Calendar/Calendar";
 
 function Sidebar() {
     return (
-        <div>
+        <div className={s.sidebar}>
             <Calendar/>
         </div>
     )
