@@ -5,17 +5,10 @@ import Logo from "../common/Logo/Logo";
 function MainMenu() {
     return (
         <div className={s.mainMenu}>
-            <div>
-                <Logo/>
-                <div className={s.linkContainer}><a href={""}>Dashboard</a></div>
-                <div className={s.linkContainer}><a href={""}>Calendar</a></div>
-                <div className={s.linkContainer}><a href={""}>Homework</a></div>
-                <div className={s.linkContainer}><a href={""}>Message</a></div>
-            </div>
-            <div>
-                <div className={s.linkContainer}><a href={""}>Settings</a></div>
-                <div className={s.linkContainer}><a href={""}>Help</a></div>
-            </div>
+            <Logo/>
+            <div className={s.linkContainer}><a href={""}>Schedule</a></div>
+            <div className={s.linkContainer}><a href={""}>Patients</a></div>
+            <div className={s.linkContainer}><a href={""}>Account</a></div>
         </div>
     )
 }
