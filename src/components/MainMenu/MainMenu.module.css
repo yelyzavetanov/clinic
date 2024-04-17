@@ -1,20 +1,19 @@
-.redText {
-    color: red;
-    font-size: 2em;
-}
-
 div a {
     text-decoration: none;
     color: #000000;
 }
 
-.mainMenu {
+.shownMenu, .hiddenMenu {
     background: #eef0f2;
-    padding: 2em;
-    min-height: 100vh;
+    padding: 1.3em 2em 2em;
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+}
+
+.mainMenu {
+    height: 100%;
 }
 
 .linkContainer {

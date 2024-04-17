@@ -8,7 +8,7 @@ function TimeScale() {
 
     return (
         <div className={s.timeScale}>
-            {timeScaleArray.map(e => <TimeItem time={e}/>)}
+            {timeScaleArray.map(e => <TimeItem time={e} key={timeScaleArray.indexOf(e)}/>)}
         </div>
     )
 }

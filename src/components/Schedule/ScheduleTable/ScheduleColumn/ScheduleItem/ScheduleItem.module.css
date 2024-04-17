@@ -4,10 +4,32 @@
     border-bottom: #999999 0.1em solid;
     border-right: #999999 0.1em solid;
     height: 8.3em;
-    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .scheduleActiveItem {
-    background: #ff000033;
+    background: #a32cdf15;
 
+}
+
+.patientInfo {
+    text-align: left;
+}
+
+.patient {
+    font-weight: 600;
+    color: #a32cdf;
+}
+
+.description {
+    font-size: 0.9em;
+}
+
+.time {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 0.8em;
 }

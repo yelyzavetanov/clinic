@@ -2,13 +2,13 @@ import React from "react";
 import s from "./Logo.module.css";
 import logo from "../../../logo.svg";
 
-function Logo() {
+function Logo(props) {
     return (
         <div className={s.logo}>
             <div className={s.logoImg}><img src={logo}/></div>
-            <div className={s.title}>Clinic
-                {/*<span>PRO</span>*/}
-                </div>
+            {props.isFullLogoShown &&
+                <div className={s.title}>Clinic</div>
+            }
         </div>
     )
 }

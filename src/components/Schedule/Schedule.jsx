@@ -11,7 +11,7 @@ function Schedule() {
             <div className={s.schedule}>
                 <ScheduleHeader/>
                 <WeekScale/>
-                <div class={s.scheduleVerticalContainer}>
+                <div className={s.scheduleVerticalContainer}>
                     <TimeScale/>
                     <ScheduleTable/>
                 </div>
