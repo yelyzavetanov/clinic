@@ -1,14 +1,15 @@
 header {
     background: #eef0f2;
-    padding: 1em;
+    padding: 1em 1em 1em 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .inputContainer{
     background: #ffffff;
-    padding: 0.5em;
-    border-radius: 0.5em;
+    padding: 1em;
+    border-radius: 1em;
     display: flex;
     justify-content: space-between;
 }
@@ -27,8 +28,10 @@ header {
 
 .loginButton {
     border: none;
-    padding: 0 1em;
+    padding: 0.5em 2em;
     border-radius: 0.5em;
-    background: #4ca9df;
+    /*background: #4ca9df;*/
+    /*background: #a32cdf;*/
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
     color: #ffffff;
 }

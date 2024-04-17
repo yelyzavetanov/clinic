@@ -23,6 +23,9 @@
 }
 
 .currentWeekDay .dayNumber {
-    background: #1877F2;
+    /*background: #1877F2;*/
+    /*background: #a32cdf;*/
     color: #ffffff;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+
 }

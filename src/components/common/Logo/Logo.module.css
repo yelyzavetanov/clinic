@@ -8,20 +8,26 @@
     color: #fff;
     font-weight: 600;
     font-size: 1.5em;
-    background: linear-gradient(to top left, #4ca9df, #a1ffb3);
+    /*background: linear-gradient(to top left, #4ca9df, #a1ffb3);*/
+    /*background: linear-gradient(to top left, #4ca9df, #a32cdf);*/
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
 }
 
 .logo {
     padding: 0 0 2em 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .title {
     padding: 0.5em;
     font-size: 1.7em;
     font-weight: 500;
-    color: #4ca9df;
+    /*color: #4ca9df;*/
+    /*color: #a32cdf;*/
 }
 
 .title span {

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import s from './App.module.css';
 import MainMenu from "./components/MainMenu/MainMenu";
 import Schedule from "./components/Schedule/Schedule";
@@ -8,7 +8,9 @@ import Header from "./components/Header/Header";
 function App() {
   return (
     <div className={s.App}>
-        <MainMenu/>
+        <div className={s.menu}>
+            <MainMenu/>
+        </div>
         <div className={s.mainContent}>
             <Header/>
             <div className={s.content}>
