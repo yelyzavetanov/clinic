@@ -20,6 +20,7 @@ header {
 
 .searchInput {
     border: none;
+    width: 20em;
 }
 
 .searchInput::placeholder {
@@ -30,8 +31,6 @@ header {
     border: none;
     padding: 0.5em 2em;
     border-radius: 0.5em;
-    /*background: #4ca9df;*/
-    /*background: #a32cdf;*/
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
     color: #ffffff;
 }
