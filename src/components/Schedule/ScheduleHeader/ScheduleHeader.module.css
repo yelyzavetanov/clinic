@@ -55,3 +55,9 @@
     box-sizing: border-box;
     background: #eef0f2;
 }
+
+@media only screen and (max-width: 40em) {
+    .scheduleHeader {
+        flex-direction: column;
+    }
+}

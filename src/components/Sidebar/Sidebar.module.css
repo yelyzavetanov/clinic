@@ -2,3 +2,9 @@
     border-left: #eef0f2 0.1em solid;
     padding: 1em;
 }
+
+@media only screen and (max-width: 40em) {
+    .sidebar {
+        display: none;
+    }
+}

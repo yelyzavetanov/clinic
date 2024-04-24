@@ -34,3 +34,22 @@ header {
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
     color: #ffffff;
 }
+
+@media only screen and (max-width: 40em) {
+    .searchInput {
+        width: unset;
+    }
+
+    .inputContainer {
+        margin-bottom: 1em;
+        padding: 0.5em;
+    }
+
+    header {
+        margin: 0;
+        padding: 0.5em;
+        flex-direction: column;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+}

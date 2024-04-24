@@ -15,3 +15,10 @@
 .scheduleVerticalContainer {
     display: flex;
 }
+
+@media only screen and (max-width: 40em) {
+    .schedule {
+        padding: 0.5em;
+        border-radius: 0;
+    }
+}
