@@ -1,0 +1,13 @@
+import react from 'react';
+import s from "./CalendarRow.module.css";
+import CalendarWeekDay from "../../CalendarWeek/CalendarWeekDay/CalendarWeekDay";
+
+function CalendarRow(props) {
+    return (
+        <div className={s.calendarRow}>
+            {props.week.map(e => <CalendarWeekDay calendarWeekDay={e}/>)}
+        </div>
+    )
+}
+
+export default CalendarRow;
