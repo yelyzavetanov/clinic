@@ -9,7 +9,7 @@ function CalendarTable() {
     const calendarArray = generateCalendar();
 
     return (
-        <div className={s.scheduleTable}>
+        <div className={s.calendarTable}>
             {calendarArray.map(e =>
                 <CalendarRow week={e} key={calendarArray.indexOf(e)}/>
             )}
