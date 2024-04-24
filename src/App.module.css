@@ -25,3 +25,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+@media only screen and (max-width: 40em) {
+    .app, .fullApp {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        /*background: green;*/
+    }
+
+    .menu {
+        width: 100%;
+        /*background: red;*/
+    }
+}

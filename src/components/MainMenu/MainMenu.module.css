@@ -6,7 +6,6 @@ div a {
 .shownMenu, .hiddenMenu {
     background: #eef0f2;
     padding: 1.3em 2em 2em;
-    /*min-height: 100vh;*/
     height: 100%;
     box-sizing: border-box;
     display: flex;
@@ -20,4 +19,12 @@ div a {
 
 .linkContainer {
     padding:  1em 0;
+}
+
+@media only screen and (max-width: 40em) {
+    .shownMenu, .hiddenMenu {
+        /*background: red;*/
+        width: 100%;
+        padding: 0.5em;
+    }
 }

@@ -1,8 +1,10 @@
 .scheduleItem, .scheduleActiveItem{
     padding: 0.5em;
     box-sizing: border-box;
-    border-bottom: #999999 0.1em solid;
-    border-right: #999999 0.1em solid;
+    /*border-bottom: #999999 0.1em solid;*/
+    /*border-right: #999999 0.1em solid; */
+    border-bottom: #eef0f2 0.1em solid;
+    border-right: #eef0f2 0.1em solid;
     height: 8.3em;
     display: flex;
     flex-direction: column;
@@ -10,8 +12,10 @@
 }
 
 .scheduleActiveItem {
-    background: #a32cdf15;
-
+    background: #a32cdf20;
+    border: #a32cdf 0.1em solid;
+    /*border-bottom: #a32cdf 0.1em solid;*/
+    /*border-right: #a32cdf 0.1em solid;*/
 }
 
 .patientInfo {

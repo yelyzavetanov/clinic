@@ -1,3 +1,9 @@
 .timeScale {
     /*margin-left: 2em;*/
 }
+
+@media only screen and (max-width: 40em) {
+    .timeScale {
+        display: none;
+    }
+}
