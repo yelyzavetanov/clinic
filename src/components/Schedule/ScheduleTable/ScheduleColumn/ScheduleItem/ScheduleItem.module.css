@@ -9,11 +9,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /*margin: 0.2em;*/
 }
 
 .scheduleActiveItem {
     background: #a32cdf20;
-    border: #a32cdf 0.1em solid;
+    /*border: #a32cdf 0.1em solid;*/
     /*border-bottom: #a32cdf 0.1em solid;*/
     /*border-right: #a32cdf 0.1em solid;*/
 }

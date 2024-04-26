@@ -1,0 +1,41 @@
+.titleReception {
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 1em;
+}
+
+.addReception {
+
+}
+
+.contentReception {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+
+.receptionButton {
+    /*margin-left: 14em;*/
+    /*margin-top: 0.5em;*/
+    padding: 0.2em;
+    border-radius: 0.5em;
+    color: #ffffff;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    width: 4em;
+}
+
+.buttonContainer {
+        display: flex;
+    justify-content: flex-end;
+}
+
+select {
+    margin: 0.5em ;
+    /*margin-left : 0.5em;*/
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: #a32cdf;
+    border-color: #a32cdf;
+}
