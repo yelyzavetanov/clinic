@@ -1,0 +1,59 @@
+.editButton {
+    transition: 0.5s;
+    border-radius: 0.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+    width: 3.5em;
+    padding: 0.2em 0.5em;
+    border: #a32cdf 0.1em solid;
+    font-weight: 550;
+    height: max-content;
+}
+
+.editButton:hover {
+    width: 3.5em;
+    border: #a32cdf 0.1em solid;
+    border-radius: 0.5em;
+    background: #ffffff;
+    padding: 0.2em 0.5em;
+    color: #a32cdf;
+    font-weight: 550;
+}
+
+.fullInfo .problem {
+    padding-top: 1em;
+}
+
+.fullInfo div span {
+    color: #333;
+}
+
+.fullInfo input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-width: 0.1em;
+}
+
+textarea {
+    display: block;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    width: 100%;
+    height: 4em;
+}
+
+.treatment textarea {
+    width: 50vh;
+    height: 6em;
+}
+
+span {
+    font-weight: 500;
+}
+
+.treatmentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
