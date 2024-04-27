@@ -1,7 +1,5 @@
 import React from 'react';
 import s from "./CalendarTable.module.css";
-import {generateSchedule} from "../../../../scheduleGenerator/scheduleGenerator";
-import ScheduleColumn from "../../../Schedule/ScheduleTable/ScheduleColumn/ScheduleColumn";
 import CalendarRow from "./CalendarRow/CalendarRow";
 import {generateCalendar} from "../../../../scheduleGenerator/calendarGenerator";
 

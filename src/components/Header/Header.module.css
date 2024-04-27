@@ -28,11 +28,20 @@ header {
 }
 
 .loginButton {
-    border: none;
+    border: #a32cdf 0.1em solid;
+    transition: 0.5s;
+    /*border: none;*/
     padding: 0.5em 2em;
     border-radius: 0.5em;
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
     color: #ffffff;
+}
+
+.loginButton:hover {
+    border-radius: 0.5em;
+    background: #ffffff;
+    color: #a32cdf;
+    /*font-weight: 550;*/
 }
 
 @media only screen and (max-width: 40em) {
