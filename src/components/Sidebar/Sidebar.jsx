@@ -9,6 +9,7 @@ function Sidebar() {
             <Calendar/>
             <div className={s.receptionLine}></div>
             <AddReception/>
+            {/*ctrl + slash*/}
         </div>
     )
 }
