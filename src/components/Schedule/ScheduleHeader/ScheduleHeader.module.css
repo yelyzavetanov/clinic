@@ -1,0 +1,63 @@
+.scheduleHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.newButton {
+    /*background: #1877F2;*/
+    background: #a32cdf;
+    color: #ffffff;
+    border: none;
+    padding: 0.5em 1.5em;
+    border-radius: 0.5em;
+    font-size: 0.9em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.calendarTitleHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em 0;
+    align-items: center;
+}
+
+.month, .year {
+    font-weight: 500;
+}
+
+.selectDayContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectDayButton, .selectedDay, .selectWeek {
+    background: #eef0f2;
+    border: none;
+    border-radius: 0.3em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+    padding: 0 0.8em;
+}
+
+.line {
+    height: 0.1em;
+    width: 100%;
+    box-sizing: border-box;
+    background: #eef0f2;
+}
+
+@media only screen and (max-width: 40em) {
+    .scheduleHeader {
+        flex-direction: column;
+    }
+}

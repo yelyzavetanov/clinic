@@ -1,0 +1,34 @@
+.Calendar {
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    width: 20em;
+     /*margin: 0em;*/
+}
+
+.calendarButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendarHeaderButton1, .calendarHeaderButton2 {
+    background: #eef0f2;
+    border: none;
+    border-radius: 0.3em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+    padding: 0 0.8em;
+    font-weight: 600;
+}
+
+.calendarHeaderTitle {
+    font-weight: 500;
+}
+
+.calendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

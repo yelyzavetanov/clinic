@@ -1,0 +1,59 @@
+.logoImg {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5em;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+}
+
+.logo {
+    padding: 0 0 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    padding: 0 0.5em;
+    font-size: 1.7em;
+    font-weight: 500;
+    /*color: #4ca9df;*/
+    /*color: #a32cdf;*/
+}
+
+.title span {
+    color: #a1ffb3;
+}
+
+.logo img {
+    filter: brightness(2000%) grayscale(100%);
+    height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .logo img {
+        animation: App-logo-spin infinite 10s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 40em) {
+    .logo {
+        padding: 0;
+    }
+}
