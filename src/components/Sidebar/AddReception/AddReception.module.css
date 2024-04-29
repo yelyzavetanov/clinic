@@ -5,10 +5,6 @@
     margin-bottom: 1em;
 }
 
-.addReception {
-
-}
-
 .contentReception {
     display: flex;
     align-items: flex-start;
@@ -17,8 +13,8 @@
 }
 
 .receptionButton {
-    /*margin-left: 14em;*/
-    /*margin-top: 0.5em;*/
+    border: none;
+    transition: 0.5s;
     padding: 0.2em;
     border-radius: 0.5em;
     color: #ffffff;
@@ -26,14 +22,19 @@
     width: 4em;
 }
 
+.receptionButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
 .buttonContainer {
-        display: flex;
+    display: flex;
     justify-content: flex-end;
 }
 
 select {
-    margin: 0.5em ;
-    /*margin-left : 0.5em;*/
+    margin: 0.5em;
     padding: 0.5em;
     border-radius: 0.5em;
     color: #a32cdf;

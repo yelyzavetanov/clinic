@@ -28,9 +28,8 @@ header {
 }
 
 .loginButton {
-    border: #a32cdf 0.1em solid;
     transition: 0.5s;
-    /*border: none;*/
+    border: none;
     padding: 0.5em 2em;
     border-radius: 0.5em;
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
@@ -38,13 +37,20 @@ header {
 }
 
 .loginButton:hover {
-    border-radius: 0.5em;
+    border: #a32cdf 0.1em solid;
     background: #ffffff;
     color: #a32cdf;
-    /*font-weight: 550;*/
 }
 
 @media only screen and (max-width: 40em) {
+    header {
+        margin: 0;
+        padding: 0.5em 0.5em 2em;
+        flex-direction: column;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
     .searchInput {
         width: unset;
     }
@@ -52,13 +58,5 @@ header {
     .inputContainer {
         margin-bottom: 1em;
         padding: 0.5em;
-    }
-
-    header {
-        margin: 0;
-        padding: 0.5em;
-        flex-direction: column;
-        width: 100vw;
-        box-sizing: border-box;
     }
 }

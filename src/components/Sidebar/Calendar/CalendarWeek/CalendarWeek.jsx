@@ -1,7 +1,5 @@
 import React from  'react';
 import s from './CalendarWeek.module.css';
-import {render} from "@testing-library/react";
-import WeekDay from "../../../Schedule/WeekScale/WeekDay/WeekDay";
 import CalendarWeekDay from "./CalendarWeekDay/CalendarWeekDay";
 
 function CalendarWeek(props){

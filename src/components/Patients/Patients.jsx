@@ -3,7 +3,6 @@ import s from "./Patients.module.css";
 import Patient from "./Patient/Patient";
 
 function Patients() {
-    // const patients = ["Yelyzaveta", "Vlad", "Nazar"];
     const patients = [
         {name: "Yelyzaveta", description: "Cool rich intelligent", year: "2005", problem: "anxiety, shiza", treatment: "therapy"},
         {name: "Vlad", description: "Cool rich intelligent", year: "2005", problem: "anxiety", treatment: "therapy"},

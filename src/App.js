@@ -19,8 +19,8 @@ function App() {
             <div className={s.mainContent}>
                 <Header/>
                 <div className={s.content}>
-                    <Patients/>
-                    {/*<Schedule/>*/}
+                    {/*<Patients/>*/}
+                    <Schedule/>
                     <Sidebar/>
                 </div>
                 <Footer/>

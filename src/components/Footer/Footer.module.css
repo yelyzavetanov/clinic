@@ -10,3 +10,13 @@ footer {
     font-weight: 500;
     padding-bottom: 0.5em;
 }
+
+@media only screen and (max-width: 40em) {
+    footer {
+        flex-direction: column;
+    }
+
+    .footerColumn {
+        margin-bottom: 2em;
+    }
+}
