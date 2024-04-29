@@ -13,6 +13,7 @@ function CalendarWeek(props){
             {weekDays.map(e =>
                 <CalendarWeekDay
                     calendarWeekDay={e}
+                    key={weekDays.indexOf(e)}
                 />
             )}
         </div>
