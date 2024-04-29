@@ -5,9 +5,10 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
 import {useState} from "react";
 import Patients from "./components/Patients/Patients";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-    const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(false);
+    const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
 
 
     return (
@@ -22,6 +23,7 @@ function App() {
                     {/*<Schedule/>*/}
                     <Sidebar/>
                 </div>
+                <Footer/>
             </div>
         </div>
     );
