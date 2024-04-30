@@ -1,3 +1,7 @@
+.addReception {
+    padding: 1.5em 0;
+}
+
 .titleReception {
     font-weight: 500;
     display: flex;

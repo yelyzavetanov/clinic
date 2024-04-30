@@ -28,7 +28,6 @@ function ScheduleHeader() {
                     <select className={s.selectWeek}><option>Week</option></select>
                 </div>
             </div>
-            <div className={s.line}></div>
         </div>
     )
 }

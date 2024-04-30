@@ -7,6 +7,7 @@ import {useState} from "react";
 import Patients from "./components/Patients/Patients";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Account from "./components/Account/Account";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -22,7 +23,8 @@ function App() {
                     <Header/>
                     <div className={s.content}>
                         <Routes>
-                            <Route path={"/Patients"} element={<Patients/>}/>
+                            <Route path={"/patients"} element={<Patients/>}/>
+                            <Route path={"/account"} element={<Account/>}/>
                             <Route path={"/"} element={<Schedule/>}/>
                         </Routes>
                         <Sidebar/>

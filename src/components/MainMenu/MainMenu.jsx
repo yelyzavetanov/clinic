@@ -30,10 +30,13 @@ function MainMenu(props) {
                             <img src={patientsIcon}/>
                             <a>Patients</a>
                         </NavLink>
-                        <div className={s.linkContainer}>
+                        <NavLink
+                            to={"/account"}
+                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                        >
                             <img src={accountIcon}/>
                             <a>Account</a>
-                        </div>
+                        </NavLink>
                     </div>
                 </div>
                 :

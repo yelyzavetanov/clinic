@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Patients.module.css";
 import Patient from "./Patient/Patient";
+import GrayLine from "../common/GrayLine/GrayLine";
 
 function Patients() {
     const patients = [
@@ -16,7 +17,7 @@ function Patients() {
                     <div className={s.title}>Patients</div>
                     <div className={s.addPatientButton}><button>Add patient</button></div>
                 </div>
-                <div className={s.line}> </div>
+                <GrayLine/>
                 <div className={s.patientsList}>
                     {patients.map(e => <Patient patient={e} key={patients.indexOf(e)}/>)}
                 </div>
