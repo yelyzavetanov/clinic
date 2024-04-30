@@ -10,6 +10,7 @@ div a {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .mainMenu {
@@ -17,5 +18,17 @@ div a {
 }
 
 .linkContainer {
-    padding:  1em 0;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    text-align: left;
+    width: fit-content;
+    box-sizing: border-box;
+
+}
+
+.linkContainer img {
+    height: 1.5em;
+    padding: 0 0.5em;
 }
