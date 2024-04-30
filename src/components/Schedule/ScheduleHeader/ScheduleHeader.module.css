@@ -6,7 +6,7 @@
 }
 
 .newButton {
-    /*background: #1877F2;*/
+    transition: 0.5s;
     background: #a32cdf;
     color: #ffffff;
     border: none;
@@ -14,6 +14,12 @@
     border-radius: 0.5em;
     font-size: 0.9em;
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
+}
+
+.newButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
 }
 
 .title {
@@ -32,7 +38,7 @@
     font-weight: 500;
 }
 
-.selectDayContainer {
+.selectDayContainer, .selectDayButtons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +51,7 @@
     height: 2.5em;
     display: flex;
     align-items: center;
-    margin: 0.5em;
+    margin: 0.5em 0.2em;
     padding: 0 0.8em;
 }
 
@@ -54,4 +60,20 @@
     width: 100%;
     box-sizing: border-box;
     background: #eef0f2;
+}
+
+@media only screen and (max-width: 40em) {
+    .scheduleHeader {
+        padding: 1em;
+        box-sizing: border-box;
+        /*flex-direction: column;*/
+    }
+
+    .calendarTitleHeader {
+        flex-direction: column;
+    }
+
+    .selectDayContainer {
+        flex-direction: column;
+    }
 }

@@ -1,13 +1,14 @@
-// import logo from './logo.svg';
 import s from './App.module.css';
 import MainMenu from "./components/MainMenu/MainMenu";
 import Schedule from "./components/Schedule/Schedule";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
 import {useState} from "react";
+import Patients from "./components/Patients/Patients";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-    const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(false);
+    const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
 
 
     return (
@@ -18,9 +19,11 @@ function App() {
             <div className={s.mainContent}>
                 <Header/>
                 <div className={s.content}>
+                    {/*<Patients/>*/}
                     <Schedule/>
                     <Sidebar/>
                 </div>
+                <Footer/>
             </div>
         </div>
     );

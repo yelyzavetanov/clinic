@@ -1,0 +1,42 @@
+.titleReception {
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 1em;
+}
+
+.contentReception {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+
+.receptionButton {
+    border: none;
+    transition: 0.5s;
+    padding: 0.2em;
+    border-radius: 0.5em;
+    color: #ffffff;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    width: 4em;
+}
+
+.receptionButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+select {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: #a32cdf;
+    border-color: #a32cdf;
+}

@@ -28,9 +28,35 @@ header {
 }
 
 .loginButton {
+    transition: 0.5s;
     border: none;
     padding: 0.5em 2em;
     border-radius: 0.5em;
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
     color: #ffffff;
+}
+
+.loginButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+@media only screen and (max-width: 40em) {
+    header {
+        margin: 0;
+        padding: 0.5em 0.5em 2em;
+        flex-direction: column;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
+    .searchInput {
+        width: unset;
+    }
+
+    .inputContainer {
+        margin-bottom: 1em;
+        padding: 0.5em;
+    }
 }

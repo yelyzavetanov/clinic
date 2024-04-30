@@ -1,0 +1,17 @@
+.sidebar {
+    border-left: #eef0f2 0.1em solid;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 40em) {
+    .sidebar {
+        display: none;
+    }
+}
+
+.receptionLine {
+    width: 100%;
+    height: 0.1em;
+    background-color: #eef0f2;
+    margin: 1em 0;
+}

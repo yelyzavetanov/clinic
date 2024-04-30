@@ -5,7 +5,8 @@
 
 .schedule {
     background: #ffffff;
-    border-top-left-radius: 1.5em;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
     padding: 2em;
     width: 100%;
     box-sizing: border-box;
@@ -14,4 +15,11 @@
 
 .scheduleVerticalContainer {
     display: flex;
+}
+
+@media only screen and (max-width: 40em) {
+    .schedule {
+        padding: 0.5em 0.1em;
+        /*border-radius: 0;*/
+    }
 }

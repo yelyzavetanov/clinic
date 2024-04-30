@@ -1,0 +1,22 @@
+footer {
+    background: #eef0f2;
+    padding: 2em;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerTitle {
+    font-weight: 500;
+    padding-bottom: 0.5em;
+}
+
+@media only screen and (max-width: 40em) {
+    footer {
+        flex-direction: column;
+    }
+
+    .footerColumn {
+        margin-bottom: 2em;
+    }
+}
