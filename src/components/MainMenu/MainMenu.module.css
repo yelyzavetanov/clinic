@@ -5,13 +5,15 @@ div a {
 
 .shownMenu, .hiddenMenu {
     background: #eef0f2;
-    padding: 1.3em 2em 2em;
+    padding: 1.3em 1em;
     /*min-height: 100vh;*/
     height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
 }
 
 .mainMenu {
@@ -22,9 +24,21 @@ div a {
     height: 1.5em;
 }
 
-.linkContainer {
-    padding:  1em 0;
+.linkContainer, .selectedLinkContainer {
+    transition: 0.5s;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    margin: 0.5em;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.linkContainer:hover, .selectedLinkContainer {
+    background: #ffffff99;
+}
+
+.linkContainer img, .selectedLinkContainer img {
+    margin-right: 1em;
 }
