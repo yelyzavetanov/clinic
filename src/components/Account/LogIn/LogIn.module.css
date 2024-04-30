@@ -1,9 +1,5 @@
 .logInContainer {
-    /*width: 100%;*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*height: 100%;*/
-    /*align-items: center;*/
+
 }
 
 .logIn {
@@ -59,4 +55,9 @@
     border: #a32cdf 0.1em solid;
     background: #ffffff;
     color: #a32cdf;
+}
+
+.createAccountButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
 }
