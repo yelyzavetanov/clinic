@@ -1,9 +1,9 @@
 import React from "react";
 import s from "./Patients.module.css";
 import Patient from "./Patient/Patient";
+import GrayLine from "../common/GrayLine/GrayLine";
 
 function Patients() {
-    // const patients = ["Yelyzaveta", "Vlad", "Nazar"];
     const patients = [
         {name: "Yelyzaveta", description: "Cool rich intelligent", year: "2005", problem: "anxiety, shiza", treatment: "therapy"},
         {name: "Vlad", description: "Cool rich intelligent", year: "2005", problem: "anxiety", treatment: "therapy"},
@@ -17,7 +17,7 @@ function Patients() {
                     <div className={s.title}>Patients</div>
                     <div className={s.addPatientButton}><button>Add patient</button></div>
                 </div>
-                <div className={s.line}> </div>
+                <GrayLine/>
                 <div className={s.patientsList}>
                     {patients.map(e => <Patient patient={e} key={patients.indexOf(e)}/>)}
                 </div>

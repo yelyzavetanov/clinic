@@ -34,10 +34,10 @@ function AddReception() {
                 </div>
                 <div className={s.selectColor}>
                     <span>Color:</span>
-                    <select type="">
+                    <select value={"Purple"} type="">
                         <option>Green</option>
                         <option>Blue</option>
-                        <option selected={"true"}>Purple</option>
+                        <option>Purple</option>
                         <option>Red</option>
                     </select>
                 </div>

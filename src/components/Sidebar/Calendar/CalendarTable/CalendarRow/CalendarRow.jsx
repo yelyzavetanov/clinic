@@ -5,7 +5,7 @@ import CalendarWeekDay from "../../CalendarWeek/CalendarWeekDay/CalendarWeekDay"
 function CalendarRow(props) {
     return (
         <div className={s.calendarRow}>
-            {props.week.map(e => <CalendarWeekDay calendarWeekDay={e}/>)}
+            {props.week.map(e => <CalendarWeekDay calendarWeekDay={e} key={props.week.indexOf(e)}/>)}
         </div>
     )
 }

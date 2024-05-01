@@ -1,6 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import s from "./MainMenu.module.css";
 import Logo from "../common/Logo/Logo";
+import scheduleIcon from "../../icons/system-regular-23-calendar.svg";
+import patientsIcon from "../../icons/system-regular-19-book.svg";
+import accountIcon from "../../icons/system-regular-63-settings-cog.svg";
+import {NavLink} from "react-router-dom";
 
 function MainMenu(props) {
     return (
@@ -12,14 +16,27 @@ function MainMenu(props) {
                         <div onClick={() => props.setIsFullMainMenuShown(false)}>
                             <Logo isFullLogoShown={true}/>
                         </div>
-                        <div className={s.linkContainer}><a href={""}>Dashboard</a></div>
-                        <div className={s.linkContainer}><a href={""}>Calendar</a></div>
-                        <div className={s.linkContainer}><a href={""}>Homework</a></div>
-                        <div className={s.linkContainer}><a href={""}>Message</a></div>
-                    </div>
-                    <div>
-                        <div className={s.linkContainer}><a href={""}>Settings</a></div>
-                        <div className={s.linkContainer}><a href={""}>Help</a></div>
+                        <NavLink
+                            to={"/"}
+                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                        >
+                            <img src={scheduleIcon}/>
+                            <a>Schedule</a>
+                        </NavLink>
+                        <NavLink
+                            to={"/patients"}
+                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                        >
+                            <img src={patientsIcon}/>
+                            <a>Patients</a>
+                        </NavLink>
+                        <NavLink
+                            to={"/account"}
+                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                        >
+                            <img src={accountIcon}/>
+                            <a>Account</a>
+                        </NavLink>
                     </div>
                 </div>
                 :

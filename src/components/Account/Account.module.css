@@ -1,0 +1,21 @@
+.accountContainer {
+    background: #eef0f2;
+    width: 100%;
+}
+
+.account {
+    background: #ffffff;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    padding: 2em;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    text-align: left;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 1.5em;
+    padding-bottom: 1em;
+}
