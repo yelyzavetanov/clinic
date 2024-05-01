@@ -27,5 +27,14 @@
     /*background: #a32cdf;*/
     color: #ffffff;
     background: linear-gradient(to top left, #61dbfb, #a32cdf);
+}
 
+@media only screen and (max-width: 40em) {
+    .weekDay, .currentWeekDay {
+        padding: 0;
+    }
+
+    .weekDayTitle {
+        display: none;
+    }
 }

@@ -1,11 +1,16 @@
 import React from 'react';
 import s from "./AddReception.module.css";
 
-function AddReception() {
+function AddReception(props) {
     return (
         <div className={s.addReception}>
-            <div className={s.titleReception}>
-                Add reception
+            <div className={s.addReceptionHeader}>
+                <div className={s.titleReception}>
+                    Add reception
+                </div>
+                <button className={s.closeButton} onClick={() => props.setIsAddReceptionForm(false)}>
+                    Close
+                </button>
             </div>
             <div className={s.contentReception}>
                 <div className={s.patient}>
@@ -34,16 +39,18 @@ function AddReception() {
                 </div>
                 <div className={s.selectColor}>
                     <span>Color:</span>
-                    <select type="">
+                    <select value={"Purple"} type="">
                         <option>Green</option>
                         <option>Blue</option>
-                        <option selected={"true"}>Purple</option>
+                        <option>Purple</option>
                         <option>Red</option>
                     </select>
                 </div>
             </div>
             <div className={s.buttonContainer}>
-                <div className={s.receptionButton}>Add</div>
+                <button className={s.receptionButton} onClick={() => props.setIsAddReceptionForm(false)}>
+                    Add reception
+                </button>
             </div>
         </div>
 

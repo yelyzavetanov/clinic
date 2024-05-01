@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Header.module.css";
 import search from "../../search.svg";
+import {NavLink} from "react-router-dom";
 
 function Header() {
     return (
@@ -9,7 +10,9 @@ function Header() {
                 <img src={search}/>
                 <input className={s.searchInput} placeholder={"Search patient..."}/>
             </div>
-            <button className={s.loginButton}>Log in</button>
+            <NavLink to={"/account"}>
+                <button className={s.loginButton}>Log in</button>
+            </NavLink>
         </header>
     )
 }

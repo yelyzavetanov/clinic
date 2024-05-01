@@ -1,8 +1,6 @@
 .Calendar {
-    /*display: flex;*/
-    /*justify-content: space-between;*/
     width: 20em;
-     /*margin: 0em;*/
+    padding-bottom: 1.5em;
 }
 
 .calendarButtonContainer {
@@ -31,4 +29,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 40em) {
+    .Calendar {
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+    }
 }

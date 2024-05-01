@@ -6,7 +6,7 @@
 }
 
 .fullApp {
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
 }
 
 .app {
@@ -33,11 +33,9 @@
         flex-direction: column;
         width: 100%;
         padding: 0;
-        /*background: green;*/
     }
 
     .menu {
         width: 100%;
-        /*background: red;*/
     }
 }

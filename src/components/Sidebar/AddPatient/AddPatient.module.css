@@ -1,0 +1,66 @@
+.addPatient {
+    width: 20em;
+    text-align: left;
+}
+
+.addPatientFormHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.addPatientForm input {
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    border: #999999 0.1em solid;
+}
+
+.addPatientForm textarea {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    box-sizing: border-box;
+}
+
+.addPatientButton, .closeButton {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    border: none;
+    transition: 0.5s;
+    border-radius: 0.5em;
+    color: #ffffff;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    /*width: 4em;*/
+}
+
+.closeButton {
+    margin: 0;
+}
+
+.addPatientButton:hover, .closeButton {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.closeButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
+}
+
+.addPatientForm div {
+    padding: 0.5em 0;
+}
+
+@media only screen and (max-width: 40em) {
+    .addPatient {
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+    }
+}

@@ -5,26 +5,46 @@ div a {
 
 .shownMenu, .hiddenMenu {
     background: #eef0f2;
-    padding: 1.3em 2em 2em;
+    padding: 1.3em 1em;
+    /*min-height: 100vh;*/
     height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
 }
 
 .mainMenu {
     height: 100%;
 }
 
-.linkContainer {
-    padding:  1em 0;
+.mainMenu img {
+    height: 1.5em;
+}
+
+.linkContainer, .selectedLinkContainer {
+    transition: 0.5s;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.linkContainer:hover, .selectedLinkContainer {
+    background: #ffffff99;
+}
+
+.linkContainer img, .selectedLinkContainer img {
+    margin-right: 1em;
 }
 
 @media only screen and (max-width: 40em) {
-    .shownMenu, .hiddenMenu {
-        /*background: red;*/
-        width: 100%;
+    .hiddenMenu, .shownMenu {
         padding: 0.5em;
     }
 }

@@ -1,0 +1,64 @@
+.addReception {
+    padding: 1.5em 0;
+}
+
+.addReceptionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.titleReception {
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+}
+
+.contentReception {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.receptionButton, .closeButton {
+    border: none;
+    transition: 0.5s;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    color: #ffffff;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+}
+
+.receptionButton:hover, .closeButton {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.closeButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.5em 0;
+}
+
+select {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: #a32cdf;
+    border-color: #a32cdf;
+}
+
+@media only screen and (max-width: 40em) {
+    .addReception {
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+    }
+}
