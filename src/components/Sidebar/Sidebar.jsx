@@ -5,14 +5,20 @@ import AddReception from "./AddReception/AddReception";
 import GrayLine from "../common/GrayLine/GrayLine";
 import AddPatient from "./AddPatient/AddPatient";
 
-function Sidebar() {
+function Sidebar(props) {
     return (
         <div className={s.sidebar}>
-            {/*<Calendar/>*/}
-            {/*<GrayLine/>*/}
-            {/*<AddReception/>*/}
+            {props.isAddPatientForm &&
+                <AddPatient setIsAddPatientForm={props.setIsAddPatientForm}/>
+            }
+            {props.isAddReceptionFrom &&
+                <>
+                    <Calendar/>
+                    <GrayLine/>
+                    <AddReception setIsAddReceptionForm={props.setIsAddReceptionFrom}/>
+                </>
+            }
             {/*ctrl + slash*/}
-            <AddPatient/>
         </div>
     )
 }

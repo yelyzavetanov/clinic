@@ -1,12 +1,20 @@
 import React from "react";
 import s from "./ScheduleHeader.module.css";
 
-function ScheduleHeader() {
+function ScheduleHeader(props) {
+
+    const onAddReception = () => {
+        props.setIsAddReceptionForm(true);
+        props.setIsAddPatientForm(false);
+    }
+
     return (
         <div>
             <div className={s.scheduleHeader}>
                 <span className={s.title}>Calendar</span>
-                <button className={s.newButton}>Add reception</button>
+                <button className={s.newButton} onClick={onAddReception}>
+                    Add reception
+                </button>
             </div>
             <div className={s.calendarTitleHeader}>
                 <div className={s.selectDayContainer}>

@@ -11,6 +11,8 @@ import Account from "./components/Account/Account";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
+    const [isAddPatientForm, setIsAddPatientForm] = useState(false);
+    const [isAddReceptionForm, setIsAddReceptionForm] = useState(false);
 
     return (
         <BrowserRouter>
@@ -23,11 +25,26 @@ function App() {
                     <Header/>
                     <div className={s.content}>
                         <Routes>
-                            <Route path={"/patients"} element={<Patients/>}/>
+                            <Route path={"/patients"} element={
+                                <Patients
+                                    setIsAddPatientForm={setIsAddPatientForm}
+                                    setIsAddReceptionForm={setIsAddReceptionForm}
+                                />
+                            }/>
                             <Route path={"/account"} element={<Account/>}/>
-                            <Route path={"/"} element={<Schedule/>}/>
+                            <Route path={"/"} element={
+                                <Schedule
+                                    setIsAddReceptionFrom={setIsAddReceptionForm}
+                                    setIsAddPatientForm={setIsAddPatientForm}
+                                />
+                            }/>
                         </Routes>
-                        <Sidebar/>
+                        {(isAddPatientForm || isAddReceptionForm) && <Sidebar
+                            isAddPatientForm={isAddPatientForm}
+                            isAddReceptionFrom={isAddReceptionForm}
+                            setIsAddReceptionFrom={setIsAddReceptionForm}
+                            setIsAddPatientForm={setIsAddPatientForm}
+                        />}
                     </div>
                     <Footer/>
                 </div>

@@ -42,3 +42,9 @@ div a {
 .linkContainer img, .selectedLinkContainer img {
     margin-right: 1em;
 }
+
+@media only screen and (max-width: 40em) {
+    .hiddenMenu, .shownMenu {
+        padding: 0.5em;
+    }
+}

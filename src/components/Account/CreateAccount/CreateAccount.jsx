@@ -7,7 +7,7 @@ function CreateAccount(props) {
             <div className={s.title}>Create your account</div>
             <div className={s.createAccountForm}>
                 <div>
-                    <span>User Name: </span>
+                    <span>User name: </span>
                     <input placeholder={"Enter your username..."}/>
                 </div>
                 <div>

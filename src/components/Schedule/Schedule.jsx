@@ -6,11 +6,14 @@ import TimeScale from "./TimeScale/TimeScale";
 import ScheduleTable from "./ScheduleTable/ScheduleTable";
 import GrayLine from "../common/GrayLine/GrayLine";
 
-function Schedule() {
+function Schedule(props) {
     return (
         <div className={s.scheduleContainer}>
             <div className={s.schedule}>
-                <ScheduleHeader/>
+                <ScheduleHeader
+                    setIsAddReceptionForm={props.setIsAddReceptionFrom}
+                    setIsAddPatientForm={props.setIsAddPatientForm}
+                />
                 <GrayLine/>
                 <WeekScale/>
                 <div className={s.scheduleVerticalContainer}>

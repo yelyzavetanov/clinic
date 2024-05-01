@@ -2,11 +2,18 @@ import React from 'react';
 import s from "./AddPatient.module.css";
 import GrayLine from "../../common/GrayLine/GrayLine";
 
-function AddPatient() {
+function AddPatient(props) {
     return (
         <div className={s.addPatient}>
-            <div className={s.title}>
-                Add patient
+            <div className={s.addPatientFormHeader}>
+                <div className={s.title}>
+                    Add patient
+                </div>
+                <div>
+                    <button className={s.closeButton} onClick={() => props.setIsAddPatientForm(false)}>
+                        Close
+                    </button>
+                </div>
             </div>
             <GrayLine/>
             <div className={s.addPatientForm}>
@@ -31,7 +38,9 @@ function AddPatient() {
                     <textarea placeholder={"Patient treatment..."}></textarea>
                 </div>
                 <div>
-                    <button className={s.addPatientButton}> Add patient </button>
+                    <button className={s.addPatientButton} onClick={() => props.setIsAddPatientForm(false)}>
+                        Add patient
+                    </button>
                 </div>
             </div>
         </div>
