@@ -3,7 +3,10 @@ import s from "./ScheduleItem.module.css";
 
 function ScheduleItem(props) {
     return (
-        <div className={props.patient ? s.scheduleActiveItem : s.scheduleItem}>
+        <div
+            className={props.patient ? s.scheduleActiveItem : s.scheduleItem}
+            onClick={() => props.setIsReceptionInfo(true)}
+        >
             {props.patient &&
                 <div className={s.patientInfo}>
                     <div className={s.patient}>{props.patient}</div>

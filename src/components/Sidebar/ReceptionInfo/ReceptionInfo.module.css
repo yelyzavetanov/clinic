@@ -1,0 +1,40 @@
+.receptionInfo {
+    text-align: left;
+    width: 20em;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.receptionInfoHeader {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+
+.info {
+    padding-top: 1em;
+}
+
+.info div {
+    padding: 0.5em 0;
+}
+
+.info span {
+    padding: 0.5em;
+}
+
+.closeButton {
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background: #ffffff;
+    color: #a32cdf;
+    border: #a32cdf 0.1em solid;
+    transition: 0.5s;
+}
+
+.closeButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
+}

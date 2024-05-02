@@ -6,7 +6,13 @@ function ScheduleColumn(props) {
     return(
         <div className={s.scheduleColumn}>
             {props.dayInfo.map(e =>
-                <ScheduleItem patient={e.patient} description={e.description} time={e.time} key={props.dayInfo.indexOf(e)}/>
+                <ScheduleItem
+                    patient={e.patient}
+                    description={e.description}
+                    time={e.time}
+                    key={props.dayInfo.indexOf(e)}
+                    setIsReceptionInfo={props.setIsReceptionInfo}
+                />
             )}
         </div>
     )
