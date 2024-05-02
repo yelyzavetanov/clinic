@@ -9,8 +9,13 @@ function AccountInfo(props) {
     const [specialization, setSpecialization] = useState("Team lead developer");
 
     const onExitButton = () => {
-        setIsExitMessage(true);
-        setEditMode(false);
+        if (!isExitMessage) {
+            setIsExitMessage(true);
+            setEditMode(false);
+        } else if (isExitMessage) {
+            props.setIsRegistered(false);
+            props.setAccountComponent("logIn");
+        }
     }
 
     const onEditButton = () => {
@@ -50,7 +55,7 @@ function AccountInfo(props) {
                     }
                 </div>
                 {isExitMessage &&
-                    <div>Are you sure you want to exit?</div>
+                    <div className={s.exitMessage}>Are you sure you want to exit?</div>
                 }
                 <div className={s.buttonsContainer}>
                     {editMode

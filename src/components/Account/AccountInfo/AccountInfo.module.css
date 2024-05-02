@@ -51,3 +51,7 @@
 .exitButton {
     margin-left: 0.5em;
 }
+
+.exitMessage {
+    font-weight: 500;
+}

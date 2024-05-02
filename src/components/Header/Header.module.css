@@ -42,6 +42,14 @@ header {
     color: #a32cdf;
 }
 
+.userName {
+    padding: 0 1em;
+}
+
+.userName:hover {
+    color: #a32cdf;
+}
+
 @media only screen and (max-width: 40em) {
     header {
         margin: 0;

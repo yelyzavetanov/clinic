@@ -6,6 +6,7 @@ function ScheduleHeader(props) {
     const onAddReception = () => {
         props.setIsAddReceptionForm(true);
         props.setIsAddPatientForm(false);
+        props.setIsReceptionInfo(false);
     }
 
     return (

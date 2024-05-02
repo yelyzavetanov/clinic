@@ -4,6 +4,7 @@ import Calendar from "./Calendar/Calendar";
 import AddReception from "./AddReception/AddReception";
 import GrayLine from "../common/GrayLine/GrayLine";
 import AddPatient from "./AddPatient/AddPatient";
+import ReceptionInfo from "./ReceptionInfo/ReceptionInfo";
 
 function Sidebar(props) {
     return (
@@ -17,6 +18,9 @@ function Sidebar(props) {
                     <GrayLine/>
                     <AddReception setIsAddReceptionForm={props.setIsAddReceptionFrom}/>
                 </>
+            }
+            {props.isReceptionInfo &&
+                <ReceptionInfo setIsReceptionInfo={props.setIsReceptionInfo}/>
             }
             {/*ctrl + slash*/}
         </div>

@@ -13,6 +13,7 @@ function Patients(props) {
     const onAddPatient = () => {
         props.setIsAddPatientForm(true);
         props.setIsAddReceptionForm(false);
+        props.setIsReceptionInfo(false);
     }
 
     return (

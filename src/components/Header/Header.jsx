@@ -3,7 +3,7 @@ import s from "./Header.module.css";
 import search from "../../search.svg";
 import {NavLink} from "react-router-dom";
 
-function Header() {
+function Header(props) {
     return (
         <header>
             <div className={s.inputContainer}>
@@ -11,7 +11,10 @@ function Header() {
                 <input className={s.searchInput} placeholder={"Search patient..."}/>
             </div>
             <NavLink to={"/account"}>
-                <button className={s.loginButton}>Log in</button>
+                {props.isRegistered
+                    ? <div className={s.userName}>@yelyznov</div>
+                    : <button className={s.loginButton}>Log in</button>
+                }
             </NavLink>
         </header>
     )

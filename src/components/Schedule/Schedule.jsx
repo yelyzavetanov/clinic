@@ -13,12 +13,13 @@ function Schedule(props) {
                 <ScheduleHeader
                     setIsAddReceptionForm={props.setIsAddReceptionFrom}
                     setIsAddPatientForm={props.setIsAddPatientForm}
+                    setIsReceptionInfo={props.setIsReceptionInfo}
                 />
                 <GrayLine/>
                 <WeekScale/>
                 <div className={s.scheduleVerticalContainer}>
                     <TimeScale/>
-                    <ScheduleTable/>
+                    <ScheduleTable setIsReceptionInfo={props.setIsReceptionInfo}/>
                 </div>
             </div>
         </div>
