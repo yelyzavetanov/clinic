@@ -21,9 +21,10 @@ function App() {
     const [testDbData, setTestDbData] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/students").then((response) => {
-            setTestDbData(response.data[0]);
-        }).catch((error) => console.log(error));
+        axios.get("http://localhost:5000/test").then((response) => {
+            setTestDbData(response.data);
+        })
+            .catch((error) => console.log(error));
     }, []);
 
     console.log(testDbData);
