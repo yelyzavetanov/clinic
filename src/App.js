@@ -3,11 +3,12 @@ import MainMenu from "./components/MainMenu/MainMenu";
 import Schedule from "./components/Schedule/Schedule";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Patients from "./components/Patients/Patients";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
+import axios from "axios";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -16,6 +17,16 @@ function App() {
     const [isReceptionInfo, setIsReceptionInfo] = useState(false);
 
     const [isRegistered, setIsRegistered] = useState(true);
+
+    const [testDbData, setTestDbData] = useState(null);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/students").then((response) => {
+            setTestDbData(response.data[0]);
+        }).catch((error) => console.log(error));
+    }, []);
+
+    console.log(testDbData);
 
     return (
         <BrowserRouter>
