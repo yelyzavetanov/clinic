@@ -21,7 +21,7 @@ function App() {
     const [testDbData, setTestDbData] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/test").then((response) => {
+        axios.get("http://localhost:5000/patients").then((response) => {
             setTestDbData(response.data);
         })
             .catch((error) => console.log(error));

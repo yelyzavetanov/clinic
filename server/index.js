@@ -1,28 +1,15 @@
-const express = require("express");
-const mysql = require("mysql");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
+const patientRoutes = require("./routes/patients");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 app.use(cors());
+app.use(express.json());
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "test"
-})
+app.use('/patients', patientRoutes);
 
-app.get("/", (req, res) => {
-    return res.json("backend");
-})
+const PORT = process.env.PORT || 5000;
 
-app.get("/test", (req, res) => {
-    const sql = "SELECT * FROM students";
-    db.query(sql, (err, data) => {
-        if(err) return res.json(err);
-        return res.json(data);
-    })
-})
-
-app.listen(PORT, () => console.log(`backend is running on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
