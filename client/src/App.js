@@ -8,7 +8,8 @@ import Patients from "./components/Patients/Patients";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
-import axios from "axios";
+import {fetchPatients} from "./reducers/patientsSlice";
+import {useDispatch} from "react-redux";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -18,16 +19,12 @@ function App() {
 
     const [isRegistered, setIsRegistered] = useState(true);
 
-    const [testDbData, setTestDbData] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/patients").then((response) => {
-            setTestDbData(response.data);
-        })
-            .catch((error) => console.log(error));
-    }, []);
+        dispatch(fetchPatients());
+    }, [dispatch]);
 
-    console.log(testDbData);
 
     return (
         <BrowserRouter>

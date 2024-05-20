@@ -2,13 +2,19 @@ import React from "react";
 import s from "./Patients.module.css";
 import Patient from "./Patient/Patient";
 import GrayLine from "../common/GrayLine/GrayLine";
+import {useSelector} from "react-redux";
 
 function Patients(props) {
-    const patients = [
-        {name: "Yelyzaveta", description: "Cool rich intelligent", year: "2005", problem: "anxiety, shiza", treatment: "therapy"},
-        {name: "Vlad", description: "Cool rich intelligent", year: "2005", problem: "anxiety", treatment: "therapy"},
-        {name: "Nazar", description: "Cool rich intelligent", year: "2005", problem: "doesn't know react", treatment: "learn react"},
-    ];
+    // const patients = [
+    //     {name: "Yelyzaveta", description: "Cool rich intelligent", year: "2005", problem: "anxiety, shiza", treatment: "therapy"},
+    //     {name: "Vlad", description: "Cool rich intelligent", year: "2005", problem: "anxiety", treatment: "therapy"},
+    //     {name: "Nazar", description: "Cool rich intelligent", year: "2005", problem: "doesn't know react", treatment: "learn react"},
+    // ];
+
+    const { loading, patients, error } = useSelector(state => state.patient);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     const onAddPatient = () => {
         props.setIsAddPatientForm(true);
