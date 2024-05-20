@@ -3,6 +3,7 @@ import s from "./Patients.module.css";
 import Patient from "./Patient/Patient";
 import GrayLine from "../common/GrayLine/GrayLine";
 import {useSelector} from "react-redux";
+import Loading from "../common/Loading/Loading";
 
 function Patients(props) {
     // const patients = [
@@ -13,7 +14,7 @@ function Patients(props) {
 
     const { loading, patients, error } = useSelector(state => state.patient);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Loading/>;
     if (error) return <div>Error: {error}</div>;
 
     const onAddPatient = () => {

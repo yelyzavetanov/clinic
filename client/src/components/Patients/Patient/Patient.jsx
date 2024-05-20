@@ -5,7 +5,7 @@ import PatientInfo from "./PatientInfo/PatientInfo";
 function Patient(props) {
     const [isMoreInfo, setIsMoreInfo] = useState(false);
 
-    console.log(props.patient);
+    // console.log(props.patient);
 
     return (
         <div className={isMoreInfo ? s.selectedPatient : s.patient}>

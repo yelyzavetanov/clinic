@@ -4,9 +4,9 @@ import s from "./PatientInfo.module.css";
 function PatientInfo(props) {
     const [isEditMode, setIsEditMode] = useState(false);
 
-    const [birthDate, setBirthDate] = useState(props.patient.year);
+    const [birthDate, setBirthDate] = useState(props.patient.birth_date);
     const [description, setDescription] = useState(props.patient.description);
-    const [problems, setProblems] = useState(props.patient.problem);
+    const [problems, setProblems] = useState(props.patient.problems);
     const [treatment, setTreatment] = useState(props.patient.treatment);
 
     return (
