@@ -18,6 +18,8 @@ function Patients(props) {
     if (loading) return <Loading/>;
     if (error) return <Error errorMessage={error}/>;
 
+    const shownPatients = patients.filter(p => p.name.includes(props.patientsSearchFilter));
+
     const onAddPatient = () => {
         props.setIsAddPatientForm(true);
         props.setIsAddReceptionForm(false);
@@ -37,7 +39,8 @@ function Patients(props) {
                 </div>
                 <GrayLine/>
                 <div className={s.patientsList}>
-                    {patients.map(e => <Patient patient={e} key={patients.indexOf(e)}/>)}
+                    {shownPatients.map(e => <Patient patient={e} key={patients.indexOf(e)}/>)}
+                    {!shownPatients.length && <div>No patients found.</div>}
                 </div>
             </div>
         </div>

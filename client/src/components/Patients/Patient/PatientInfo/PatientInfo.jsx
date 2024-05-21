@@ -9,6 +9,10 @@ function PatientInfo(props) {
     const [problems, setProblems] = useState(props.patient.problems);
     const [treatment, setTreatment] = useState(props.patient.treatment);
 
+    const onEditMode = () => {
+        setIsEditMode(!isEditMode);
+    }
+
     return (
         <div className={s.fullInfo}>
             <div className={s.year}>
@@ -55,7 +59,7 @@ function PatientInfo(props) {
                         : treatment
                     }
                 </div>
-                <button className={s.editButton} onClick={() => setIsEditMode(!isEditMode)}>
+                <button className={s.editButton} onClick={onEditMode}>
                     {isEditMode ? "Save" : "Edit"}
                 </button>
             </div>

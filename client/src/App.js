@@ -19,6 +19,8 @@ function App() {
 
     const [isRegistered, setIsRegistered] = useState(true);
 
+    const [patientsSearchFilter, setPatientsSearchFilter] = useState("");
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -36,11 +38,16 @@ function App() {
                     />
                 </div>
                 <div className={s.mainContent}>
-                    <Header isRegistered={isRegistered}/>
+                    <Header
+                        isRegistered={isRegistered}
+                        patientsSearchFilter={patientsSearchFilter}
+                        setPatientsSearchFilter={setPatientsSearchFilter}
+                    />
                     <div className={s.content}>
                         <Routes>
                             <Route path={"/patients"} element={
                                 <Patients
+                                    patientsSearchFilter={patientsSearchFilter}
                                     setIsAddPatientForm={setIsAddPatientForm}
                                     setIsAddReceptionForm={setIsAddReceptionForm}
                                     setIsReceptionInfo={setIsReceptionInfo}

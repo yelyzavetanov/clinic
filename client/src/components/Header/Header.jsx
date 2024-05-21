@@ -8,7 +8,12 @@ function Header(props) {
         <header>
             <div className={s.inputContainer}>
                 <img src={search}/>
-                <input className={s.searchInput} placeholder={"Search patient..."}/>
+                <input
+                    className={s.searchInput}
+                    placeholder={"Search patient..."}
+                    value={props.patientsSearchFilter}
+                    onChange={event => props.setPatientsSearchFilter(event.target.value)}
+                />
             </div>
             <NavLink to={"/account"}>
                 {props.isRegistered
