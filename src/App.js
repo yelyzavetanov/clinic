@@ -8,6 +8,7 @@ import Patients from "./components/Patients/Patients";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
+import HomePage from "./components/HomePage/HomePage";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -42,6 +43,9 @@ function App() {
                                     isRegistered={isRegistered}
                                     setIsRegistered={setIsRegistered}
                                 />
+                            }/>
+                            <Route path={"/home"} element={
+                                <HomePage/>
                             }/>
                             <Route path={"/"} element={
                                 <Schedule

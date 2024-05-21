@@ -1,0 +1,74 @@
+.homePageContainer {
+    /*background-image: url("https://wallpapers.com/images/featured/doctor-kwucobzhm0etbcwy.jpg");*/
+    position: fixed;
+    background: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.imgContainer {
+    background-size: cover;
+    /*background-position: center;*/
+    background-repeat: no-repeat;
+    background-image: url("https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg");
+    height: 100vh;
+    width: 100vw;
+}
+
+.gradientContainer {
+    background-image: linear-gradient(to right, #4c51c6, transparent);
+    height: 100%;
+    width: 100%;
+    /*display: flex;*/
+    text-align: left;
+    padding: 2em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.homePage {
+    height: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.descriptionContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description {
+    color: #ffffff;
+    padding: 1em 0;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 3.5em;
+    color: #ffffff;
+}
+
+.startButton {
+    transition: 0.5s;
+    margin-top: 1.5em;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 1em;
+    font-weight: 600;
+}
+
+.startButton div {
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

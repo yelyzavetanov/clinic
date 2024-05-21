@@ -17,6 +17,13 @@ function MainMenu(props) {
                             <Logo isFullLogoShown={true}/>
                         </div>
                         <NavLink
+                            to={"/home"}
+                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                        >
+                            <img src={scheduleIcon}/>
+                            <a>Home</a>
+                        </NavLink>
+                        <NavLink
                             to={"/"}
                             className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                         >
