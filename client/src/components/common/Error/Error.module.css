@@ -1,0 +1,18 @@
+.errorContainer {
+    background: #eef0f2;
+    min-height: 100vh;
+}
+
+.error {
+    padding: 2em;
+    height: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.error span {
+    color: red;
+    font-weight: 500;
+}
