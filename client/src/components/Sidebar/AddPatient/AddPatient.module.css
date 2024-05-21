@@ -57,6 +57,11 @@
     padding: 0.5em 0;
 }
 
+.error {
+    color: red;
+    font-weight: 500;
+}
+
 @media only screen and (max-width: 40em) {
     .addPatient {
         width: 100%;

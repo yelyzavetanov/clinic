@@ -18,7 +18,7 @@ function Patients(props) {
     if (loading) return <Loading/>;
     if (error) return <Error errorMessage={error}/>;
 
-    const shownPatients = patients.filter(p => p.name.includes(props.patientsSearchFilter));
+    const shownPatients = patients.filter(p => p.name.toLowerCase().includes(props.patientsSearchFilter.toLowerCase()));
 
     const onAddPatient = () => {
         props.setIsAddPatientForm(true);

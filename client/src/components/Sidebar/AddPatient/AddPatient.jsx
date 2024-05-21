@@ -11,28 +11,32 @@ function AddPatient(props) {
     const [problems, setProblems] = useState("");
     const [treatment, setTreatment] = useState("");
 
+    const [error, setError] = useState("");
+
     const dispatch = useDispatch();
 
     const generateId = () => {
         const timestamp = Date.now();
         const randomNum = Math.floor(Math.random() * 1000000);
-        console.log("fldjfsjd");
         return `${timestamp}${randomNum}`;
     }
 
     const onAddPatientButton = () => {
-        props.setIsAddPatientForm(false);
+        if (!name || !description || !problems || !treatment || !birthDate) {
+            setError("All fields are required.");
+        } else {
+            const newPatient = {
+                id: generateId(),
+                name: name,
+                description: description,
+                problems: problems,
+                treatment: treatment,
+                birth_date: birthDate,
+            };
 
-        const newPatient = {
-            id: generateId(),
-            name: name,
-            description: description,
-            problems: problems,
-            treatment: treatment,
-            birth_date: birthDate,
-        };
-
-        dispatch(addPatient(newPatient));
+            dispatch(addPatient(newPatient));
+            props.setIsAddPatientForm(false);
+        }
     }
 
     // generateId();
@@ -92,6 +96,9 @@ function AddPatient(props) {
                         onChange={event => setTreatment(event.target.value)}
                     ></textarea>
                 </div>
+                {error &&
+                    <div className={s.error}>{error}</div>
+                }
                 <div>
                     <button className={s.addPatientButton} onClick={onAddPatientButton}>
                         Add patient

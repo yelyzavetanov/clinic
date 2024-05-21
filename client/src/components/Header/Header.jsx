@@ -6,15 +6,17 @@ import {NavLink} from "react-router-dom";
 function Header(props) {
     return (
         <header>
-            <div className={s.inputContainer}>
-                <img src={search}/>
-                <input
-                    className={s.searchInput}
-                    placeholder={"Search patient..."}
-                    value={props.patientsSearchFilter}
-                    onChange={event => props.setPatientsSearchFilter(event.target.value)}
-                />
-            </div>
+            <NavLink to={"/patients"}>
+                <div className={s.inputContainer}>
+                    <img src={search}/>
+                    <input
+                        className={s.searchInput}
+                        placeholder={"Search patient..."}
+                        value={props.patientsSearchFilter}
+                        onChange={event => props.setPatientsSearchFilter(event.target.value)}
+                    />
+                </div>
+            </NavLink>
             <NavLink to={"/account"}>
                 {props.isRegistered
                     ? <div className={s.userName}>@yelyznov</div>
