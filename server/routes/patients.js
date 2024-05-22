@@ -27,4 +27,31 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, description, problems, treatment, birth_date } = req.body;
+    try {
+        const result = await Patient.update(id, name, description, problems, treatment, birth_date);
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Patient not found' });
+        }
+        res.json({ message: 'Patient updated successfully' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await Patient.delete(id);
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Patient not found' });
+        }
+        res.json({ message: 'Patient deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;

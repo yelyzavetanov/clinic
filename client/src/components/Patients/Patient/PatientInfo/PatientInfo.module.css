@@ -56,6 +56,33 @@ textarea {
     align-items: flex-end;
 }
 
+.error, .deleteMessage {
+    color: red;
+    font-weight: 500;
+    padding: 0.2em 0.5em;
+}
+
+.deleteButton, .sureDeleteButton, .canselButton {
+    background: #ffffff;
+    border-radius: 0.5em;
+    padding: 0.2em 0.5em;
+    border: #a32cdf 0.1em solid;
+    color: #a32cdf;
+    transition: 0.5s;
+    height: max-content;
+    margin-right: 0.5em;
+}
+
+.sureDeleteButton, .deleteButton:hover {
+    color: red;
+    border-color: red;
+}
+
+.sureDeleteButton:hover {
+    background: red;
+    color: #ffffff;
+}
+
 @media only screen and (max-width: 40em) {
     .treatmentContainer {
         flex-direction: column;

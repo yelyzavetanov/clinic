@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import s from "./PatientInfo.module.css";
+import {useDispatch} from "react-redux";
+import {deletePatient, editPatient, fetchPatients} from "../../../../reducers/patientsSlice";
 
 function PatientInfo(props) {
     const [isEditMode, setIsEditMode] = useState(false);
@@ -9,8 +11,43 @@ function PatientInfo(props) {
     const [problems, setProblems] = useState(props.patient.problems);
     const [treatment, setTreatment] = useState(props.patient.treatment);
 
+    const [error, setError] = useState("");
+    const [isDeleteMessage, setIsDeleteMessage] = useState(false);
+
+    const dispatch = useDispatch();
+
     const onEditMode = () => {
-        setIsEditMode(!isEditMode);
+        if (!isEditMode) {
+            setIsEditMode(true);
+        } else if (isEditMode && (!birthDate.length || !description.length || !problems.length || !treatment.length)) {
+            setError("All fields are required.");
+        } else if (isEditMode) {
+            const updatedPatient = {
+                id: props.patient.id,
+                name: props.patient.name,
+                description: description,
+                problems: problems,
+                treatment: treatment,
+                birth_date: birthDate,
+            }
+
+            dispatch(editPatient({
+                id: props.patient.id,
+                updatedData: updatedPatient,
+            }))
+            dispatch(fetchPatients());
+
+            setIsEditMode(false);
+        }
+    }
+
+    const onDelete = () => {
+        if (!isDeleteMessage) {
+            setIsDeleteMessage(true);
+        } else if (isDeleteMessage) {
+            dispatch(deletePatient(props.patient.id));
+            dispatch(fetchPatients());
+        }
     }
 
     return (
@@ -59,9 +96,25 @@ function PatientInfo(props) {
                         : treatment
                     }
                 </div>
-                <button className={s.editButton} onClick={onEditMode}>
-                    {isEditMode ? "Save" : "Edit"}
-                </button>
+                <div>
+                    {error && <div className={s.error}>{error}</div>}
+                    {isDeleteMessage &&
+                        <div className={s.deleteMessage}>
+                            Are you sure you want to delete this patient? All information will be lost.
+                        </div>
+                    }
+                </div>
+                <div>
+                    {isDeleteMessage &&
+                        <button className={s.canselButton} onClick={() => setIsDeleteMessage(false)}>Cansel</button>
+                    }
+                    <button className={isDeleteMessage ? s.sureDeleteButton : s.deleteButton} onClick={onDelete}>
+                        Delete
+                    </button>
+                    <button className={s.editButton} onClick={onEditMode}>
+                        {isEditMode ? "Save" : "Edit"}
+                    </button>
+                </div>
             </div>
         </div>
     )
