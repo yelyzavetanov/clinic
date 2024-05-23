@@ -65,6 +65,8 @@ function AddPatient(props) {
                 <div>
                     <span>Birth date: </span>
                     <input
+                        lang={"fr-CA"}
+                        type={"date"}
                         placeholder={"Patient birthday date..."}
                         value={birthDate}
                         onChange={event => setBirthDate(event.target.value)}

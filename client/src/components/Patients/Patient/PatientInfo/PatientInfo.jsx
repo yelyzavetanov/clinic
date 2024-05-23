@@ -56,6 +56,7 @@ function PatientInfo(props) {
                 <span>Birth Date: </span>
                 {isEditMode
                     ? <input
+                        type={"date"}
                         onChange={event => setBirthDate(event.target.value)}
                         value={birthDate}
                     />
