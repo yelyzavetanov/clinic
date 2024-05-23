@@ -4,6 +4,7 @@ import Patient from "./Patient/Patient";
 import GrayLine from "../common/GrayLine/GrayLine";
 import {useSelector} from "react-redux";
 import Loading from "../common/Loading/Loading";
+import Error from "../common/Error/Error";
 
 function Patients(props) {
     // const patients = [
@@ -15,7 +16,9 @@ function Patients(props) {
     const { loading, patients, error } = useSelector(state => state.patient);
 
     if (loading) return <Loading/>;
-    if (error) return <div>Error: {error}</div>;
+    if (error) return <Error errorMessage={error}/>;
+
+    const shownPatients = patients.filter(p => p.name.toLowerCase().includes(props.patientsSearchFilter.toLowerCase()));
 
     const onAddPatient = () => {
         props.setIsAddPatientForm(true);
@@ -36,7 +39,8 @@ function Patients(props) {
                 </div>
                 <GrayLine/>
                 <div className={s.patientsList}>
-                    {patients.map(e => <Patient patient={e} key={patients.indexOf(e)}/>)}
+                    {shownPatients.map(e => <Patient patient={e} key={patients.indexOf(e)}/>)}
+                    {!shownPatients.length && <div>No patients found.</div>}
                 </div>
             </div>
         </div>
