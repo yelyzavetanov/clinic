@@ -1,10 +1,19 @@
 .createAccount {
     padding-top: 1em;
-    width: 15em;
+    /*width: 15em;*/
 }
 
 .title {
     font-weight: 500;
+}
+
+.createAccountForm {
+    display: flex;
+}
+
+.formInnerContainer {
+    margin-right: 2em;
+    min-width: 15em;
 }
 
 .createAccountForm div {
@@ -44,4 +53,19 @@
 .logInButton:hover {
     background: #a32cdf;
     color: #ffffff;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 40em) {
+    .createAccountForm {
+        flex-direction: column-reverse;
+    }
+
+    .formInnerContainer {
+        margin: 0;
+    }
 }

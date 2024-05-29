@@ -1,9 +1,11 @@
 const express = require('express');
-const Patient = require("../models/Patient");
+const authenticateToken = require('../middleware/authenticateToken');
+const Patient = require('../models/Patient');
+
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
     try {
         const patients = await Patient.getAll();
         res.json(patients);

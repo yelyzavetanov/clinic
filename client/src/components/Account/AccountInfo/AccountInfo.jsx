@@ -1,12 +1,17 @@
 import React, {useState} from "react";
 import s from "./AccountInfo.module.css";
+import {useDispatch} from "react-redux";
+import {logOut} from "../../../reducers/usersSlice";
 
 function AccountInfo(props) {
     const [editMode, setEditMode] = useState(false);
     const [isExitMessage, setIsExitMessage] = useState(false);
 
-    const [name, setName] = useState("Yelyzaveta Novikova");
-    const [specialization, setSpecialization] = useState("Team lead developer");
+    const [name, setName] = useState(props.account.name);
+    const [specialization, setSpecialization] = useState(props.account.specialization);
+    const [description, setDescription] = useState(props.account.description);
+
+    const dispatch = useDispatch();
 
     const onExitButton = () => {
         if (!isExitMessage) {
@@ -14,6 +19,7 @@ function AccountInfo(props) {
             setEditMode(false);
         } else if (isExitMessage) {
             props.setIsRegistered(false);
+            dispatch(logOut());
             props.setAccountComponent("logIn");
         }
     }
@@ -44,6 +50,14 @@ function AccountInfo(props) {
                     }
                 </div>
                 <div className={s.accountInfoItem}>
+                    Clinic:
+                    <span>vntu</span>
+                </div>
+                <div className={s.accountInfoItem}>
+                    Status:
+                    <span>administrator</span>
+                </div>
+                <div className={s.accountInfoItem}>
                     Specialization:
                     {editMode
                         ? <input
@@ -52,6 +66,17 @@ function AccountInfo(props) {
                             onChange={event => setSpecialization(event.target.value)}
                         />
                         : <span>{specialization}</span>
+                    }
+                </div>
+                <div className={s.accountInfoItem}>
+                    About me:
+                    {editMode
+                        ? <input
+                            placeholder={"Some information about you..."}
+                            value={description}
+                            onChange={event => setDescription(event.target.value)}
+                        />
+                        : <span>{description}</span>
                     }
                 </div>
                 {isExitMessage &&

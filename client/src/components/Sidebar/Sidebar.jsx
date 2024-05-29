@@ -12,7 +12,7 @@ function Sidebar(props) {
             {props.isAddPatientForm &&
                 <AddPatient setIsAddPatientForm={props.setIsAddPatientForm}/>
             }
-            {props.isAddReceptionFrom &&
+            {props.isAddReceptionForm &&
                 <>
                     <Calendar/>
                     <GrayLine/>

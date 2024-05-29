@@ -16,8 +16,8 @@ function AddPatient(props) {
     const dispatch = useDispatch();
 
     const generateId = () => {
-        const timestamp = Date.now();
-        const randomNum = Math.floor(Math.random() * 1000000);
+        // const timestamp = Date.now();
+        // const randomNum = Math.floor(Math.random() * 1000000);
         return `${crypto.randomUUID()}`;
     }
 

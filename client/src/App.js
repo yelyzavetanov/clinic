@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
 import {fetchPatients} from "./reducers/patientsSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -17,7 +17,8 @@ function App() {
     const [isAddReceptionForm, setIsAddReceptionForm] = useState(false);
     const [isReceptionInfo, setIsReceptionInfo] = useState(false);
 
-    const [isRegistered, setIsRegistered] = useState(true);
+    const account = useSelector(state => state.user);
+    const [isRegistered, setIsRegistered] = useState(!!account);
 
     const [patientsSearchFilter, setPatientsSearchFilter] = useState("");
 
@@ -69,7 +70,7 @@ function App() {
                         </Routes>
                         {(isAddPatientForm || isAddReceptionForm || isReceptionInfo) && <Sidebar
                             isAddPatientForm={isAddPatientForm}
-                            isAddReceptionFrom={isAddReceptionForm}
+                            isAddReceptionForm={isAddReceptionForm}
                             isReceptionInfo={isReceptionInfo}
                             setIsAddReceptionFrom={setIsAddReceptionForm}
                             setIsAddPatientForm={setIsAddPatientForm}
