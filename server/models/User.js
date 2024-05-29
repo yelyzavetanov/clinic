@@ -8,6 +8,14 @@ class User {
         return rows;
     }
 
+    static async findByUsername(username) {
+        const query = 'SELECT * FROM users WHERE username = ?';
+        const [rows] = await pool.query(query, [username]);
+        const user = rows[0];
+
+        return user;
+    }
+
     static async logIn(username, password) {
         const query = 'SELECT * FROM users WHERE username = ?';
         const [rows] = await pool.query(query, [username]);
@@ -26,7 +34,7 @@ class User {
         const token = jwt.sign(
             { id: user.id, username: user.username },
             process.env.JWT_SECRET,
-            { expiresIn: '1h' }
+            // { expiresIn: '1h' }
         );
 
         return { token, user };
@@ -39,10 +47,10 @@ class User {
         return result;
     }
 
-    static async update(username, password, name, clinic, status, specialization, description) {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const query = 'UPDATE users SET password = ?, name = ?, clinic = ?, status = ?, specialization = ?, description = ? WHERE username = ?';
-        const [result] = await pool.query(query, [hashedPassword, name, clinic, status, specialization, description, username]);
+    static async update(username, name, specialization, description) {
+        // const hashedPassword = await bcrypt.hash(password, 10);
+        const query = 'UPDATE users SET name = ?, specialization = ?, description = ? WHERE username = ?';
+        const [result] = await pool.query(query, [name, specialization, description, username]);
         return result;
     }
 

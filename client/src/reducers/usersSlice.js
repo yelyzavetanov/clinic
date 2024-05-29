@@ -28,8 +28,8 @@ export const deleteAccount = createAsyncThunk('users/deleteAccount', async (user
 
 const initialState = {
     loading: false,
-    account:  JSON.parse(localStorage.getItem("user")) || null,
-    token:  localStorage.getItem("token") || null,
+    account: JSON.parse(localStorage.getItem("user")) || null,
+    token: localStorage.getItem("token") || null,
     error: null,
 };
 
@@ -88,7 +88,21 @@ const usersSlice = createSlice({
             .addCase(signUp.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
-            });
+            })
+            .addCase(editAccount.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(editAccount.fulfilled, (state, action) => {
+                state.loading = false;
+                state.account = action.payload;
+                localStorage.setItem('user', JSON.stringify(action.payload));
+                state.error = null;
+            })
+            .addCase(editAccount.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            })
     }
 });
 

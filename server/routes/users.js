@@ -38,4 +38,20 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+router.put('/:username', async (req, res) => {
+    const { username } = req.params;
+    const { name, specialization, description } = req.body;
+    console.log(req.body);
+    try {
+        await User.update(username, name, specialization, description);
+
+        const updatedUser = await User.findByUsername(username);
+
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 module.exports = router;

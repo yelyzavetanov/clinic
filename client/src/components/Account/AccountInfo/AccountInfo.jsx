@@ -1,15 +1,17 @@
 import React, {useState} from "react";
 import s from "./AccountInfo.module.css";
 import {useDispatch} from "react-redux";
-import {logOut} from "../../../reducers/usersSlice";
+import {editAccount, logOut} from "../../../reducers/usersSlice";
 
 function AccountInfo(props) {
     const [editMode, setEditMode] = useState(false);
     const [isExitMessage, setIsExitMessage] = useState(false);
 
-    const [name, setName] = useState(props.account.name);
-    const [specialization, setSpecialization] = useState(props.account.specialization);
-    const [description, setDescription] = useState(props.account.description);
+    const [name, setName] = useState(props.account.name || "");
+    const [specialization, setSpecialization] = useState(props.account.specialization || "");
+    const [description, setDescription] = useState(props.account.description || "");
+
+    const [error, setError] = useState("");
 
     const dispatch = useDispatch();
 
@@ -21,6 +23,22 @@ function AccountInfo(props) {
             props.setIsRegistered(false);
             dispatch(logOut());
             props.setAccountComponent("logIn");
+        }
+    }
+
+    const onSaveButton = () => {
+        if (!name.length || !specialization.length || !description.length) {
+            setError("All fields are required.");
+        } else {
+            setEditMode(false);
+            dispatch(editAccount({
+                username: props.account.username,
+                updatedData: {
+                    name: name,
+                    specialization: specialization,
+                    description: description
+                }
+            }));
         }
     }
 
@@ -82,9 +100,12 @@ function AccountInfo(props) {
                 {isExitMessage &&
                     <div className={s.exitMessage}>Are you sure you want to exit?</div>
                 }
+                {error &&
+                    <div className={s.error}>{error}</div>
+                }
                 <div className={s.buttonsContainer}>
                     {editMode
-                        ? <button className={s.editButton} onClick={() => setEditMode(false)}>Save</button>
+                        ? <button className={s.editButton} onClick={onSaveButton}>Save</button>
                         : <button className={s.editButton} onClick={onEditButton}>Edit</button>
                     }
                     <button className={s.exitButton} onClick={onExitButton}>Exit</button>
