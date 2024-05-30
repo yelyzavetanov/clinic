@@ -22,7 +22,7 @@ function MainMenu(props) {
                         {account &&
                             <>
                                 <NavLink
-                                    to={"/"}
+                                    to={"/schedule"}
                                     className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                                 >
                                     <img src={scheduleIcon}/>
