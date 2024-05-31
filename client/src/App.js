@@ -10,6 +10,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
 import {fetchPatients} from "./reducers/patientsSlice";
 import {useDispatch} from "react-redux";
+import HomePage from "./components/HomePage/HomePage";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -45,6 +46,9 @@ function App() {
                     />
                     <div className={s.content}>
                         <Routes>
+                            <Route path={"/home"} element={
+                                <HomePage/>
+                            }/>
                             <Route path={"/patients"} element={
                                 <Patients
                                     patientsSearchFilter={patientsSearchFilter}
