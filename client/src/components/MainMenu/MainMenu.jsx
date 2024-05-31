@@ -5,8 +5,11 @@ import scheduleIcon from "../../icons/system-regular-23-calendar.svg";
 import patientsIcon from "../../icons/system-regular-19-book.svg";
 import accountIcon from "../../icons/system-regular-63-settings-cog.svg";
 import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 function MainMenu(props) {
+    const account = useSelector(state => state.user.account);
+
     return (
         <div className={s.mainMenu}>
             {props.isFullMainMenuShown
@@ -17,26 +20,29 @@ function MainMenu(props) {
                             <Logo isFullLogoShown={true}/>
                         </div>
                         <NavLink
-                            to={"/home"}
-                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
-                        >
-                            <img src={scheduleIcon}/>
-                            <a>Home</a>
-                        </NavLink>
-                        <NavLink
                             to={"/"}
                             className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                         >
-                            <img src={scheduleIcon}/>
-                            <a>Schedule</a>
+                            Home
                         </NavLink>
-                        <NavLink
-                            to={"/patients"}
-                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
-                        >
-                            <img src={patientsIcon}/>
-                            <a>Patients</a>
-                        </NavLink>
+                        {account &&
+                            <>
+                                <NavLink
+                                    to={"/schedule"}
+                                    className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                                >
+                                    <img src={scheduleIcon}/>
+                                    <a>Schedule</a>
+                                </NavLink>
+                                <NavLink
+                                    to={"/patients"}
+                                    className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                                >
+                                    <img src={patientsIcon}/>
+                                    <a>Patients</a>
+                                </NavLink>
+                            </>
+                        }
                         <NavLink
                             to={"/account"}
                             className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}

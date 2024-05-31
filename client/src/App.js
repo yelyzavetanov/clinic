@@ -10,7 +10,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
 import {fetchPatients} from "./reducers/patientsSlice";
 import {useDispatch} from "react-redux";
-import HomePage from "./components/HomePage/HomePage";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -46,29 +45,33 @@ function App() {
                     />
                     <div className={s.content}>
                         <Routes>
-                            <Route path={"/home"} element={
-                                <HomePage/>
-                            }/>
-                            <Route path={"/patients"} element={
-                                <Patients
-                                    patientsSearchFilter={patientsSearchFilter}
-                                    setIsAddPatientForm={setIsAddPatientForm}
-                                    setIsAddReceptionForm={setIsAddReceptionForm}
-                                    setIsReceptionInfo={setIsReceptionInfo}
-                                />
-                            }/>
+                            {account.account &&
+                                <Route path={"/patients"} element={
+                                    <Patients
+                                        patientsSearchFilter={patientsSearchFilter}
+                                        setIsAddPatientForm={setIsAddPatientForm}
+                                        setIsAddReceptionForm={setIsAddReceptionForm}
+                                        setIsReceptionInfo={setIsReceptionInfo}
+                                    />
+                                }/>
+                            }
                             <Route path={"/account"} element={
                                 <Account
                                     isRegistered={isRegistered}
                                     setIsRegistered={setIsRegistered}
                                 />
                             }/>
+                            {account.account &&
+                                <Route path={"/schedule"} element={
+                                    <Schedule
+                                        setIsAddReceptionFrom={setIsAddReceptionForm}
+                                        setIsAddPatientForm={setIsAddPatientForm}
+                                        setIsReceptionInfo={setIsReceptionInfo}
+                                    />
+                                }/>
+                            }
                             <Route path={"/"} element={
-                                <Schedule
-                                    setIsAddReceptionFrom={setIsAddReceptionForm}
-                                    setIsAddPatientForm={setIsAddPatientForm}
-                                    setIsReceptionInfo={setIsReceptionInfo}
-                                />
+                                <HomePage/>
                             }/>
                         </Routes>
                         {(isAddPatientForm || isAddReceptionForm || isReceptionInfo) && <Sidebar

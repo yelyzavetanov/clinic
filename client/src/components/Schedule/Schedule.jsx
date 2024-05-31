@@ -19,7 +19,11 @@ function Schedule(props) {
                 <WeekScale/>
                 <div className={s.scheduleVerticalContainer}>
                     <TimeScale/>
-                    <ScheduleTable setIsReceptionInfo={props.setIsReceptionInfo}/>
+                    <ScheduleTable
+                        setIsReceptionInfo={props.setIsReceptionInfo}
+                        setIsAddPatientForm={props.setIsAddPatientForm}
+                        setIsAddReceptionForm={props.setIsAddReceptionFrom}
+                    />
                 </div>
             </div>
         </div>

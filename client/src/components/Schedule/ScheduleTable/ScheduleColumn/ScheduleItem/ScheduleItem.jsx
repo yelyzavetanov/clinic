@@ -2,10 +2,16 @@ import React from "react";
 import s from "./ScheduleItem.module.css";
 
 function ScheduleItem(props) {
+    const onItemClick = () => {
+        props.setIsAddPatientForm(false);
+        props.setIsAddReceptionForm(false);
+        props.setIsReceptionInfo(true);
+    }
+
     return (
         <div
             className={props.patient ? s.scheduleActiveItem : s.scheduleItem}
-            onClick={() => props.setIsReceptionInfo(true)}
+            onClick={onItemClick}
         >
             {props.patient &&
                 <div className={s.patientInfo}>

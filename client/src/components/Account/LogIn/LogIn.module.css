@@ -37,6 +37,11 @@
     padding-bottom: 0.5em;
 }
 
+.error {
+    color: red;
+    font-weight: 500;
+}
+
 .buttonsContainer {
     display: flex;
     justify-content: space-between;

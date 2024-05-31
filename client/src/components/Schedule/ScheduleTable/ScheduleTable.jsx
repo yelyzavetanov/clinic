@@ -9,7 +9,12 @@ function ScheduleTable(props) {
     return (
         <div className={s.scheduleTable}>
             {scheduleArray.map(e =>
-                <ScheduleColumn setIsReceptionInfo={props.setIsReceptionInfo} dayInfo={e} key={scheduleArray.indexOf(e)}/>
+                <ScheduleColumn
+                    setIsReceptionInfo={props.setIsReceptionInfo}
+                    setIsAddPatientForm={props.setIsAddPatientForm}
+                    setIsAddReceptionForm={props.setIsAddReceptionForm}
+                    dayInfo={e} key={scheduleArray.indexOf(e)}
+                />
             )}
         </div>
     )

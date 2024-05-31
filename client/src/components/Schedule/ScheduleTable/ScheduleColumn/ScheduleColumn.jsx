@@ -12,6 +12,8 @@ function ScheduleColumn(props) {
                     time={e.time}
                     key={props.dayInfo.indexOf(e)}
                     setIsReceptionInfo={props.setIsReceptionInfo}
+                    setIsAddPatientForm={props.setIsAddPatientForm}
+                    setIsAddReceptionForm={props.setIsAddReceptionForm}
                 />
             )}
         </div>
