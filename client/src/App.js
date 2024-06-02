@@ -11,6 +11,9 @@ import Account from "./components/Account/Account";
 import {fetchPatients} from "./reducers/patientsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import Doctors from "./components/Doctors/Doctors";
+import HomePage from "./components/HomePage/HomePage";
+// import account from "./components/Account/Account";
+
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -78,10 +81,13 @@ function App() {
                                     <Doctors/>
                                 }/>
                             }
+                            <Route path={"/"} element={
+                                <HomePage/>
+                            }/>
                         </Routes>
                         {(isAddPatientForm || isAddReceptionForm || isReceptionInfo) && <Sidebar
                             isAddPatientForm={isAddPatientForm}
-                            isAddReceptionForm={isAddReceptionForm}
+                            isAddReceptionFrom={isAddReceptionForm}
                             isReceptionInfo={isReceptionInfo}
                             setIsAddReceptionFrom={setIsAddReceptionForm}
                             setIsAddPatientForm={setIsAddPatientForm}

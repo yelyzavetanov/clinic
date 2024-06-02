@@ -21,6 +21,12 @@ function MainMenu(props) {
                         <div onClick={() => props.setIsFullMainMenuShown(false)}>
                             <Logo isFullLogoShown={true}/>
                         </div>
+                        <NavLink
+                            to={"/"}
+                            className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                        >
+                            Home
+                        </NavLink>
                         {account &&
                             <>
                                 <NavLink

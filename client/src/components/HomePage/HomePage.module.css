@@ -1,0 +1,61 @@
+.homePageContainer {
+    text-align: left;
+    min-height: 100vh;
+    width: 100%;
+    background: #eef0f2;
+}
+
+.homePage {
+    background: #ffffff;
+    padding: 2em;
+    /*height: 100%;*/
+    box-sizing: border-box;
+    width: 100%;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.banner {
+    background-image: url("https://kartinki.pics/uploads/posts/2021-07/1625709830_15-kartinkin-com-p-meditsina-oboi-krasivie-15.jpg");
+    height: 15em;
+    width: 100%;
+    padding: 2em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*border-radius: 2em;*/
+    border-top-left-radius: 2em;
+    font-weight: bold;
+    font-size: 20px;
+    /*border-bottom-left-radius: 2em;*/
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: 500;
+    /*padding: 0.5em 0;*/
+    text-align: left;
+}
+
+.info {
+    display: flex;
+    padding: 2em;
+}
+
+.description {
+    text-align: left;
+    justify-content: space-between;
+    padding-right: 5em;
+    /*width: 50%;*/
+}
+
+.item {
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.itemTitle {
+    font-weight: 500;
+    padding-bottom: 0.5em;
+}

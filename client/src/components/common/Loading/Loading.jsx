@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import s from "./Loading.module.css";
 import loadingIcon from "../../../icons/system-regular-719-spinner-circle.svg";
 
