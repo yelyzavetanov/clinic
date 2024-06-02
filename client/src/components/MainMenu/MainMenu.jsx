@@ -5,6 +5,7 @@ import scheduleIcon from "../../icons/system-regular-23-calendar.svg";
 import patientsIcon from "../../icons/system-regular-19-book.svg";
 import accountIcon from "../../icons/system-regular-63-settings-cog.svg";
 import doctorsIcon from "../../icons/system-regular-50-file.svg";
+import homeIcon from "../../icons/system-regular-41-home.svg";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 
@@ -25,6 +26,7 @@ function MainMenu(props) {
                             to={"/"}
                             className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                         >
+                            <img src={homeIcon}/>
                             Home
                         </NavLink>
                         {account &&

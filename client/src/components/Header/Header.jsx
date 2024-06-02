@@ -5,6 +5,8 @@ import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 function Header(props) {
+    const account = useSelector(state => state.user.account);
+
     const username = useSelector(
         (state) => {
             if (state.user.account) {
@@ -17,23 +19,25 @@ function Header(props) {
 
     return (
         <header>
-            <NavLink to={"/patients"}>
-                <div className={s.inputContainer}>
-                    <img src={search}/>
-                    <input
-                        className={s.searchInput}
-                        placeholder={"Search patient..."}
-                        value={props.patientsSearchFilter}
-                        onChange={event => props.setPatientsSearchFilter(event.target.value)}
-                    />
-                </div>
-            </NavLink>
             <NavLink to={"/account"}>
                 {username
                     ? <div className={s.userName}>@{username}</div>
                     : <button className={s.loginButton}>Log in</button>
                 }
             </NavLink>
+            {account &&
+                <NavLink to={"/patients"}>
+                    <div className={s.inputContainer}>
+                        <img src={search}/>
+                        <input
+                            className={s.searchInput}
+                            placeholder={"Search patient..."}
+                            value={props.patientsSearchFilter}
+                            onChange={event => props.setPatientsSearchFilter(event.target.value)}
+                        />
+                    </div>
+                </NavLink>
+            }
         </header>
     )
 }
