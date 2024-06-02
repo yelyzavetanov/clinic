@@ -9,13 +9,18 @@ import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
 import {fetchPatients} from "./reducers/patientsSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import HomePage from "./components/HomePage/HomePage";
+// import account from "./components/Account/Account";
+
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
     const [isAddPatientForm, setIsAddPatientForm] = useState(false);
     const [isAddReceptionForm, setIsAddReceptionForm] = useState(false);
     const [isReceptionInfo, setIsReceptionInfo] = useState(false);
+
+    const account = useSelector(state => state.user);
 
     const [isRegistered, setIsRegistered] = useState(true);
 
