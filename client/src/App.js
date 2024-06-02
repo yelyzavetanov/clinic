@@ -10,6 +10,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account/Account";
 import {fetchPatients} from "./reducers/patientsSlice";
 import {useDispatch, useSelector} from "react-redux";
+import Doctors from "./components/Doctors/Doctors";
 
 function App() {
     const [isFullMainMenuShown, setIsFullMainMenuShown] = useState(true);
@@ -18,6 +19,7 @@ function App() {
     const [isReceptionInfo, setIsReceptionInfo] = useState(false);
 
     const account = useSelector(state => state.user);
+    const status = account.account ? account.account.status : "";
     const [isRegistered, setIsRegistered] = useState(!!account);
 
     const [patientsSearchFilter, setPatientsSearchFilter] = useState("");
@@ -69,6 +71,11 @@ function App() {
                                         setIsAddPatientForm={setIsAddPatientForm}
                                         setIsReceptionInfo={setIsReceptionInfo}
                                     />
+                                }/>
+                            }
+                            {status === "administrator" &&
+                                <Route path={"/doctors"} element={
+                                    <Doctors/>
                                 }/>
                             }
                         </Routes>

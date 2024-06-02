@@ -4,11 +4,13 @@ import Logo from "../common/Logo/Logo";
 import scheduleIcon from "../../icons/system-regular-23-calendar.svg";
 import patientsIcon from "../../icons/system-regular-19-book.svg";
 import accountIcon from "../../icons/system-regular-63-settings-cog.svg";
+import doctorsIcon from "../../icons/system-regular-50-file.svg";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 function MainMenu(props) {
     const account = useSelector(state => state.user.account);
+    const status = account ? account.status : "";
 
     return (
         <div className={s.mainMenu}>
@@ -36,6 +38,15 @@ function MainMenu(props) {
                                     <a>Patients</a>
                                 </NavLink>
                             </>
+                        }
+                        {status === "administrator" &&
+                            <NavLink
+                                to={"/doctors"}
+                                className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
+                            >
+                                <img src={doctorsIcon}/>
+                                <a>Doctors</a>
+                            </NavLink>
                         }
                         <NavLink
                             to={"/account"}

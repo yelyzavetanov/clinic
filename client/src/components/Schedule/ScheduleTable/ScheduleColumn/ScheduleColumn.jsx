@@ -10,6 +10,7 @@ function ScheduleColumn(props) {
                     patient={e.patient}
                     description={e.description}
                     time={e.time}
+                    color={e.color}
                     key={props.dayInfo.indexOf(e)}
                     setIsReceptionInfo={props.setIsReceptionInfo}
                     setIsAddPatientForm={props.setIsAddPatientForm}

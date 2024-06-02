@@ -1,8 +1,9 @@
 class ScheduleItemInfo {
-    constructor(time, patient, description) {
+    constructor(time, patient, description, color) {
         this.time = time;
         this.patient = patient;
         this.description = description;
+        this.color = color;
     }
 }
 
@@ -17,6 +18,8 @@ const timeArray = [
     ["8AM", "1PM", "2PM"],
     ["10AM"]
 ];
+
+const colorsArray = ["green", "blue", "purple", "red"];
 
 export function generateSchedule() {
     const scheduleArray = [];
@@ -40,7 +43,8 @@ function generateDay(time) {
             let newItem = new ScheduleItemInfo(
                 time[indexOfCurrentTimeElement],
                 "Patient",
-                "some description"
+                "some description",
+                colorsArray[Math.floor(Math.random() * colorsArray.length)],
             );
             dayArray.push(newItem);
             patientsCount++;
@@ -49,6 +53,8 @@ function generateDay(time) {
             dayArray.push({time: e});
         }
     });
+
+    // console.log(dayArray);
 
     return dayArray;
 }

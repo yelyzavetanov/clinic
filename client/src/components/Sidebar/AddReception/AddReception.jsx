@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from "./AddReception.module.css";
 
 function AddReception(props) {
+    const [color, setColor] = useState("Purple");
+
+    const getSelectClassName = () => {
+        switch (color) {
+            case "Red": return s.red;
+            case "Blue": return s.blue;
+            case "Purple": return s.purple;
+            case "Green": return s.green;
+        }
+    }
+
     return (
         <div className={s.addReception}>
             <div className={s.addReceptionHeader}>
@@ -32,15 +43,15 @@ function AddReception(props) {
                 <div className={s.time}>
                     Time:
                     <input type={"time"}/>
-                    {/*<select type="">*/}
-                    {/*    <option>12:00</option>*/}
-                    {/*    <option>12:30</option>*/}
-                    {/*    <option>13:00</option>*/}
-                    {/*</select>*/}
                 </div>
                 <div className={s.selectColor}>
                     <span>Color:</span>
-                    <select value={"Purple"} type="">
+                    <select
+                        className={getSelectClassName()}
+                        value={color}
+                        type=""
+                        onChange={event => setColor(event.target.value)}
+                    >
                         <option>Green</option>
                         <option>Blue</option>
                         <option>Purple</option>

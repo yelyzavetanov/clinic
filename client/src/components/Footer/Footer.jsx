@@ -12,6 +12,7 @@ function Footer() {
             </div>
             <div className={s.footerColumn}>
                 <div className={s.footerTitle}>All right reserved. 2024</div>
+                <div><a href="https://lordicon.com/">Icons by Lordicon.com</a></div>
             </div>
         </footer>
     )

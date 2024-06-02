@@ -2,6 +2,10 @@
     /*width: max-content;*/
 }
 
+.accountInfoInnerContainer {
+    display: flex;
+}
+
 .title {
     padding: 1em 0;
     font-weight: 500;
@@ -13,6 +17,16 @@
 
 .accountInfoItem {
     padding-bottom: 0.5em;
+}
+
+.photo img {
+    height: 10em;
+    border-radius: 0.5em;
+}
+
+.photo {
+    margin-right: 1em;
+    padding: 0.5em 0;
 }
 
 .accountInfo input {
@@ -59,4 +73,14 @@
 .error {
     color: red;
     font-weight: 500;
+}
+
+@media only screen and (max-width: 40em) {
+    .accountInfoInnerContainer {
+        flex-direction: column;
+    }
+
+    .photo {
+        margin: 0;
+    }
 }

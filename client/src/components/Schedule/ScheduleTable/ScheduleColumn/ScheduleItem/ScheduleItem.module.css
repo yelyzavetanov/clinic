@@ -1,4 +1,9 @@
-.scheduleItem, .scheduleActiveItem{
+.scheduleItem,
+.scheduleActiveItem,
+.scheduleActiveItemRed,
+.scheduleActiveItemBlue,
+.scheduleActiveItemGreen,
+.scheduleActiveItemPurple {
     padding: 0.5em;
     box-sizing: border-box;
     border-bottom: #eef0f2 0.1em solid;
@@ -7,6 +12,35 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.scheduleActiveItemRed {
+    background: #e74c3c25;
+}
+.scheduleActiveItemRed .patient {
+    /*color: #cd2e55;*/
+    color: #e74c3c;
+}
+
+.scheduleActiveItemBlue {
+    background: #438ecc22;
+}
+.scheduleActiveItemBlue .patient {
+    color: #438ecc;
+}
+
+.scheduleActiveItemGreen {
+    background: #27ae6025;
+}
+.scheduleActiveItemGreen .patient {
+    color: #27ae60;
+}
+
+.scheduleActiveItemPurple {
+    background: #a32cdf20;
+}
+.scheduleActiveItemPurple .patient {
+    color: #a32cdf;
 }
 
 .scheduleActiveItem {
@@ -34,7 +68,12 @@
 }
 
 @media only screen and (max-width: 40em) {
-    .scheduleItem, .scheduleActiveItem {
+    .scheduleItem,
+    .scheduleActiveItem,
+    .scheduleActiveItemRed,
+    .scheduleActiveItemBlue,
+    .scheduleActiveItemGreen,
+    .scheduleActiveItemPurple{
         height: 4em;
         justify-content: center;
         align-items: center;

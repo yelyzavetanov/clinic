@@ -51,70 +51,75 @@ function AccountInfo(props) {
     return (
         <div className={s.accountInfo}>
             <div className={s.title}>Your account</div>
-            <div>
-                <div className={s.accountInfoItem}>
-                    User name:
-                    <span>@yelyznov</span>
+            <div className={s.accountInfoInnerContainer}>
+                <div>
+                    <div className={s.photo}><img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsGxan5mk7UK1ZfjubYs_nbsdheb5kdWhiyg&s"}/></div>
                 </div>
-                <div className={s.accountInfoItem}>
-                    Name:
-                    {editMode
-                        ? <input
-                            placeholder={"Your name..."}
-                            value={name}
-                            onChange={event => setName(event.target.value)}
-                        />
-                        : <span>{name}</span>
-                    }
-                </div>
-                <div className={s.accountInfoItem}>
-                    Clinic:
-                    <span>vntu</span>
-                </div>
-                <div className={s.accountInfoItem}>
-                    Status:
-                    <span>administrator</span>
-                </div>
-                <div className={s.accountInfoItem}>
-                    Specialization:
-                    {editMode
-                        ? <input
-                            placeholder={"Your specialization..."}
-                            value={specialization}
-                            onChange={event => setSpecialization(event.target.value)}
-                        />
-                        : <span>{specialization}</span>
-                    }
-                </div>
-                <div className={s.accountInfoItem}>
-                    About me:
-                    {editMode
-                        ? <input
-                            placeholder={"Some information about you..."}
-                            value={description}
-                            onChange={event => setDescription(event.target.value)}
-                        />
-                        : <span>{description}</span>
-                    }
-                </div>
-                {isExitMessage &&
-                    <div className={s.exitMessage}>Are you sure you want to exit?</div>
-                }
-                {error &&
-                    <div className={s.error}>{error}</div>
-                }
-                <div className={s.buttonsContainer}>
-                    {editMode
-                        ? <button className={s.editButton} onClick={onSaveButton}>Save</button>
-                        : <button className={s.editButton} onClick={onEditButton}>Edit</button>
-                    }
-                    <button className={s.exitButton} onClick={onExitButton}>Exit</button>
+                <div>
+                    <div className={s.accountInfoItem}>
+                        User name:
+                        <span>@{props.account.username}</span>
+                    </div>
+                    <div className={s.accountInfoItem}>
+                        Name:
+                        {editMode
+                            ? <input
+                                placeholder={"Your name..."}
+                                value={name}
+                                onChange={event => setName(event.target.value)}
+                            />
+                            : <span>{name}</span>
+                        }
+                    </div>
+                    <div className={s.accountInfoItem}>
+                        Clinic:
+                        <span>vntu</span>
+                    </div>
+                    <div className={s.accountInfoItem}>
+                        Status:
+                        <span>{props.account.status}</span>
+                    </div>
+                    <div className={s.accountInfoItem}>
+                        Specialization:
+                        {editMode
+                            ? <input
+                                placeholder={"Your specialization..."}
+                                value={specialization}
+                                onChange={event => setSpecialization(event.target.value)}
+                            />
+                            : <span>{specialization}</span>
+                        }
+                    </div>
+                    <div className={s.accountInfoItem}>
+                        About me:
+                        {editMode
+                            ? <input
+                                placeholder={"Some information about you..."}
+                                value={description}
+                                onChange={event => setDescription(event.target.value)}
+                            />
+                            : <span>{description}</span>
+                        }
+                    </div>
                     {isExitMessage &&
-                        <button className={s.exitButton} onClick={() => setIsExitMessage(false)}>
-                            Cansel
-                        </button>
+                        <div className={s.exitMessage}>Are you sure you want to exit?</div>
+                    }
+                    {error &&
+                        <div className={s.error}>{error}</div>
                     }
                 </div>
+            </div>
+            <div className={s.buttonsContainer}>
+                {editMode
+                    ? <button className={s.editButton} onClick={onSaveButton}>Save</button>
+                    : <button className={s.editButton} onClick={onEditButton}>Edit</button>
+                }
+                <button className={s.exitButton} onClick={onExitButton}>Exit</button>
+                {isExitMessage &&
+                    <button className={s.exitButton} onClick={() => setIsExitMessage(false)}>
+                        Cansel
+                    </button>
+                }
             </div>
         </div>
     )

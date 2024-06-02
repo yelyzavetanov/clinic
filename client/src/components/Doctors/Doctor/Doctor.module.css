@@ -1,0 +1,29 @@
+.doctor {
+    padding: 1.5em;
+    width: 10em;
+}
+
+.doctor:hover .name {
+    color: #a32cdf;
+}
+
+.doctor img {
+    height: 5em;
+    border-radius: 0.5em;
+}
+
+.name {
+    font-weight: 500;
+    /*padding: 0.5em;*/
+}
+
+.description {
+    padding-top: 0.5em;
+    word-break: break-word;
+}
+
+@media only screen and (max-width: 40em) {
+    .doctor {
+        width: 100%;
+    }
+}
