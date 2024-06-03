@@ -34,13 +34,15 @@
 .title {
     font-size: 2em;
     font-weight: 500;
-    /*padding: 0.5em 0;*/
+    padding: 0.5em 0;
     text-align: left;
+    /*padding-bottom: 0.5em;*/
+
 }
 
 .info {
     display: flex;
-    padding: 2em;
+    padding: 2em 1em;
 }
 
 .description {
@@ -58,4 +60,41 @@
 .itemTitle {
     font-weight: 500;
     padding-bottom: 0.5em;
+}
+
+.registerClinicButton {
+    transition: 0.5s;
+    border: none;
+    padding: 0.5em 2em;
+    border-radius: 0.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+    margin: 2em 0;
+}
+
+.registerClinicButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+@media only screen and (max-width: 40em) {
+    .homePage {
+        padding: 0;
+    }
+
+    .info {
+        flex-direction: column;
+    }
+
+    .description {
+        padding: 0;
+    }
+
+    .item {
+        padding: 1em 0;
+    }
+
+    .title {
+    }
 }

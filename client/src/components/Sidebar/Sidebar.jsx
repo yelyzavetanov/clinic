@@ -16,7 +16,7 @@ function Sidebar(props) {
                 <>
                     <Calendar/>
                     <GrayLine/>
-                    <AddReception setIsAddReceptionForm={props.setIsAddReceptionFrom}/>
+                    <AddReception setIsAddReceptionForm={props.setIsAddReceptionForm}/>
                 </>
             }
             {props.isReceptionInfo &&

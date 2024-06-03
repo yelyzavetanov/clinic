@@ -12,6 +12,8 @@ import {fetchPatients} from "./reducers/patientsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import Doctors from "./components/Doctors/Doctors";
 import HomePage from "./components/HomePage/HomePage";
+import Clinic from "./components/Clinic/Clinic";
+
 // import account from "./components/Account/Account";
 
 
@@ -81,15 +83,21 @@ function App() {
                                     <Doctors/>
                                 }/>
                             }
+                            <Route path={"/clinic"} element={
+                                <Clinic
+                                    isRegistered={!!account.account}
+                                    isAdmin={status === "administrator"}
+                                />
+                            }/>
                             <Route path={"/"} element={
                                 <HomePage/>
                             }/>
                         </Routes>
                         {(isAddPatientForm || isAddReceptionForm || isReceptionInfo) && <Sidebar
                             isAddPatientForm={isAddPatientForm}
-                            isAddReceptionFrom={isAddReceptionForm}
+                            isAddReceptionForm={isAddReceptionForm}
                             isReceptionInfo={isReceptionInfo}
-                            setIsAddReceptionFrom={setIsAddReceptionForm}
+                            setIsAddReceptionForm={setIsAddReceptionForm}
                             setIsAddPatientForm={setIsAddPatientForm}
                             setIsReceptionInfo={setIsReceptionInfo}
                         />}
