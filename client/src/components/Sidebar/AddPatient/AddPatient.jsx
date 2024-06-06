@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import s from "./AddPatient.module.css";
 import GrayLine from "../../common/GrayLine/GrayLine";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addPatient, fetchPatients} from "../../../reducers/patientsSlice";
 
 function AddPatient(props) {
@@ -12,6 +12,8 @@ function AddPatient(props) {
     const [treatment, setTreatment] = useState("");
 
     const [error, setError] = useState("");
+
+    const clinicName = useSelector(state => state.clinic.clinic ? state.clinic.clinic.name : "");
 
     const dispatch = useDispatch();
 
@@ -32,6 +34,7 @@ function AddPatient(props) {
                 problems: problems,
                 treatment: treatment,
                 birth_date: birthDate,
+                clinic: clinicName,
             };
 
             dispatch(addPatient(newPatient));

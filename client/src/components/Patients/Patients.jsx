@@ -17,11 +17,16 @@ function Patients(props) {
 
 
     const { loading, patients, error } = useSelector(state => state.patient);
+    const clinicName = useSelector(state => state.clinic.clinic ? state.clinic.clinic.name : null);
+    // console.log(clinicName);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPatients());
-    }, [dispatch]);
+        if (clinicName) {
+            // console.log("in if");
+            dispatch(fetchPatients(clinicName));
+        }
+    }, [dispatch, clinicName]);
 
     if (loading) return <Loading/>;
     if (error) return <Error errorMessage={error}/>;

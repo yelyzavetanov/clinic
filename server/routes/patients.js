@@ -5,25 +5,27 @@ const Patient = require('../models/Patient');
 
 const router = express.Router();
 
-router.get('/', authenticateToken, async (req, res) => {
+router.post('/', async (req, res) => {
+    const { id, name, description, problems, treatment, birth_date, clinic } = req.body;
+
+    if (!id || !name || !description || !problems || !treatment || !birth_date || !clinic) {
+        return res.status(400).json({ error: 'Name, age, and address are required' });
+    }
+
     try {
-        const patients = await Patient.getAll();
-        res.json(patients);
+        const result = await Patient.add(id, name, description, problems, treatment, birth_date, clinic);
+        res.status(201).json({ message: 'New patient added', patientId: result.insertId });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-router.post('/', async (req, res) => {
-    const { id, name, description, problems, treatment, birth_date } = req.body;
-
-    if (!id || !name || !description || !problems || !treatment || !birth_date) {
-        return res.status(400).json({ error: 'Name, age, and address are required' });
-    }
+router.get('/:clinicName', authenticateToken, async (req, res) => {
+    const { clinicName } = req.params;
 
     try {
-        const result = await Patient.add(id, name, description, problems, treatment, birth_date);
-        res.status(201).json({ message: 'New patient added', patientId: result.insertId });
+        const patients = await Patient.getAll(clinicName);
+        res.json(patients);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

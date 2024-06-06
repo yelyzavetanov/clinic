@@ -1,14 +1,15 @@
 const pool = require('../db');
 
 class Patient {
-    static async getAll() {
-        const [rows] = await pool.query('SELECT * FROM patients');
-        return rows;
+    static async getAll(clinicName) {
+        const query = 'SELECT * FROM patients WHERE clinic = ?';
+        const [result] = await pool.query(query, [clinicName]);
+        return result;
     }
 
-    static async add(id, name, description, problems, treatment, birth_date) {
-        const query = 'INSERT INTO patients (id, name, description, problems, treatment, birth_date) VALUES (?, ?, ?, ?, ?, ?)';
-        const [result] = await pool.query(query, [id, name, description, problems, treatment, birth_date]);
+    static async add(id, name, description, problems, treatment, birth_date, clinic) {
+        const query = 'INSERT INTO patients (id, name, description, problems, treatment, birth_date, clinic) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        const [result] = await pool.query(query, [id, name, description, problems, treatment, birth_date, clinic]);
         return result;
     }
 

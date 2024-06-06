@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import s from "./AddReception.module.css";
+import {useSelector} from "react-redux";
 
 function AddReception(props) {
     const [color, setColor] = useState("Purple");
+    const patients = useSelector(state => state.patient.patients);
 
     const getSelectClassName = () => {
         switch (color) {
@@ -27,9 +29,7 @@ function AddReception(props) {
                 <div className={s.patient}>
                     <span>Patient:</span>
                     <select type="">
-                        <option>Yelyzaveta</option>
-                        <option>Vlad</option>
-                        <option>Nazar</option>
+                        {patients.map(e => <option>{e.name}</option>)}
                     </select>
                 </div>
                 <div className={s.type}>
