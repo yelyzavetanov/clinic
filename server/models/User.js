@@ -8,6 +8,12 @@ class User {
         return rows;
     }
 
+    static async getDoctors(clinicName) {
+        const query = 'SELECT * FROM users WHERE clinic = ? AND status = "doctor"';
+        const [rows] = await pool.query(query, [clinicName]);
+        return rows;
+    }
+
     static async findByUsername(username) {
         const query = 'SELECT * FROM users WHERE username = ?';
         const [rows] = await pool.query(query, [username]);

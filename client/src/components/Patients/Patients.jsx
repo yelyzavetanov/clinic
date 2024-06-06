@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./Patients.module.css";
 import Patient from "./Patient/Patient";
 import GrayLine from "../common/GrayLine/GrayLine";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Loading from "../common/Loading/Loading";
 import Error from "../common/Error/Error";
+import {fetchPatients} from "../../reducers/patientsSlice";
+import {fetchClinicsList} from "../../reducers/clinicSlice";
 
 function Patients(props) {
     // const patients = [
@@ -13,7 +15,13 @@ function Patients(props) {
     //     {name: "Nazar", description: "Cool rich intelligent", year: "2005", problem: "doesn't know react", treatment: "learn react"},
     // ];
 
+
     const { loading, patients, error } = useSelector(state => state.patient);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchPatients());
+    }, [dispatch]);
 
     if (loading) return <Loading/>;
     if (error) return <Error errorMessage={error}/>;

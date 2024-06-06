@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchUsers = createAsyncThunk('patients/fetchPatients', async () => {
-    const response = await axios.get('http://localhost:5000/users');
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async (clinicName) => {
+    const response = await axios.get(`http://localhost:5000/users/${clinicName}`);
+    // console.log("action creator");
     return response.data;
 });
 
@@ -30,7 +31,9 @@ const initialState = {
     loading: false,
     account: JSON.parse(localStorage.getItem("user")) || null,
     token: localStorage.getItem("token") || null,
+    doctorsUsersList: [],
     error: null,
+    message: null,
 };
 
 const usersSlice = createSlice({
@@ -49,6 +52,7 @@ const usersSlice = createSlice({
         builder
             .addCase(logIn.pending, (state) => {
                 state.loading = true;
+                state.message = null;
                 state.error = null;
             })
             .addCase(logIn.fulfilled, (state, action) => {
@@ -65,11 +69,13 @@ const usersSlice = createSlice({
                 }
             })
             .addCase(logIn.rejected, (state, action) => {
+                state.message = null;
                 state.loading = false;
                 state.error = action.error.message;
             })
             .addCase(signUp.pending, (state) => {
                 state.loading = true;
+                state.message = null;
                 state.error = null;
             })
             .addCase(signUp.fulfilled, (state, action) => {
@@ -80,26 +86,48 @@ const usersSlice = createSlice({
                     localStorage.setItem('token', token);
                     localStorage.setItem('user', JSON.stringify(user));
                     state.account = user;
+                    state.message = "New user created successfully!";
                     state.token = token;
                 } else {
+                    state.message = null;
                     state.error = 'Invalid response data';
                 }
             })
             .addCase(signUp.rejected, (state, action) => {
                 state.loading = false;
+                state.message = null;
                 state.error = action.error.message;
             })
             .addCase(editAccount.pending, (state) => {
                 state.loading = true;
+                state.message = null;
                 state.error = null;
             })
             .addCase(editAccount.fulfilled, (state, action) => {
                 state.loading = false;
+                state.message = null;
                 state.account = action.payload;
                 localStorage.setItem('user', JSON.stringify(action.payload));
                 state.error = null;
             })
             .addCase(editAccount.rejected, (state, action) => {
+                state.message = null;
+                state.loading = false;
+                state.error = action.error.message;
+            })
+            .addCase(fetchUsers.pending, (state) => {
+                state.loading = true;
+                state.message = null;
+                state.error = null;
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.loading = false;
+                state.doctorsUsersList = action.payload;
+                state.message = null;
+                state.error = null;
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.message = null;
                 state.loading = false;
                 state.error = action.error.message;
             })

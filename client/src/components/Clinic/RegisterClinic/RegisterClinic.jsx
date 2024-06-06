@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import s from "./RegisterClinic.module.css";
+import {useDispatch, useSelector} from "react-redux";
+import {register} from "../../../reducers/clinicSlice";
 
 function RegisterClinic() {
     const [clinicForm, setClinicForm] = useState({
@@ -10,6 +12,8 @@ function RegisterClinic() {
     });
 
     const [error, setError] = useState("");
+
+    const dispatch = useDispatch();
 
     const onClinicFormChange = (event) => {
         const {name, value} = event.target;
@@ -22,8 +26,16 @@ function RegisterClinic() {
     const onRegisterClinic = () => {
         if (Object.values(clinicForm).some(value => value.trim() === "")) {
             setError("All fields are required.");
-            // return;
+            return;
         }
+
+        dispatch(register({
+            id: crypto.randomUUID(),
+            name: clinicForm.name,
+            description: clinicForm.description,
+            address: clinicForm.address,
+            specialization: clinicForm.specialization
+        }))
     }
 
     return (

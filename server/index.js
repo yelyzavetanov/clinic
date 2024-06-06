@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const patientRoutes = require("./routes/patients");
 const userRoutes = require("./routes/users");
+const clinicRoutes = require("./routes/clinic");
 require('dotenv').config();
 
 const app = express();
@@ -15,3 +16,4 @@ app.listen(PORT, () => {
 
 app.use('/patients', patientRoutes);
 app.use('/users', userRoutes);
+app.use('/clinic', clinicRoutes);

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import s from "./CreateAccount.module.css";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {signUp} from "../../../reducers/usersSlice";
 
 function CreateAccount(props) {
@@ -9,7 +9,7 @@ function CreateAccount(props) {
         name: "",
         clinic: "",
         specialization: "",
-        status: "user",
+        status: "doctor",
         description: "",
         password: "",
         confirmPassword: ""
@@ -17,6 +17,8 @@ function CreateAccount(props) {
 
     const [error, setError] = useState("");
 
+    const clinicsList = useSelector(state => state.clinic.clinicsList);
+    // console.log(clinicsList);
     const dispatch = useDispatch();
 
     const onFormChange = (event) => {
@@ -63,12 +65,13 @@ function CreateAccount(props) {
 
                     <div>
                         <span>Clinic name: </span>
-                        <input
+                        <select
                             name={"clinic"}
-                            placeholder={"Enter your clinic name..."}
                             value={formState.clinic}
                             onChange={onFormChange}
-                        />
+                        >
+                            {clinicsList.map(e => <option key={e.id}>{e.name}</option>)}
+                        </select>
                     </div>
                     <div>
                         <span>Description: </span>

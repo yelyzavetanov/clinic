@@ -13,8 +13,8 @@ import {useDispatch, useSelector} from "react-redux";
 import Doctors from "./components/Doctors/Doctors";
 import HomePage from "./components/HomePage/HomePage";
 import Clinic from "./components/Clinic/Clinic";
-
-// import account from "./components/Account/Account";
+import {fetchClinic, fetchClinicsList} from "./reducers/clinicSlice";
+import {fetchUsers} from "./reducers/usersSlice";
 
 
 function App() {
@@ -25,16 +25,24 @@ function App() {
 
     const account = useSelector(state => state.user);
     const status = account.account ? account.account.status : "";
-    const [isRegistered, setIsRegistered] = useState(!!account);
+    const [isRegistered, setIsRegistered] = useState(!!account.account);
 
     const [patientsSearchFilter, setPatientsSearchFilter] = useState("");
+    const [doctorsSearchFilter, setDoctorsSearchFilter] = useState("");
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPatients());
-    }, [dispatch]);
+        dispatch(fetchClinicsList());
+        if(account.account) {
+            dispatch(fetchClinic(account.account.clinic));
+        }
+        // console.log(account.account && account.account.status === "administrator");
 
+        if (account.account && account.account.status === "administrator") {
+            dispatch(fetchUsers(account.account.clinic));
+        }
+    }, [dispatch/*, account*/]);
 
     return (
         <BrowserRouter>
@@ -47,9 +55,12 @@ function App() {
                 </div>
                 <div className={s.mainContent}>
                     <Header
+                        isAdmin={status === "administrator"}
                         isRegistered={isRegistered}
                         patientsSearchFilter={patientsSearchFilter}
                         setPatientsSearchFilter={setPatientsSearchFilter}
+                        doctorsSearchFilter={doctorsSearchFilter}
+                        setDoctorsSearchFitler={setDoctorsSearchFilter}
                     />
                     <div className={s.content}>
                         <Routes>
@@ -80,12 +91,12 @@ function App() {
                             }
                             {status === "administrator" &&
                                 <Route path={"/doctors"} element={
-                                    <Doctors/>
+                                    <Doctors doctorsSearchFilter={doctorsSearchFilter}/>
                                 }/>
                             }
                             <Route path={"/clinic"} element={
                                 <Clinic
-                                    isRegistered={!!account.account}
+                                    isRegistered={isRegistered}
                                     isAdmin={status === "administrator"}
                                 />
                             }/>

@@ -1,0 +1,18 @@
+.messageContainer {
+    background: #eef0f2;
+    min-height: 100vh;
+}
+
+.message {
+    padding: 2em;
+    height: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.message span {
+    /*color: red;*/
+    font-weight: 500;
+}

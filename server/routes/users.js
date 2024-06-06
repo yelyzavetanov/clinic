@@ -12,6 +12,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:clinicName', async (req, res) => {
+    const { clinicName } = req.params;
+    try {
+        const users = await User.getDoctors(clinicName);
+        res.json(users);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -28,6 +39,11 @@ router.post('/signup', async (req, res) => {
         const { id, username, password, name, clinic, status, specialization, description } = req.body;
         if (!id || !username || !password || !name || !clinic || !status || !specialization || !description) {
             return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        const existingUser = await User.findByUsername(username);
+        if (existingUser) {
+            return res.status(400).json({ message: 'User with this username already exists' });
         }
 
         const result = await User.signUp(id, username, password, name, clinic, status, specialization, description);

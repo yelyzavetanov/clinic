@@ -36,6 +36,16 @@
     color: #a32cdf;
 }
 
+.clinicImgContainer {
+    height: 15em;
+    padding-bottom: 1em;
+}
+
+.clinicImgContainer img {
+    height: 100%;
+    border-radius: 0.5em;
+}
+
 .infoItem {
     padding: 0.2em 0;
 }

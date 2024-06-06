@@ -7,9 +7,10 @@ import AccountInfo from "./AccountInfo/AccountInfo";
 import {useSelector} from "react-redux";
 import Loading from "../common/Loading/Loading";
 import Error from "../common/Error/Error";
+import Message from "../common/Message/Message";
 
 function Account(props) {
-    const { loading, account, error } = useSelector(state => state.user);
+    const { loading, account, error, message } = useSelector(state => state.user);
 
     const [accountComponent, setAccountComponent] = useState("logIn");
 
@@ -19,6 +20,7 @@ function Account(props) {
 
     if (loading) return <Loading/>;
     if (error) return <Error errorMessage={error}/>;
+    if (message) return <Message message={message}/>
 
     return (
         <div className={s.accountContainer}>
