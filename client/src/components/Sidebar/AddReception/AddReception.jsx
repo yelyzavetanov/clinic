@@ -41,6 +41,9 @@ function AddReception(props) {
                     </select>
                 </div>
                 <div className={s.time}>
+                    Date:
+                    <input type={"date"}/>
+                </div><div className={s.time}>
                     Time:
                     <input type={"time"}/>
                 </div>

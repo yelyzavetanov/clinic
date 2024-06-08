@@ -16,8 +16,9 @@ export const register = createAsyncThunk('clinic/register', async (newClinic) =>
     return response.data;
 });
 
-export const editClinic = createAsyncThunk('clinic/editClinic', async ({ id, updatedData }) => {
-    const response = await axios.put(`http://localhost:5000/clinic/${id}`, updatedData);
+export const editClinic = createAsyncThunk('clinic/editClinic', async ({ clinicName, updatedData }) => {
+    const response = await axios.put(`http://localhost:5000/clinic/${clinicName}`, updatedData);
+    console.log(clinicName, updatedData);
     return response.data;
 });
 

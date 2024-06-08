@@ -57,12 +57,12 @@ router.post('/register', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
-    const { id } = req.params;
+router.put('/:clinicName', async (req, res) => {
+    const { clinicName } = req.params;
     const { name, address, specialization, description } = req.body;
     try {
-        await Clinic.update(id, name, address, specialization, description);
-        const updatedClinic = await Clinic.getById(id);
+        await Clinic.update(clinicName, name, address, specialization, description);
+        const updatedClinic = await Clinic.findByName(clinicName);
         res.status(200).json(updatedClinic);
     } catch (error) {
         console.error('Error updating clinic:', error);

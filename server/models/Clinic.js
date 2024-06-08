@@ -23,9 +23,9 @@ class Clinic {
         return result.insertId;
     }
 
-    static async update(id, name, address, description, specialization) {
-        const query = 'UPDATE clinics SET name = ?, address = ?, description = ?, specialization = ? WHERE id = ?';
-        const [result] = await pool.query(query, [name, address, description, specialization, id]);
+    static async update(clinicName, name, address, description, specialization) {
+        const query = 'UPDATE clinics SET name = ?, address = ?, description = ?, specialization = ? WHERE name = ?';
+        const [result] = await pool.query(query, [name, address, description, specialization, clinicName]);
         return result;
     }
 }

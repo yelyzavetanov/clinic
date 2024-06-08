@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import s from "./ClinicInfo.module.css";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {editClinic} from "../../../reducers/clinicSlice";
 
 function ClinicInfo(props) {
     const clinic = useSelector(state => state.clinic.clinic);
-
+    const dispatch = useDispatch();
     // console.log(clinic.name);
 
     const [clinicInfo, setClinicInfo] = useState({
@@ -45,13 +46,26 @@ function ClinicInfo(props) {
             setError("All fields are required.");
             return;
         }
+        dispatch(editClinic(
+            {
+                clinicName: clinicInfo.name,
+                updatedData: {
+                    name: clinicInfo.name,
+                    description: clinicInfo.description,
+                    address: clinicInfo.address,
+                    specialization: clinicInfo.specialization,
+                }
+            }
+        ));
         setEditMode(false);
     };
 
     return (
         <div className={s.clinicInfo}>
             <div className={s.title}>Your clinic information</div>
-            <div className={s.clinicImgContainer}><img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoFEVTzvYB4xfN7_1ElbMn_QN_nAuXHAmo43f-tD98bNWVpw0Ow-VldR7DBysNxXGX-kU&usqp=CAU"}/></div>
+            <div className={s.clinicImgContainer}><img
+                src={"https://www.shutterstock.com/shutterstock/videos/1065097048/thumb/1.jpg?ip=x480"}
+                alt={""}/></div>
             <div className={s.clinicForm}>
                 <div className={s.infoItem}>
                     <span>Name:</span>
