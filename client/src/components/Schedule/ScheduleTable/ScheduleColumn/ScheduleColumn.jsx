@@ -7,10 +7,8 @@ function ScheduleColumn(props) {
         <div className={s.scheduleColumn}>
             {props.dayInfo.map(e =>
                 <ScheduleItem
-                    patient={e.patient}
-                    description={e.description}
-                    time={e.time}
-                    color={e.color}
+                    setCurrentReceptionInfo={props.setCurrentReceptionInfo}
+                    receptionInfo={e}
                     key={props.dayInfo.indexOf(e)}
                     setIsReceptionInfo={props.setIsReceptionInfo}
                     setIsAddPatientForm={props.setIsAddPatientForm}

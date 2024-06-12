@@ -26,11 +26,21 @@ function App() {
     const account = useSelector(state => state.user);
     const status = account.account ? account.account.status : "";
     const [isRegistered, setIsRegistered] = useState(!!account.account);
+    const clinicName = useSelector(state => state.clinic.clinic ? state.clinic.clinic.name : null);
 
     const [patientsSearchFilter, setPatientsSearchFilter] = useState("");
     const [doctorsSearchFilter, setDoctorsSearchFilter] = useState("");
 
+    const [currentReceptionInfo, setCurrentReceptionInfo] = useState({});
+
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (clinicName) {
+            // console.log("in if");
+            dispatch(fetchPatients(clinicName));
+        }
+    }, [dispatch, clinicName])
 
     useEffect(() => {
         dispatch(fetchClinicsList());
@@ -83,6 +93,7 @@ function App() {
                             {account.account &&
                                 <Route path={"/schedule"} element={
                                     <Schedule
+                                        setCurrentReceptionInfo={setCurrentReceptionInfo}
                                         setIsAddReceptionFrom={setIsAddReceptionForm}
                                         setIsAddPatientForm={setIsAddPatientForm}
                                         setIsReceptionInfo={setIsReceptionInfo}
@@ -105,6 +116,7 @@ function App() {
                             }/>
                         </Routes>
                         {(isAddPatientForm || isAddReceptionForm || isReceptionInfo) && <Sidebar
+                            currentReceptionInfo={currentReceptionInfo}
                             isAddPatientForm={isAddPatientForm}
                             isAddReceptionForm={isAddReceptionForm}
                             isReceptionInfo={isReceptionInfo}

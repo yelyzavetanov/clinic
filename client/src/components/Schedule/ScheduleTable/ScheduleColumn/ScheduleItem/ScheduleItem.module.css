@@ -54,6 +54,7 @@
 .patient {
     font-weight: 600;
     color: #a32cdf;
+    padding-bottom: 0.2em;
 }
 
 .description {

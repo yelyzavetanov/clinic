@@ -20,7 +20,7 @@ function Sidebar(props) {
                 </>
             }
             {props.isReceptionInfo &&
-                <ReceptionInfo setIsReceptionInfo={props.setIsReceptionInfo}/>
+                <ReceptionInfo info={props.currentReceptionInfo} setIsReceptionInfo={props.setIsReceptionInfo}/>
             }
             {/*ctrl + slash*/}
         </div>

@@ -2,16 +2,17 @@ import React, {useState} from "react";
 import s from "./ScheduleItem.module.css";
 
 function ScheduleItem(props) {
-    const [itemColor] = useState(props.color);
-
     const onItemClick = () => {
-        props.setIsAddPatientForm(false);
-        props.setIsAddReceptionForm(false);
-        props.setIsReceptionInfo(true);
+        if (props.receptionInfo.patient) {
+            props.setIsAddPatientForm(false);
+            props.setIsAddReceptionForm(false);
+            props.setCurrentReceptionInfo(props.receptionInfo);
+            props.setIsReceptionInfo(true);
+        }
     }
 
     const getItemClassName = () => {
-        switch (props.color) {
+        switch (props.receptionInfo.color) {
             case "red": return s.scheduleActiveItemRed;
             case "blue": return s.scheduleActiveItemBlue;
             case "green": return s.scheduleActiveItemGreen;
@@ -21,18 +22,18 @@ function ScheduleItem(props) {
 
     return (
         <div
-            className={props.patient ? getItemClassName() : s.scheduleItem}
+            className={props.receptionInfo.patient ? getItemClassName() : s.scheduleItem}
             onClick={onItemClick}
         >
-            {props.patient &&
+            {props.receptionInfo.patient &&
                 <div className={s.patientInfo}>
-                    <div className={s.patient}>{props.patient}</div>
-                    <div className={s.description}>{props.description}</div>
-                    <div className={s.description}>{props.color}</div>
+                    <div className={s.patient}>{props.receptionInfo.patient}</div>
+                    <div className={s.description}>{props.receptionInfo.description}</div>
+                    {/*<div className={s.description}>{props.color}</div>*/}
                 </div>
             }
             <div> </div>
-            <div className={s.time}>{props.time}</div>
+            <div className={s.time}>{props.receptionInfo.patient ? props.receptionInfo.time : ""}</div>
         </div>
     )
 }

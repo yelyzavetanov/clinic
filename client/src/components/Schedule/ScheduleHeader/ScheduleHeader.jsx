@@ -1,7 +1,12 @@
 import React from "react";
 import s from "./ScheduleHeader.module.css";
+import {useSelector} from "react-redux";
 
 function ScheduleHeader(props) {
+    const monthsArray = ["January","February","March","April","May","June","July",
+        "August","September","October","November","December"];
+
+    const currentDate = useSelector(state => state.schedule.currentDate);
 
     const onAddReception = () => {
         props.setIsAddReceptionForm(true);
@@ -20,8 +25,9 @@ function ScheduleHeader(props) {
             <div className={s.calendarTitleHeader}>
                 <div className={s.selectDayContainer}>
                     <div>
-                        <span className={s.month}>November </span>
-                        <span className={s.year}>2020</span>
+                        <span className={s.day}>{currentDate.getDate()} </span>
+                        <span className={s.month}>{monthsArray[currentDate.getMonth()]} </span>
+                        <span className={s.year}>{currentDate.getYear()+1900}</span>
                     </div>
                     <div className={s.selectDayButtons}>
                         <div className={s.selectDayButton}>

@@ -1,8 +1,18 @@
 import React from "react";
 import s from "./DoctorInfo.module.css";
 import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setCurrentDoctorUsername} from "../../../reducers/scheduleSlice";
 
 function DoctorInfo(props) {
+
+    const dispatch = useDispatch();
+
+    const onViewScheduleButton = () => {
+        dispatch(setCurrentDoctorUsername(props.doctor.username));
+        props.setCurrentDoctor(null);
+    }
+
     return (
         <div className={s.doctorInfo}>
             <div><img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsGxan5mk7UK1ZfjubYs_nbsdheb5kdWhiyg&s"}/></div>
@@ -22,7 +32,7 @@ function DoctorInfo(props) {
             </div>
             <div>
                 <NavLink to={"/schedule"}>
-                    <button className={s.viewScheduleButton} onClick={() => props.setCurrentDoctor(null)}>
+                    <button className={s.viewScheduleButton} onClick={onViewScheduleButton}>
                         View schedule
                     </button>
                 </NavLink>

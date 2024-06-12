@@ -17,11 +17,11 @@ function HomePage() {
                             Designed with doctors in mind, Clinic streamlines your daily workflow,
                             allowing you to focus on what matters most—providing excellent patient care.
                         </div>
-                        <NavLink to={"/clinic"}>
-                            <div>
+                        <div>
+                            <NavLink to={"/clinic"}>
                                 <button className={s.registerClinicButton}>Register my clinic</button>
-                            </div>
-                        </NavLink>
+                            </NavLink>
+                        </div>
                     </div>
                     <div>
                         <div className={s.item}>

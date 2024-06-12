@@ -15,19 +15,23 @@ function ReceptionInfo(props) {
             <div className={s.info}>
                 <div>
                     Patient:
-                    <span>Yelyzaveta</span>
+                    <span>{props.info.patient}</span>
                 </div>
                 <div>
                     Type:
-                    <span>consultation</span>
+                    <span>{props.info.type}</span>
+                </div>
+                <div>
+                    Description:
+                    <span>{props.info.description}</span>
                 </div>
                 <div>
                     Date:
-                    <span>13.12.2005</span>
+                    <span>{props.info.date}</span>
                 </div>
                 <div>
                     Time:
-                    <span>8:00</span>
+                    <span>{props.info.time}</span>
                 </div>
             </div>
         </div>
