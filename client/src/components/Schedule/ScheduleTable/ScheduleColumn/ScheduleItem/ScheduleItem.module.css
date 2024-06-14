@@ -85,7 +85,8 @@
     .scheduleActiveItemRed,
     .scheduleActiveItemBlue,
     .scheduleActiveItemGreen,
-    .scheduleActiveItemPurple{
+    .scheduleActiveItemPurple,
+    .todayScheduleItem {
         height: 4em;
         justify-content: center;
         align-items: center;
