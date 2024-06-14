@@ -33,7 +33,7 @@
     align-items: center;
 }
 
-.month, .year {
+.month, .year, .day {
     font-weight: 500;
 }
 
@@ -43,7 +43,7 @@
     align-items: center;
 }
 
-.selectDayButton, .selectedDay, .selectWeek {
+.selectDayButton, .selectedDay {
     background: #eef0f2;
     border: none;
     border-radius: 0.3em;
@@ -59,6 +59,29 @@
     width: 100%;
     box-sizing: border-box;
     background: #eef0f2;
+}
+
+.selectWeek {
+    display: flex;
+    align-items: center;
+}
+
+.selectWeek button {
+    border: transparent 0.1em solid;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0.2em;
+    font-weight: 500;
+    width: 2.5em;
+}
+
+.selectWeek button:hover {
+    border-color: #a32cdf;
+    color: #a32cdf;
+}
+
+.selectWeek span {
+    padding: 0 0.5em;
 }
 
 @media only screen and (max-width: 40em) {

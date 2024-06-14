@@ -7,6 +7,7 @@ function WeekDay(props){
 
     return(
         <div className={isCurrentWeekDay ? s.currentWeekDay : s.weekDay}>
+            <div>{props.date}</div>
             <div className={s.weekDayTitle}>{props.weekDay}</div>
             <div className={s.dayNumber}>{props.dayNumber}</div>
         </div>

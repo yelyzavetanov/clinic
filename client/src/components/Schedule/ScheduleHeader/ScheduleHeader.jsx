@@ -1,17 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./ScheduleHeader.module.css";
-import {useSelector} from "react-redux";
+import {getDateSevenDaysEarlier, getDateSevenDaysLater, getWeekDates} from "../../../scheduleFuntions/getWeekDates";
 
 function ScheduleHeader(props) {
     const monthsArray = ["January","February","March","April","May","June","July",
         "August","September","October","November","December"];
 
-    const currentDate = useSelector(state => state.schedule.currentDate);
+    const [weekDates, setWeekDates] = useState(getWeekDates(props.shownDate));
+
+    const onPreviousWeek = () => {
+        props.setShownDate(getDateSevenDaysEarlier(props.shownDate));
+        setWeekDates(getWeekDates(props.shownDate));
+    }
+
+    const onNextWeek = () => {
+        props.setShownDate(getDateSevenDaysLater(props.shownDate));
+        setWeekDates(getWeekDates(props.shownDate));
+    }
 
     const onAddReception = () => {
         props.setIsAddReceptionForm(true);
         props.setIsAddPatientForm(false);
         props.setIsReceptionInfo(false);
+
     }
 
     return (
@@ -25,22 +36,18 @@ function ScheduleHeader(props) {
             <div className={s.calendarTitleHeader}>
                 <div className={s.selectDayContainer}>
                     <div>
-                        <span className={s.day}>{currentDate.getDate()} </span>
-                        <span className={s.month}>{monthsArray[currentDate.getMonth()]} </span>
-                        <span className={s.year}>{currentDate.getYear()+1900}</span>
-                    </div>
-                    <div className={s.selectDayButtons}>
-                        <div className={s.selectDayButton}>
-                            {"<"}
-                        </div>
-                        <div className={s.selectedDay}>Today</div>
-                        <div className={s.selectDayButton}>
-                            {">"}
-                        </div>
+                        <span className={s.day}>{props.currentDate.getDate()} </span>
+                        <span className={s.month}>{monthsArray[props.currentDate.getMonth()]} </span>
+                        <span className={s.year}>{props.currentDate.getYear()+1900}</span>
                     </div>
                 </div>
-                <div>
-                    <select className={s.selectWeek}><option>Week</option></select>
+                <div className={s.selectWeek}>
+                    <span>Week: </span>
+                    <button onClick={onPreviousWeek}>{"<"}</button>
+                    <span>{weekDates.monday}</span>
+                    -
+                    <span>{weekDates.saturday}</span>
+                    <button onClick={onNextWeek}>{">"}</button>
                 </div>
             </div>
         </div>

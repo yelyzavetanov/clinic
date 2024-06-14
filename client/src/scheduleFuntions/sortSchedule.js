@@ -30,7 +30,8 @@ function generateEmptyWeek() {
 function fillEmptySlots(dayReceptions, day) {
     const emptyDay = generateEmptyDay();
     dayReceptions.forEach(reception => {
-        const timeIndex = emptyDay.findIndex(slot => slot.time === reception.time);
+        const receptionHour = reception.time.split(':')[0]; // Беремо тільки годину
+        const timeIndex = emptyDay.findIndex(slot => slot.time.split(':')[0] === receptionHour);
         if (timeIndex !== -1) {
             emptyDay[timeIndex] = reception;
         }
@@ -42,10 +43,9 @@ function fillEmptySlots(dayReceptions, day) {
 }
 
 export function transformReceptions(receptions) {
-    // Видаляємо секунди з часу прийому
     const receptionsWithoutSeconds = receptions.map(reception => ({
         ...reception,
-        time: reception.time.slice(0, 5)
+        time: reception.time.slice(0, 5) // Залишаємо години та хвилини
     }));
 
     const sortedReceptions = [...receptionsWithoutSeconds].sort((a, b) => {
@@ -65,13 +65,8 @@ export function transformReceptions(receptions) {
         const dayIndex = schedule.findIndex(d => d.day === day);
 
         if (dayIndex !== -1) {
-            const timeIndex = schedule[dayIndex].receptions.findIndex(slot => slot.time === reception.time);
-
-            // Додано для налагодження
-            // console.log(`Looking for time: ${reception.time} in day: ${day}`);
-            // schedule[dayIndex].receptions.forEach(slot => {
-            //     console.log(`Slot time: ${slot.time}`);
-            // });
+            const receptionHour = reception.time.split(':')[0];
+            const timeIndex = schedule[dayIndex].receptions.findIndex(slot => slot.time.split(':')[0] === receptionHour);
 
             if (timeIndex !== -1) {
                 schedule[dayIndex].receptions[timeIndex] = reception;

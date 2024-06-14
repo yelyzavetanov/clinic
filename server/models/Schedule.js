@@ -8,13 +8,16 @@ class Schedule {
     }
 
     static async addReception(newReception) {
-        const query = 'INSERT INTO receptions (doctor_username, date, time, patient_name, status) VALUES (?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO receptions (id, doctor_username, date, time, patient, color, type, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
         const [result] = await pool.query(query, [
+            newReception.id,
             newReception.doctor_username,
             newReception.date,
             newReception.time,
-            newReception.patient_name,
-            newReception.status
+            newReception.patient,
+            newReception.color,
+            newReception.type,
+            newReception.description,
         ]);
         return result;
     }

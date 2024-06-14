@@ -93,6 +93,7 @@ function App() {
                             {account.account &&
                                 <Route path={"/schedule"} element={
                                     <Schedule
+                                        status={status}
                                         setCurrentReceptionInfo={setCurrentReceptionInfo}
                                         setIsAddReceptionFrom={setIsAddReceptionForm}
                                         setIsAddPatientForm={setIsAddPatientForm}
@@ -116,6 +117,7 @@ function App() {
                             }/>
                         </Routes>
                         {(isAddPatientForm || isAddReceptionForm || isReceptionInfo) && <Sidebar
+                            status={status}
                             currentReceptionInfo={currentReceptionInfo}
                             isAddPatientForm={isAddPatientForm}
                             isAddReceptionForm={isAddReceptionForm}

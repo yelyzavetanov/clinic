@@ -14,6 +14,7 @@ export const fetchSchedule = createAsyncThunk('schedule/fetchSchedule', async (d
 
 export const addReception = createAsyncThunk('schedule/addReception', async (newReception, { dispatch }) => {
     const response = await axios.post('http://localhost:5000/schedule', newReception);
+    console.log("action creator: ", newReception);
     return response.data;
 });
 

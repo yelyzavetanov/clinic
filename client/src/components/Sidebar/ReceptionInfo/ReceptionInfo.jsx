@@ -1,8 +1,11 @@
 import React from "react";
 import s from "./ReceptionInfo.module.css";
 import GrayLine from "../../common/GrayLine/GrayLine";
+import { format } from 'date-fns';
 
 function ReceptionInfo(props) {
+    const date = new Date(props.info.date);
+
     return (
         <div className={s.receptionInfo}>
             <div className={s.receptionInfoHeader}>
@@ -27,7 +30,7 @@ function ReceptionInfo(props) {
                 </div>
                 <div>
                     Date:
-                    <span>{props.info.date}</span>
+                    <span>{format(date, 'yyyy-MM-dd')}</span>
                 </div>
                 <div>
                     Time:

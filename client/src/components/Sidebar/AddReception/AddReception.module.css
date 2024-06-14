@@ -63,6 +63,14 @@ select {
     border: #999999 0.1em solid;
 }
 
+.description {
+    text-align: left;
+}
+
+.description textarea {
+    width: 100%;
+}
+
 .red {
     border-color: #e74c3c;
     /*background: red;*/
@@ -81,10 +89,24 @@ select {
       color: #a32cdf;
 }
 
+.error {
+    font-weight: 500;
+    color: red;
+    text-align: left;
+}
+
 @media only screen and (max-width: 40em) {
     .addReception {
         width: 100%;
         padding: 1em;
         box-sizing: border-box;
+    }
+
+    .time input {
+        margin: 0.2em;
+    }
+
+    select {
+        margin: 0.2em;
     }
 }

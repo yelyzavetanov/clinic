@@ -1,6 +1,6 @@
 .Calendar {
     width: 20em;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
 }
 
 .calendarButtonContainer {
@@ -34,7 +34,7 @@
 @media only screen and (max-width: 40em) {
     .Calendar {
         width: 100%;
-        padding: 1em;
+        /*padding: 1em;*/
         box-sizing: border-box;
     }
 }

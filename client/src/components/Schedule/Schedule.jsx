@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import s from "./Shedule.module.css";
 import ScheduleHeader from "./ScheduleHeader/ScheduleHeader";
 import WeekScale from "./WeekScale/WeekScale";
@@ -9,43 +9,53 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchSchedule} from "../../reducers/scheduleSlice";
 import {transformReceptions} from "../../scheduleFuntions/sortSchedule";
 import Message from "../common/Message/Message";
+import {getWeekArray} from "../../scheduleFuntions/getWeekDates";
 
 function Schedule(props) {
-
     const doctorUsername = useSelector(state => state.schedule.currentDoctorUsername);
+    const account = useSelector(state => state.user.account);
     const dispatch = useDispatch();
+
+    const currentDate = useSelector(state => state.schedule.currentDate);
+    const [shownDate, setShownDate] = useState(currentDate);
+    const weekArray = getWeekArray(shownDate);
 
     let receptions = useSelector(state => state.schedule.schedule);
     let scheduleArray = [];
 
     useEffect(() => {
-        dispatch(fetchSchedule(doctorUsername));
+        if (props.status === "administrator") {
+            dispatch(fetchSchedule(doctorUsername));
+        } else if (props.status === "doctor" && account) {
+            dispatch(fetchSchedule(account.username));
+        }
 
     }, [doctorUsername, dispatch]);
 
-
-    // console.log(receptions.length > 0);
-
     if (receptions.length > 0) {
-        // console.log(receptions);
         scheduleArray = transformReceptions(receptions);
-        // console.log(scheduleArray);
     }
 
-    if (!receptions.length) {
-        return (<Message message={"something went wrong"}/>);
+    if (!receptions.length && props.status === "administrator") {
+        return (<Message message={"Please, select a doctor to see the schedule."}/>);
     }
 
     return (
         <div className={s.scheduleContainer}>
             <div className={s.schedule}>
                 <ScheduleHeader
+                    currentDate={currentDate}
+                    shownDate={shownDate}
+                    setShownDate={setShownDate}
                     setIsAddReceptionForm={props.setIsAddReceptionFrom}
                     setIsAddPatientForm={props.setIsAddPatientForm}
                     setIsReceptionInfo={props.setIsReceptionInfo}
                 />
                 <GrayLine/>
-                <WeekScale/>
+                <WeekScale
+                    weekArray={weekArray}
+                    currentDate={currentDate}
+                />
                 <div className={s.scheduleVerticalContainer}>
                     <TimeScale/>
                     <ScheduleTable
