@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./WeekDay.module.css";
+import {format} from "date-fns";
 
 function WeekDay(props){
 
@@ -7,7 +8,7 @@ function WeekDay(props){
 
     return(
         <div className={isCurrentWeekDay ? s.currentWeekDay : s.weekDay}>
-            <div>{props.date}</div>
+            <div>{format(props.date, "dd.MM")}</div>
             <div className={s.weekDayTitle}>{props.weekDay}</div>
             <div className={s.dayNumber}>{props.dayNumber}</div>
         </div>

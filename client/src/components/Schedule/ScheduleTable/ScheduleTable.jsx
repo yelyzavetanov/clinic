@@ -1,9 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import s from "./ScheduleTable.module.css";
 import ScheduleColumn from "./ScheduleColumn/ScheduleColumn";
-import {generateSchedule} from "../../../scheduleGenerator/scheduleGenerator";
-import {transformReceptions} from "../../../scheduleFuntions/sortSchedule";
-import {useSelector} from "react-redux";
+import {generateEmptyWeek} from "../../../scheduleFuntions/sortSchedule";
 
 function ScheduleTable(props) {
     // const receptions = [
@@ -41,20 +39,31 @@ function ScheduleTable(props) {
     //
     // }, [currentDoctorUsername]);
 
-    // console.log(scheduleArray);
+    console.log(props.scheduleArray, props.mondayDate);
 
+    const emptyWeek = generateEmptyWeek();
 
     return (
         <div className={s.scheduleTable}>
-            {props.scheduleArray.map(e =>
-                <ScheduleColumn
-                    setCurrentReceptionInfo={props.setCurrentReceptionInfo}
-                    setIsReceptionInfo={props.setIsReceptionInfo}
-                    setIsAddPatientForm={props.setIsAddPatientForm}
-                    setIsAddReceptionForm={props.setIsAddReceptionForm}
-                    dayInfo={e.receptions} key={props.scheduleArray.indexOf(e)}
-                />
-            )}
+            {props.scheduleArray[props.mondayDate]
+                ? props.scheduleArray[props.mondayDate].map(e =>
+                    <ScheduleColumn
+                        setCurrentReceptionInfo={props.setCurrentReceptionInfo}
+                        setIsReceptionInfo={props.setIsReceptionInfo}
+                        setIsAddPatientForm={props.setIsAddPatientForm}
+                        setIsAddReceptionForm={props.setIsAddReceptionForm}
+                        dayInfo={e.receptions} key={crypto.randomUUID()}
+                    />
+                )
+                : emptyWeek.map(e =>
+                    <ScheduleColumn
+                        setCurrentReceptionInfo={props.setCurrentReceptionInfo}
+                        setIsReceptionInfo={props.setIsReceptionInfo}
+                        setIsAddPatientForm={props.setIsAddPatientForm}
+                        setIsAddReceptionForm={props.setIsAddReceptionForm}
+                        dayInfo={e.receptions} key={crypto.randomUUID()}
+                    />)
+            }
         </div>
     )
 }

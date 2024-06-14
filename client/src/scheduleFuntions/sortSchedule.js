@@ -1,7 +1,17 @@
+function getMonday(date) {
+    const givenDate = new Date(date);
+    const dayOfWeek = givenDate.getDay();
+    const daysToMonday = dayOfWeek === 0 ? -5 : 2 - dayOfWeek;
+    const monday = new Date(givenDate);
+    monday.setDate(givenDate.getDate() + daysToMonday);
+    monday.setHours(0, 0, 0, 0);
+    return monday;
+}
+
 function getDayOfWeek(dateString) {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const date = new Date(dateString);
-    return days[date.getDay()];
+    return days[date.getDay()-1];
 }
 
 function generateEmptyDay() {
@@ -19,7 +29,7 @@ function generateEmptyDay() {
     return hours;
 }
 
-function generateEmptyWeek() {
+export function generateEmptyWeek() {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return daysOfWeek.map(day => ({
         day: day,
@@ -27,10 +37,10 @@ function generateEmptyWeek() {
     }));
 }
 
-function fillEmptySlots(dayReceptions, day) {
+/*function fillEmptySlots(dayReceptions, day) {
     const emptyDay = generateEmptyDay();
     dayReceptions.forEach(reception => {
-        const receptionHour = reception.time.split(':')[0]; // Беремо тільки годину
+        const receptionHour = reception.time.split(':')[0];
         const timeIndex = emptyDay.findIndex(slot => slot.time.split(':')[0] === receptionHour);
         if (timeIndex !== -1) {
             emptyDay[timeIndex] = reception;
@@ -40,7 +50,7 @@ function fillEmptySlots(dayReceptions, day) {
         day: day,
         receptions: emptyDay
     };
-}
+}*/
 
 export function transformReceptions(receptions) {
     const receptionsWithoutSeconds = receptions.map(reception => ({
@@ -58,21 +68,43 @@ export function transformReceptions(receptions) {
         return timeA - timeB;
     });
 
-    const schedule = generateEmptyWeek();
+    const weeks = {};
 
     sortedReceptions.forEach(reception => {
+        const date = new Date(reception.date);
+        const monday = getMonday(date);
+        const weekKey = monday.toISOString().split('T')[0];
+
+        if (!weeks[weekKey]) {
+            weeks[weekKey] = generateEmptyWeek();
+        }
+
         const day = getDayOfWeek(reception.date);
-        const dayIndex = schedule.findIndex(d => d.day === day);
+        const dayIndex = weeks[weekKey].findIndex(d => d.day === day);
 
         if (dayIndex !== -1) {
             const receptionHour = reception.time.split(':')[0];
-            const timeIndex = schedule[dayIndex].receptions.findIndex(slot => slot.time.split(':')[0] === receptionHour);
+            const timeIndex = weeks[weekKey][dayIndex].receptions.findIndex(slot => slot.time.split(':')[0] === receptionHour);
 
             if (timeIndex !== -1) {
-                schedule[dayIndex].receptions[timeIndex] = reception;
+                weeks[weekKey][dayIndex].receptions[timeIndex] = reception;
             }
         }
     });
 
-    return schedule;
+    return weeks;
 }
+
+// Приклад використання
+/*
+const appointments = [
+    { date: "2024-06-10T12:00:00.000Z", time: "12:00", patient: "John Doe", description: "Consultation", type: "Consultation", color: "blue" },
+    { date: "2024-06-11T14:00:00.000Z", time: "14:00", patient: "Jane Smith", description: "Check-up", type: "Check-up", color: "green" },
+    { date: "2024-06-14T09:00:00.000Z", time: "09:00", patient: "Alice Brown", description: "Follow-up", type: "Follow-up", color: "yellow" },
+    { date: "2024-06-17T10:00:00.000Z", time: "10:00", patient: "Bob White", description: "Consultation", type: "Consultation", color: "blue" },
+    { date: "2024-06-18T16:00:00.000Z", time: "16:00", patient: "Charlie Black", description: "Check-up", type: "Check-up", color: "green" }
+];
+
+const groupedAppointments = transformReceptions(appointments);
+console.log(groupedAppointments);
+*/

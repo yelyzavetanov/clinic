@@ -74,7 +74,8 @@ export function getWeekArray(date) {
 
         return {
             weekDay: day,
-            date: `${dayString}.${monthString}`
+            // date: `${dayString}.${monthString}`
+            date: format(currentDay, "yyyy-MM-dd")
         };
     });
 
