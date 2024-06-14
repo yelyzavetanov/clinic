@@ -24,8 +24,8 @@ export function getWeekDates(date) {
     // };
 
     return {
-        monday: format(monday, 'dd.MM.yyyy'),
-        saturday: format(saturday, 'dd.MM.yyyy')
+        monday: format(monday, 'dd.MM.yy'),
+        saturday: format(saturday, 'dd.MM.yy')
     };
 }
 

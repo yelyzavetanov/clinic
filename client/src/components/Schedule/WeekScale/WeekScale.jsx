@@ -14,6 +14,7 @@ function WeekScale(props) {
                     dayNumber={props.weekArray.indexOf(e) + 1}
                     currentDay={currentWeekDay}
                     key={props.weekArray.indexOf(e)}
+                    currentDate={props.currentDate}
                 />
             )}
         </div>

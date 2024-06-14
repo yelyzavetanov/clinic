@@ -59,6 +59,8 @@ function Schedule(props) {
                 <div className={s.scheduleVerticalContainer}>
                     <TimeScale/>
                     <ScheduleTable
+                        currentDate={currentDate}
+                        weekArray={weekArray}
                         mondayDate={weekArray[0].date}
                         scheduleArray={scheduleArray}
                         setCurrentReceptionInfo={props.setCurrentReceptionInfo}

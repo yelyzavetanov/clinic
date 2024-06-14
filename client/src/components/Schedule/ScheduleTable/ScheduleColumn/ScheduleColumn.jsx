@@ -7,6 +7,7 @@ function ScheduleColumn(props) {
         <div className={s.scheduleColumn}>
             {props.dayInfo.map(e =>
                 <ScheduleItem
+                    isToday={props.isToday}
                     setCurrentReceptionInfo={props.setCurrentReceptionInfo}
                     receptionInfo={e}
                     key={props.dayInfo.indexOf(e)}

@@ -4,7 +4,12 @@ import {format} from "date-fns";
 
 function WeekDay(props){
 
-    const isCurrentWeekDay = props.weekDay === props.currentDay;
+    const isCurrentWeekDay =
+        (props.weekDay === props.currentDay)
+        &&
+        (format(props.date, "dd-MM-yyyy") === format(props.currentDate, "dd-MM-yyyy"));
+
+    // console.log(props);
 
     return(
         <div className={isCurrentWeekDay ? s.currentWeekDay : s.weekDay}>

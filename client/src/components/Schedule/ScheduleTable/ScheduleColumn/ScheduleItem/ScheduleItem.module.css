@@ -3,7 +3,8 @@
 .scheduleActiveItemRed,
 .scheduleActiveItemBlue,
 .scheduleActiveItemGreen,
-.scheduleActiveItemPurple {
+.scheduleActiveItemPurple,
+.todayScheduleItem {
     padding: 0.5em;
     box-sizing: border-box;
     border-bottom: #eef0f2 0.1em solid;
@@ -12,6 +13,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.todayScheduleItem {
+    background: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 5px,
+            #eef0f299 5px,
+            #eef0f299 10px
+    );
 }
 
 .scheduleActiveItemRed {

@@ -21,9 +21,11 @@ function ScheduleItem(props) {
         }
     }
 
+    // console.log(props);
+
     return (
         <div
-            className={props.receptionInfo.patient ? getItemClassName() : s.scheduleItem}
+            className={props.receptionInfo.patient ? getItemClassName() : props.isToday ? s.todayScheduleItem : s.scheduleItem}
             onClick={onItemClick}
         >
             {props.receptionInfo.patient &&
@@ -36,7 +38,7 @@ function ScheduleItem(props) {
             <div> </div>
             <div className={s.time}>
                <div>
-                   {props.receptionInfo.patient ? format(props.receptionInfo.date, 'yyyy-MM-dd') : ""}
+                   {props.receptionInfo.patient ? format(props.receptionInfo.date, 'dd.MM.yy') : ""}
                </div>
                <div>
                    {props.receptionInfo.patient ? props.receptionInfo.time : ""}
