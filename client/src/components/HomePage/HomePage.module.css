@@ -85,6 +85,7 @@
 
     .info {
         flex-direction: column;
+        padding: 2em;
     }
 
     .description {
@@ -96,5 +97,6 @@
     }
 
     .title {
+
     }
 }

@@ -10,6 +10,7 @@
 .receptionInfoHeader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 1em;
 }
 
@@ -24,6 +25,15 @@
 .info span {
     padding: 0.5em;
 }
+
+.redItem span, .blueItem span, .greenItem span, .purpleItem span {
+    font-weight: 500;
+}
+
+.redItem span {color: #e74c3c;}
+.blueItem span {color: #438ecc;}
+.greenItem span {color: #27ae60;}
+.purpleItem span {color: #a32cdf;}
 
 .closeButton {
     border-radius: 0.5em;

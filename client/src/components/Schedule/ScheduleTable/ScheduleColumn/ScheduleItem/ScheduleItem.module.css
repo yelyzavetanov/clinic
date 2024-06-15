@@ -79,6 +79,10 @@
     font-size: 0.8em;
 }
 
+.time div:first-child {
+    color: #00000099;
+}
+
 @media only screen and (max-width: 40em) {
     .scheduleItem,
     .scheduleActiveItem,
@@ -97,6 +101,7 @@
     }
 
     .time {
-        width: max-content
+        width: max-content;
+        text-align: center;
     }
 }

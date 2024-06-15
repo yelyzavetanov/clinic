@@ -32,13 +32,12 @@ function ScheduleItem(props) {
                 <div className={s.patientInfo}>
                     <div className={s.patient}>{props.receptionInfo.patient}</div>
                     <div className={s.description}>{props.receptionInfo.description}</div>
-                    {/*<div className={s.description}>{props.color}</div>*/}
                 </div>
             }
             <div> </div>
             <div className={s.time}>
                <div>
-                   {props.receptionInfo.patient ? format(props.receptionInfo.date, 'dd.MM.yy') : ""}
+                   {props.receptionInfo.patient ? format(props.receptionInfo.date, 'dd.MM') : ""}
                </div>
                <div>
                    {props.receptionInfo.patient ? props.receptionInfo.time : ""}

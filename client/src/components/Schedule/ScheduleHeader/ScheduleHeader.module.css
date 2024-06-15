@@ -98,4 +98,15 @@
     .selectDayContainer {
         flex-direction: column;
     }
+
+    .selectWeek {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .weekLabel {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 0.5em;
+    }
 }

@@ -16,7 +16,7 @@ function Schedule(props) {
     const account = useSelector(state => state.user.account);
     const dispatch = useDispatch();
 
-    const currentDate = useSelector(state => state.schedule.currentDate);
+    const currentDate = new Date(useSelector(state => state.schedule.currentDate));
     const [shownDate, setShownDate] = useState(currentDate);
     const weekArray = getWeekArray(shownDate);
 

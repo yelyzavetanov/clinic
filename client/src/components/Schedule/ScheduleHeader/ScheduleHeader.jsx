@@ -42,7 +42,7 @@ function ScheduleHeader(props) {
                     </div>
                 </div>
                 <div className={s.selectWeek}>
-                    <span>Week: </span>
+                    <span className={s.weekLabel}>Week: </span>
                     <button onClick={onPreviousWeek}>{"<"}</button>
                     <span>{weekDates.monday}</span>
                     -

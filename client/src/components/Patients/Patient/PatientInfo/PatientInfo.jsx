@@ -2,11 +2,12 @@ import React, {useEffect, useState} from "react";
 import s from "./PatientInfo.module.css";
 import {useDispatch} from "react-redux";
 import {deletePatient, editPatient, fetchPatients} from "../../../../reducers/patientsSlice";
+import {format} from "date-fns";
 
 function PatientInfo(props) {
     const [isEditMode, setIsEditMode] = useState(false);
 
-    const [birthDate, setBirthDate] = useState(props.patient.birth_date);
+    const [birthDate, setBirthDate] = useState(format(props.patient.birth_date, "dd.MM.yyyy"));
     const [description, setDescription] = useState(props.patient.description);
     const [problems, setProblems] = useState(props.patient.problems);
     const [treatment, setTreatment] = useState(props.patient.treatment);

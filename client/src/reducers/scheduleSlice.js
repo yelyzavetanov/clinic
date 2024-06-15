@@ -23,8 +23,13 @@ export const markReception = createAsyncThunk('schedule/markReception', async ({
     return response.data;
 });
 
+const setCurrentDate = (date) => ({
+    type: 'SET_CURRENT_DATE',
+    payload: date.toISOString(),
+});
+
 const initialState = {
-    currentDate: new Date(),
+    currentDate: setCurrentDate(new Date()).payload,
     loading: false,
     currentDoctorUsername: null,
     schedule: [],

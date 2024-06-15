@@ -6,6 +6,15 @@ import { format } from 'date-fns';
 function ReceptionInfo(props) {
     const date = new Date(props.info.date);
 
+    const getItemClassName = (color) => {
+        switch (color) {
+            case "red": return s.redItem;
+            case "blue": return s.blueItem;
+            case "green": return s.greenItem;
+            case "purple": return s.purpleItem;
+        }
+    }
+
     return (
         <div className={s.receptionInfo}>
             <div className={s.receptionInfoHeader}>
@@ -16,11 +25,11 @@ function ReceptionInfo(props) {
             </div>
             <GrayLine/>
             <div className={s.info}>
-                <div>
+                <div className={getItemClassName(props.info.color)}>
                     Patient:
                     <span>{props.info.patient}</span>
                 </div>
-                <div>
+                <div className={getItemClassName(props.info.color)}>
                     Type:
                     <span>{props.info.type}</span>
                 </div>
@@ -35,6 +44,10 @@ function ReceptionInfo(props) {
                 <div>
                     Time:
                     <span>{props.info.time}</span>
+                </div>
+                <div className={getItemClassName(props.info.color)}>
+                    Color:
+                    <span>{props.info.color}</span>
                 </div>
             </div>
         </div>

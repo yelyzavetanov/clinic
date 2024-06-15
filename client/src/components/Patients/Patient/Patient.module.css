@@ -53,5 +53,9 @@
     .description {
         display: none;
     }
+
+    .name {
+        width: 60vw;
+    }
 }
 

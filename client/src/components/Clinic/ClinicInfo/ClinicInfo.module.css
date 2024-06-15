@@ -64,3 +64,10 @@
 .buttonsContainer {
     margin-top: 1em;
 }
+
+@media only screen and (max-width: 40em) {
+    .clinicImgContainer, .clinicImgContainer img {
+        width: 100%;
+        height: unset;
+    }
+}
