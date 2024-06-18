@@ -41,11 +41,16 @@ router.post('/', authenticateToken, async (req, res) => {
 
 // Mark reception
 router.put('/:id', authenticateToken, async (req, res) => {
-    const { id } = req.params;
-    const updatedData = req.body;
+    const {id} = req.params;
+    const {newStatus} = req.body;
+
+    console.log('Request body:', req.body); // Налагоджувальний вивід
+    console.log('ID:', id);
+    console.log('New status:', newStatus);
+
     try {
-        await Schedule.markReception(id, updatedData);
-        res.status(200).json({ message: 'Reception updated successfully' });
+        await Schedule.markReception(id, newStatus);
+        res.status(200).json({ message: 'Reception status updated successfully' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

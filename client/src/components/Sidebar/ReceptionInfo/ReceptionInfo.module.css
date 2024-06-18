@@ -26,14 +26,20 @@
     padding: 0.5em;
 }
 
-.redItem span, .blueItem span, .greenItem span, .purpleItem span {
+.doubleItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.redItem span, .blueItem span, .greenItem span, .purpleItem span,
+.redItem, .blueItem, .greenItem {
     font-weight: 500;
 }
 
-.redItem span {color: #e74c3c;}
-.blueItem span {color: #438ecc;}
-.greenItem span {color: #27ae60;}
-.purpleItem span {color: #a32cdf;}
+.redItem span, .redItem {color: #e74c3c;}
+.blueItem span, .blueItem {color: #438ecc;}
+.greenItem span, .greenItem {color: #27ae60;}
+.purpleItem span, .purpleItem {color: #a32cdf;}
 
 .closeButton {
     border-radius: 0.5em;
@@ -47,4 +53,33 @@
 .closeButton:hover {
     background: #a32cdf;
     color: #ffffff;
+}
+
+.plannedButton, .completedButton {
+    /*background: #ffffff;*/
+    border: #a32cdf 0.1em solid;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    width: 7em;
+    transition: 0.5s;
+}
+
+.plannedButton {
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+}
+
+.completedButton, .plannedButton:hover {
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.makeCompleted {
+    color: transparent;
+    padding: 0.5em;
+    transition: 0.5s;
+}
+
+.plannedButton:hover + .makeCompleted {
+    color: #999999;
 }

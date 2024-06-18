@@ -101,4 +101,8 @@ textarea {
     .editButton{
         margin-top: 1em;
     }
+
+    .error, .deleteMessage {
+        padding: 1em 0 0;
+    }
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const authenticateToken = require('../middleware/authenticateToken');
 const User = require('../models/User');
+const {Doctor} = require("../models/Doctor");
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -46,8 +47,13 @@ router.post('/signup', async (req, res) => {
             return res.status(400).json({ message: 'User with this username already exists' });
         }
 
+        if (status === "doctor") {
+            await Doctor.addDoctor(id, username, password, name, clinic, status, specialization, description);
+        }
+
         const result = await User.signUp(id, username, password, name, clinic, status, specialization, description);
         res.status(201).json({ message: 'User created successfully', result });
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });

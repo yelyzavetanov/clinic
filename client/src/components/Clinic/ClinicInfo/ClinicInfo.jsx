@@ -6,7 +6,6 @@ import {editClinic} from "../../../reducers/clinicSlice";
 function ClinicInfo(props) {
     const clinic = useSelector(state => state.clinic.clinic);
     const dispatch = useDispatch();
-    // console.log(clinic.name);
 
     const [clinicInfo, setClinicInfo] = useState({
         name: clinic ? clinic.name : "",
@@ -19,7 +18,6 @@ function ClinicInfo(props) {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        // console.log("use effect");
         setClinicInfo({
             name: clinic ? clinic.name : "",
             description: clinic ? clinic.description : "",
@@ -96,12 +94,12 @@ function ClinicInfo(props) {
                 <div className={s.infoItem}>
                     <span>Description:</span>
                     {editMode ? (
-                        <input
+                        <textarea
                             name="description"
                             value={clinicInfo.description}
                             onChange={onClinicInfoChange}
                             placeholder={"Your clinic description..."}
-                        />
+                        ></textarea>
                     ) : (
                         <span>{clinicInfo.description}</span>
                     )}

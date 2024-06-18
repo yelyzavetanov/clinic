@@ -4,7 +4,8 @@
 .scheduleActiveItemBlue,
 .scheduleActiveItemGreen,
 .scheduleActiveItemPurple,
-.todayScheduleItem {
+.todayScheduleItem,
+.scheduleCompletedItem {
     padding: 0.5em;
     box-sizing: border-box;
     border-bottom: #eef0f2 0.1em solid;
@@ -54,6 +55,13 @@
     color: #a32cdf;
 }
 
+.scheduleCompletedItem {
+    background: #eef0f299;
+}
+.scheduleCompletedItem .patient {
+    color: #999999;
+}
+
 .scheduleActiveItem {
     background: #a32cdf20;
 }
@@ -90,7 +98,8 @@
     .scheduleActiveItemBlue,
     .scheduleActiveItemGreen,
     .scheduleActiveItemPurple,
-    .todayScheduleItem {
+    .todayScheduleItem,
+    .scheduleCompletedItem {
         height: 4em;
         justify-content: center;
         align-items: center;

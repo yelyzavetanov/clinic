@@ -41,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: left;
 }
 
 .selectDayButton, .selectedDay {
@@ -82,6 +83,15 @@
 
 .selectWeek span {
     padding: 0 0.5em;
+}
+
+.currentDoctor {
+    text-align: left;
+}
+
+.currentDoctor span {
+    font-weight: 500;
+    padding: 0.5em;
 }
 
 @media only screen and (max-width: 40em) {

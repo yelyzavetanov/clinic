@@ -10,6 +10,7 @@ import {fetchSchedule} from "../../reducers/scheduleSlice";
 import {transformReceptions} from "../../scheduleFuntions/sortSchedule";
 import Message from "../common/Message/Message";
 import {getWeekArray} from "../../scheduleFuntions/getWeekDates";
+import doctor from "../Doctors/Doctor/Doctor";
 
 function Schedule(props) {
     const doctorUsername = useSelector(state => state.schedule.currentDoctorUsername);
@@ -44,6 +45,8 @@ function Schedule(props) {
         <div className={s.scheduleContainer}>
             <div className={s.schedule}>
                 <ScheduleHeader
+                    account={account}
+                    currentDoctor={doctorUsername}
                     currentDate={currentDate}
                     shownDate={shownDate}
                     setShownDate={setShownDate}

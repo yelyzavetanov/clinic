@@ -65,9 +65,22 @@
     margin-top: 1em;
 }
 
+.infoItem textarea {
+    width: 30em;
+}
+
 @media only screen and (max-width: 40em) {
     .clinicImgContainer, .clinicImgContainer img {
         width: 100%;
         height: unset;
+    }
+
+    .infoItem textarea {
+        width: 100%;
+    }
+
+    .infoItem input {
+        margin: 0.5em 0 0;
+        display: block;
     }
 }

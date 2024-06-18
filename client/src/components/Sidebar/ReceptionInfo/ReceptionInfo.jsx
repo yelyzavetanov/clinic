@@ -1,18 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import s from "./ReceptionInfo.module.css";
 import GrayLine from "../../common/GrayLine/GrayLine";
-import { format } from 'date-fns';
+import {format} from 'date-fns';
+import {useDispatch} from "react-redux";
+import {markReception} from "../../../reducers/scheduleSlice";
 
 function ReceptionInfo(props) {
     const date = new Date(props.info.date);
 
+    const [status, setStatus] = useState(props.info.status);
+    const dispatch = useDispatch();
+
     const getItemClassName = (color) => {
         switch (color) {
-            case "red": return s.redItem;
-            case "blue": return s.blueItem;
-            case "green": return s.greenItem;
-            case "purple": return s.purpleItem;
+            case "red":
+                return s.redItem;
+            case "blue":
+                return s.blueItem;
+            case "green":
+                return s.greenItem;
+            case "purple":
+                return s.purpleItem;
         }
+    }
+
+    // console.log(props.info.id);
+
+    useEffect(() => {
+        setStatus(props.info.status);
+    }, [props.info.status]);
+
+    const onCompleteButton = () => {
+        dispatch(markReception(
+            {
+                id: props.info.id,
+                newStatus: "Completed!",
+            }
+        ));
+        setStatus("Completed!");
     }
 
     return (
@@ -25,30 +50,32 @@ function ReceptionInfo(props) {
             </div>
             <GrayLine/>
             <div className={s.info}>
-                <div className={getItemClassName(props.info.color)}>
-                    Patient:
-                    <span>{props.info.patient}</span>
-                </div>
-                <div className={getItemClassName(props.info.color)}>
-                    Type:
-                    <span>{props.info.type}</span>
-                </div>
                 <div>
-                    Description:
-                    <span>{props.info.description}</span>
+                    <b className={getItemClassName(props.info.color)}>{props.info.patient}</b>
+                    <br/>
+                    {props.info.type}
                 </div>
-                <div>
-                    Date:
-                    <span>{format(date, 'yyyy-MM-dd')}</span>
+                <div className={s.doubleItem}>
+                    {format(date, 'dd MMMM yyyy')}
+                    <br/>
+                    {props.info.time}
                 </div>
-                <div>
-                    Time:
-                    <span>{props.info.time}</span>
-                </div>
-                <div className={getItemClassName(props.info.color)}>
-                    Color:
-                    <span>{props.info.color}</span>
-                </div>
+            </div>
+            <div>
+                Description:
+                <br/>
+                <span>{props.info.description}</span>
+            </div>
+            <br/>
+            <div>
+                {/*<span>{props.info.status}</span>*/}
+                {status === "Planned" || status === "planned"
+                    ? <span>
+                        <button className={s.plannedButton} onClick={onCompleteButton}>{status}</button>
+                        <span className={s.makeCompleted}>Complete this reception!</span>
+                    </span>
+                    : <button className={s.completedButton} onClick={() => setStatus("Planned")}>{status}</button>
+                }
             </div>
         </div>
     )

@@ -34,7 +34,6 @@ function AddReception(props) {
 
     const onAddReceptionButton = () => {
         if (Object.values(addReceptionFormState).some(value => value.trim() === "")) {
-            console.log("error");
             setError("All fields are required.");
         } else if (props.status === "administrator") {
             dispatch(addReception({
@@ -46,6 +45,7 @@ function AddReception(props) {
                 color: addReceptionFormState.color,
                 description: addReceptionFormState.description,
                 doctor_username: currentDoctorUsername,
+                status: "planned"
             }));
             // console.log(addReceptionFormState);
             props.setIsAddReceptionForm(false);
@@ -59,6 +59,7 @@ function AddReception(props) {
                 color: addReceptionFormState.color,
                 description: addReceptionFormState.description,
                 doctor_username: account.username,
+                status: "planned"
             }));
             // console.log(addReceptionFormState);
             props.setIsAddReceptionForm(false);
@@ -95,7 +96,7 @@ function AddReception(props) {
                         value={addReceptionFormState.patient}
                         onChange={event => onFormChange(event)}
                     >
-                        {patients.map(e => <option>{e.name}</option>)}
+                        {patients.map(e => <option key={crypto.randomUUID()}>{e.name}</option>)}
                     </select>
                 </div>
                 <div className={s.type}>

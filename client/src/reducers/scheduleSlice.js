@@ -14,12 +14,12 @@ export const fetchSchedule = createAsyncThunk('schedule/fetchSchedule', async (d
 
 export const addReception = createAsyncThunk('schedule/addReception', async (newReception, { dispatch }) => {
     const response = await axios.post('http://localhost:5000/schedule', newReception);
-    console.log("action creator: ", newReception);
     return response.data;
 });
 
-export const markReception = createAsyncThunk('schedule/markReception', async ({ id, updatedData }, { dispatch }) => {
-    const response = await axios.put(`http://localhost:5000/schedule/${id}`, updatedData);
+export const markReception = createAsyncThunk('schedule/markReception', async ({ id, newStatus }, { dispatch }) => {
+    console.log(id, newStatus);
+    const response = await axios.put(`http://localhost:5000/schedule/${id}`, {newStatus});
     return response.data;
 });
 

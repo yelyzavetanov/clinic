@@ -7,7 +7,7 @@ function Calendar() {
     return (
         <div className={s.Calendar}>
                 <div className={s.calendarHeader}>
-                    <div className={s.calendarHeaderTitle}>November 2020</div>
+                    <div className={s.calendarHeaderTitle}>June 2024</div>
                     <div className={s.calendarButtonContainer}>
                         <div className={s.calendarHeaderButton1}>
                             {"<"}

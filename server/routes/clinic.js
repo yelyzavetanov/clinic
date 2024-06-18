@@ -61,7 +61,7 @@ router.put('/:clinicName', async (req, res) => {
     const { clinicName } = req.params;
     const { name, address, specialization, description } = req.body;
     try {
-        await Clinic.update(clinicName, name, address, specialization, description);
+        await Clinic.update(clinicName, name, address, description, specialization);
         const updatedClinic = await Clinic.findByName(clinicName);
         res.status(200).json(updatedClinic);
     } catch (error) {

@@ -1,6 +1,6 @@
 .doctor {
     padding: 1.5em;
-    width: 10em;
+    width: 15em;
 }
 
 .doctor:hover .name {
@@ -8,13 +8,18 @@
 }
 
 .doctor img {
-    height: 5em;
+    height: 7em;
     border-radius: 0.5em;
 }
 
 .name {
     font-weight: 500;
     /*padding: 0.5em;*/
+}
+
+.specialization {
+    color: #999999;
+    padding-top: 0.5em;
 }
 
 .description {

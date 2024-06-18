@@ -8,7 +8,7 @@ class Schedule {
     }
 
     static async addReception(newReception) {
-        const query = 'INSERT INTO receptions (id, doctor_username, date, time, patient, color, type, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+        const query = `INSERT INTO \`receptions\` (\`id\`, \`doctor_username\`, \`date\`, \`time\`, \`patient\`, \`color\`, \`type\`, \`description\`, \`status\`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         const [result] = await pool.query(query, [
             newReception.id,
             newReception.doctor_username,
@@ -18,13 +18,15 @@ class Schedule {
             newReception.color,
             newReception.type,
             newReception.description,
+            newReception.status,
         ]);
         return result;
     }
 
-    static async markReception(id, updatedData) {
+
+    static async markReception(id, newStatus) {
         const query = 'UPDATE receptions SET status = ? WHERE id = ?';
-        const [result] = await pool.query(query, [updatedData.status, id]);
+        const [result] = await pool.query(query, [newStatus, Number(id)]);
         return result;
     }
 }

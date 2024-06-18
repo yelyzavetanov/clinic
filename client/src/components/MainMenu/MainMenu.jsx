@@ -37,14 +37,14 @@ function MainMenu(props) {
                                     className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                                 >
                                     <img src={scheduleIcon}/>
-                                    <a>Schedule</a>
+                                    <span>Schedule</span>
                                 </NavLink>
                                 <NavLink
                                     to={"/patients"}
                                     className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                                 >
                                     <img src={patientsIcon}/>
-                                    <a>Patients</a>
+                                    <span>Patients</span>
                                 </NavLink>
                             </>
                         }
@@ -54,7 +54,7 @@ function MainMenu(props) {
                                 className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                             >
                                 <img src={doctorsIcon}/>
-                                <a>Doctors</a>
+                                <span>Doctors</span>
                             </NavLink>
                         }
                         <NavLink
@@ -62,14 +62,14 @@ function MainMenu(props) {
                             className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                         >
                             <img src={clinicIcon}/>
-                            <a>Clinic</a>
+                            <span>Clinic</span>
                         </NavLink>
                         <NavLink
                             to={"/account"}
                             className={({isActive}) => isActive ? s.selectedLinkContainer : s.linkContainer}
                         >
                             <img src={accountIcon}/>
-                            <a>Account</a>
+                            <span>Account</span>
                         </NavLink>
                     </div>
                 </div>

@@ -13,6 +13,10 @@ function ScheduleItem(props) {
     }
 
     const getItemClassName = () => {
+        if (props.receptionInfo.status.toLowerCase() === "completed" || props.receptionInfo.status.toLowerCase() === "completed!") {
+            return s.scheduleCompletedItem;
+        }
+
         switch (props.receptionInfo.color) {
             case "red": return s.scheduleActiveItemRed;
             case "blue": return s.scheduleActiveItemBlue;
