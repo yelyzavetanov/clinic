@@ -4,7 +4,7 @@ export function generateCalendar() {
     for (let i = 0; i < 5; i++) {
         calendar.push(generateWeek(i));
     }
-
+    console.log(calendar);
     return calendar;
 }
 

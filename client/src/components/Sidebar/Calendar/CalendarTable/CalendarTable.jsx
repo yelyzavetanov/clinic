@@ -1,15 +1,13 @@
 import React from 'react';
 import s from "./CalendarTable.module.css";
 import CalendarRow from "./CalendarRow/CalendarRow";
-import {generateCalendar} from "../../../../scheduleGenerator/calendarGenerator";
+import {generateCalendar} from "../../../../calendarFunctions/generateCalendar";
 
-function CalendarTable() {
-    const calendarArray = generateCalendar();
-
+function CalendarTable(props) {
     return (
         <div className={s.calendarTable}>
-            {calendarArray.map(e =>
-                <CalendarRow week={e} key={calendarArray.indexOf(e)}/>
+            {props.calendarArray.map(e =>
+                <CalendarRow week={e} key={crypto.randomUUID()} currentDate={props.currentDate}/>
             )}
         </div>
     )

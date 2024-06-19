@@ -2,7 +2,7 @@ import React from  'react';
 import s from './CalendarWeek.module.css';
 import CalendarWeekDay from "./CalendarWeekDay/CalendarWeekDay";
 
-function CalendarWeek(props){
+function CalendarWeek(){
 
     const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 

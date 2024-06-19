@@ -1,5 +1,12 @@
-.calendarWeekDay {
-    /*color: #999999;*/
+.calendarWeekDay, .todayCalendarDay {
     width: 14%;
     padding: 0.5em 0;
+}
+
+.today {
+    background: #a32cdf;
+    color: #ffffff;
+    border-radius: 0.5em;
+    padding: 0.3em 0.4em;
+    width: 100%;
 }
