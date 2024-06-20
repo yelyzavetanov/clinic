@@ -1,0 +1,40 @@
+.app, .fullApp {
+    text-align: center;
+    display: grid;
+    grid-template-areas: "menu main";
+    transition-duration: 1s;
+}
+
+.fullApp {
+    grid-template-columns: 1fr 5fr;
+}
+
+.app {
+    grid-template-columns: 1fr 15fr;
+}
+
+.mainContent {
+    grid-area: main;
+}
+
+.menu {
+    grid-area: menu;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 40em) {
+    .app, .fullApp {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .menu {
+        width: 100%;
+    }
+}

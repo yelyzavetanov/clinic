@@ -1,0 +1,46 @@
+.doctorInfo {
+    padding-top: 1em;
+}
+
+.doctorInfo img {
+    height: 7em;
+    border-radius: 0.5em;
+}
+
+.doctorInfo div {
+    padding: 0.5em 0;
+}
+
+.name {
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.backButton {
+    border: #a32cdf 0.1em solid;
+    border-radius: 0.5em;
+    background: #ffffff;
+    color: #a32cdf;
+    padding: 0.5em 1em;
+    transition: 0.5s;
+}
+
+.backButton:hover {
+    color: #ffffff;
+    background: #a32cdf;
+}
+
+.viewScheduleButton {
+    transition: 0.5s;
+    padding: 0.5em 2em;
+    border-radius: 0.5em;
+    border: #a32cdf 0.1em solid;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+    margin-right: 0.5em;
+}
+
+.viewScheduleButton:hover {
+    background: #ffffff;
+    color: #a32cdf;
+}

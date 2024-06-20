@@ -1,0 +1,112 @@
+.addReception {
+    padding: 1.5em 0;
+}
+
+.addReceptionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.titleReception {
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+}
+
+.contentReception {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.receptionButton, .closeButton {
+    border: none;
+    transition: 0.5s;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    color: #ffffff;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+}
+
+.receptionButton:hover, .closeButton {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.closeButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.5em 0;
+}
+
+select {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: #a32cdf;
+    border-color: #a32cdf;
+}
+
+.time input {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: #a32cdf;
+    border: #999999 0.1em solid;
+}
+
+.description {
+    text-align: left;
+}
+
+.description textarea {
+    width: 100%;
+}
+
+.red {
+    border-color: #e74c3c;
+    /*background: red;*/
+    color: #e74c3c;
+}
+.green {
+    border-color: #27ae60;
+    color: #27ae60;
+}
+.blue {
+     border-color: #438ecc;
+     color: #438ecc;
+}
+.purple {
+      border-color: #a32cdf;
+      color: #a32cdf;
+}
+
+.error {
+    font-weight: 500;
+    color: red;
+    text-align: left;
+}
+
+@media only screen and (max-width: 40em) {
+    .addReception {
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+    }
+
+    .time input {
+        margin: 0.2em;
+    }
+
+    select {
+        margin: 0.2em;
+    }
+}

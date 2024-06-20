@@ -1,0 +1,61 @@
+.selectedPatient {
+    margin-bottom: 2em;
+}
+
+.selectedPatient .name {
+    color: #a32cdf;
+}
+
+.patientHeader {
+    text-align: left;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name, .more, .less {
+    width: 15%;
+}
+
+.description {
+    width: 70%;
+    text-align: left;
+}
+
+.more, .less {
+    text-align: right;
+}
+
+.name {
+    font-weight: 500;
+}
+
+.fullInfo {
+    margin-bottom: 1em;
+}
+
+.more button, .less button {
+    transition: 0.5s;
+    width: 3.5em;
+    border: #a32cdf 0.1em solid;
+    border-radius: 0.5em;
+    background: #ffffff;
+    padding: 0.2em 0.5em;
+    color: #a32cdf;
+}
+
+.more button:hover, .less button {
+    background: #a32cdf;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 40em) {
+    .description {
+        display: none;
+    }
+
+    .name {
+        width: 60vw;
+    }
+}
+

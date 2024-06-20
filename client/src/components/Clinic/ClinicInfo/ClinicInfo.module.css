@@ -1,0 +1,86 @@
+.clinicInfo {
+
+}
+
+.clinicForm {
+
+}
+
+.title {
+    font-weight: 500;
+    padding: 1em 0;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+}
+
+.editButton {
+    transition: 0.5s;
+    border-radius: 0.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+    width: 3.5em;
+    padding: 0.2em 0.5em;
+    border: #a32cdf 0.1em solid;
+    height: max-content;
+}
+
+.editButton:hover {
+    width: 3.5em;
+    border: #a32cdf 0.1em solid;
+    border-radius: 0.5em;
+    background: #ffffff;
+    padding: 0.2em 0.5em;
+    color: #a32cdf;
+}
+
+.clinicImgContainer {
+    height: 15em;
+    padding-bottom: 1em;
+}
+
+.clinicImgContainer img {
+    height: 100%;
+    border-radius: 0.5em;
+}
+
+.infoItem {
+    padding: 0.2em 0;
+}
+
+.infoItem input {
+    padding: 0.5em;
+    border: #999999 0.1em solid;
+    border-radius: 0.5em;
+    margin-left: 1em;
+}
+
+.infoItem span {
+    padding-right: 0.5em;
+}
+
+.buttonsContainer {
+    margin-top: 1em;
+}
+
+.infoItem textarea {
+    width: 30em;
+}
+
+@media only screen and (max-width: 40em) {
+    .clinicImgContainer, .clinicImgContainer img {
+        width: 100%;
+        height: unset;
+    }
+
+    .infoItem textarea {
+        width: 100%;
+    }
+
+    .infoItem input {
+        margin: 0.5em 0 0;
+        display: block;
+    }
+}

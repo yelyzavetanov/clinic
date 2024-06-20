@@ -1,0 +1,12 @@
+.weekScale {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4em;
+}
+
+@media only screen and (max-width: 40em) {
+    .weekScale {
+        padding-top: 1em;
+        margin: 0;
+    }
+}

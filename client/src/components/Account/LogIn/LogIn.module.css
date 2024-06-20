@@ -1,0 +1,68 @@
+.logInContainer {
+
+}
+
+.logIn {
+    padding-top: 1em;
+    width: 15em;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.logInForm {
+    padding-top: 1em;
+}
+
+.logInForm div {
+    padding: 0.5em 0;
+}
+
+.logInForm input {
+    width: 100%;
+    box-sizing: border-box;
+    border: #999999 0.1em solid;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-size: 0.9em;
+}
+
+.logInForm input:focus {
+    border-color: #a32cdf;
+}
+
+.logInForm span {
+    display: block;
+    padding-bottom: 0.5em;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logInButton, .createAccountButton {
+    transition: 0.5s;
+    border: none;
+    padding: 0.5em 2em;
+    border-radius: 0.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+}
+
+.logInButton:hover, .createAccountButton {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.createAccountButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
+}

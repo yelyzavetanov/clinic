@@ -1,0 +1,116 @@
+.scheduleItem,
+.scheduleActiveItem,
+.scheduleActiveItemRed,
+.scheduleActiveItemBlue,
+.scheduleActiveItemGreen,
+.scheduleActiveItemPurple,
+.todayScheduleItem,
+.scheduleCompletedItem {
+    padding: 0.5em;
+    box-sizing: border-box;
+    border-bottom: #eef0f2 0.1em solid;
+    border-right: #eef0f2 0.1em solid;
+    height: 8.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.todayScheduleItem {
+    background: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 5px,
+            #eef0f299 5px,
+            #eef0f299 10px
+    );
+}
+
+.scheduleActiveItemRed {
+    background: #e74c3c25;
+}
+.scheduleActiveItemRed .patient {
+    /*color: #cd2e55;*/
+    color: #e74c3c;
+}
+
+.scheduleActiveItemBlue {
+    background: #438ecc22;
+}
+.scheduleActiveItemBlue .patient {
+    color: #438ecc;
+}
+
+.scheduleActiveItemGreen {
+    background: #27ae6025;
+}
+.scheduleActiveItemGreen .patient {
+    color: #27ae60;
+}
+
+.scheduleActiveItemPurple {
+    background: #a32cdf20;
+}
+.scheduleActiveItemPurple .patient {
+    color: #a32cdf;
+}
+
+.scheduleCompletedItem {
+    background: #eef0f299;
+}
+.scheduleCompletedItem .patient {
+    color: #999999;
+}
+
+.scheduleActiveItem {
+    background: #a32cdf20;
+}
+
+.patientInfo {
+    text-align: left;
+}
+
+.patient {
+    font-weight: 600;
+    color: #a32cdf;
+    padding-bottom: 0.2em;
+}
+
+.description {
+    font-size: 0.9em;
+}
+
+.time {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 0.8em;
+}
+
+.time div:first-child {
+    color: #00000099;
+}
+
+@media only screen and (max-width: 40em) {
+    .scheduleItem,
+    .scheduleActiveItem,
+    .scheduleActiveItemRed,
+    .scheduleActiveItemBlue,
+    .scheduleActiveItemGreen,
+    .scheduleActiveItemPurple,
+    .todayScheduleItem,
+    .scheduleCompletedItem {
+        height: 4em;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .patientInfo {
+        display: none;
+    }
+
+    .time {
+        width: max-content;
+        text-align: center;
+    }
+}

@@ -1,0 +1,42 @@
+.loadingContainer {
+    min-height: 100vh;
+    width: 100%;
+    background: #eef0f2;
+}
+
+.loading {
+    padding: 2em;
+    height: 100%;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    background: #ffffff;
+    color: #a32cdf;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.loading img {
+    height: 2em;
+    margin-top: 2em;
+}
+
+.loadingLabel {
+    padding: 1em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .loading img {
+        animation: App-logo-spin infinite 2.5s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

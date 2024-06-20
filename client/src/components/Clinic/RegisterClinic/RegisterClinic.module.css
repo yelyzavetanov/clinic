@@ -1,0 +1,44 @@
+.registerClinic {
+    width: 15em;
+}
+
+.title {
+    padding: 1em 0;
+    font-weight: 500;
+}
+
+.formItem {
+    padding: 0.5em 0;
+}
+
+.formItem input {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: #999999 0.1em solid;
+    display: block;
+    margin-top: 0.5em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.registerClinicButton {
+    margin-top: 1em;
+    transition: 0.5s;
+    border-radius: 0.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+    padding: 0.5em 1em;
+    border: #a32cdf 0.1em solid;
+    height: max-content;
+}
+
+.registerClinicButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+}

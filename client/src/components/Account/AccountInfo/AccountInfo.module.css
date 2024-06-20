@@ -1,0 +1,86 @@
+.accountInfo {
+    /*width: max-content;*/
+}
+
+.accountInfoInnerContainer {
+    display: flex;
+}
+
+.title {
+    padding: 1em 0;
+    font-weight: 500;
+}
+
+.accountInfo span {
+    padding: 0.5em;
+}
+
+.accountInfoItem {
+    padding-bottom: 0.5em;
+}
+
+.photo img {
+    height: 10em;
+    border-radius: 0.5em;
+}
+
+.photo {
+    margin-right: 1em;
+    padding: 0.5em 0;
+}
+
+.accountInfo input {
+    margin: 0 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: #999999 0.1em solid;
+}
+
+.buttonsContainer {
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+}
+
+.editButton, .exitButton {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    border: none;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: 0.5s;
+}
+
+.editButton:hover, .exitButton {
+    color: #a32cdf;
+    background: #ffffff;
+    border: #a32cdf 0.1em solid;
+}
+
+.exitButton:hover {
+    background: #a32cdf;
+    color: #ffffff;
+}
+
+.exitButton {
+    margin-left: 0.5em;
+}
+
+.exitMessage {
+    font-weight: 500;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 40em) {
+    .accountInfoInnerContainer {
+        flex-direction: column;
+    }
+
+    .photo {
+        margin: 0;
+    }
+}

@@ -1,0 +1,21 @@
+.clinicContainer {
+    background: #eef0f2;
+    min-height: 100vh;
+    width: 100%;
+    text-align: left;
+}
+
+.clinic {
+    background: #ffffff;
+    height: 100%;
+    padding: 2em;
+    box-sizing: border-box;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 1.5em;
+    padding-bottom: 1em;
+}

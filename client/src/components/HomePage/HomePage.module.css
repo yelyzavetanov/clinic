@@ -1,0 +1,102 @@
+.homePageContainer {
+    text-align: left;
+    min-height: 100vh;
+    width: 100%;
+    background: #eef0f2;
+}
+
+.homePage {
+    background: #ffffff;
+    padding: 2em;
+    /*height: 100%;*/
+    box-sizing: border-box;
+    width: 100%;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.banner {
+    background-image: url("https://kartinki.pics/uploads/posts/2021-07/1625709830_15-kartinkin-com-p-meditsina-oboi-krasivie-15.jpg");
+    height: 15em;
+    width: 100%;
+    padding: 2em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*border-radius: 2em;*/
+    border-top-left-radius: 2em;
+    font-weight: bold;
+    font-size: 20px;
+    /*border-bottom-left-radius: 2em;*/
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: 500;
+    padding: 0.5em 0;
+    text-align: left;
+    /*padding-bottom: 0.5em;*/
+
+}
+
+.info {
+    display: flex;
+    padding: 2em 1em;
+}
+
+.description {
+    text-align: left;
+    justify-content: space-between;
+    padding-right: 5em;
+    /*width: 50%;*/
+}
+
+.item {
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.itemTitle {
+    font-weight: 500;
+    padding-bottom: 0.5em;
+}
+
+.registerClinicButton {
+    transition: 0.5s;
+    border: none;
+    padding: 0.5em 2em;
+    border-radius: 0.5em;
+    background: linear-gradient(to top left, #61dbfb, #a32cdf);
+    color: #ffffff;
+    margin: 2em 0;
+}
+
+.registerClinicButton:hover {
+    border: #a32cdf 0.1em solid;
+    background: #ffffff;
+    color: #a32cdf;
+}
+
+@media only screen and (max-width: 40em) {
+    .homePage {
+        padding: 0;
+    }
+
+    .info {
+        flex-direction: column;
+        padding: 2em;
+    }
+
+    .description {
+        padding: 0;
+    }
+
+    .item {
+        padding: 1em 0;
+    }
+
+    .title {
+
+    }
+}
