@@ -73,8 +73,8 @@ const clinicSlice = createSlice({
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.loading = false;
-                state.message = "Your clinic registered successfully!";
-                state.errorMessage = action.error.message;
+                state.message = "Your clinic registered successfully! Now you can create users fro your clinic.";
+                state.errorMessage = null;
             })
             .addCase(register.rejected, (state, action) => {
                 state.loading = false;
