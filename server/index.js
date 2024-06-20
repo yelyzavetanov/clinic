@@ -13,6 +13,14 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
+// Налаштування статичних файлів з папки 'build'
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Обслуговування головної сторінки для всіх запитів
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
