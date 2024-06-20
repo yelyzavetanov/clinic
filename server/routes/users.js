@@ -52,7 +52,8 @@ router.post('/signup', async (req, res) => {
         }
 
         const result = await User.signUp(id, username, password, name, clinic, status, specialization, description);
-        res.status(201).json({ message: 'User created successfully', result });
+        const { token, user } = await User.logIn(username, password);
+        res.status(201).json({ message: 'User created successfully', result, token, user });
 
     } catch (error) {
         console.error(error);
