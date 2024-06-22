@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const fetchSchedule = createAsyncThunk('schedule/fetchSchedule', async (doctorUsername) => {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`http://localhost:5000/schedule/${doctorUsername}`, {
+    const response = await axios.get(`/schedule/${doctorUsername}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -13,13 +13,13 @@ export const fetchSchedule = createAsyncThunk('schedule/fetchSchedule', async (d
 });
 
 export const addReception = createAsyncThunk('schedule/addReception', async (newReception, { dispatch }) => {
-    const response = await axios.post('http://localhost:5000/schedule', newReception);
+    const response = await axios.post('/schedule', newReception);
     return response.data;
 });
 
 export const markReception = createAsyncThunk('schedule/markReception', async ({ id, newStatus }, { dispatch }) => {
     console.log(id, newStatus);
-    const response = await axios.put(`http://localhost:5000/schedule/${id}`, {newStatus});
+    const response = await axios.put(`/schedule/${id}`, {newStatus});
     return response.data;
 });
 

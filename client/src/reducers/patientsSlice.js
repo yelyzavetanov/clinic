@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchPatients = createAsyncThunk('patients/fetchPatients', async (clinicName) => {
     const token = localStorage.getItem('token');
     // console.log(clinicName);
-    const response = await axios.get(`http://localhost:5000/patients/${clinicName}`, {
+    const response = await axios.get(`/patients/${clinicName}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -14,19 +14,19 @@ export const fetchPatients = createAsyncThunk('patients/fetchPatients', async (c
 });
 
 export const addPatient = createAsyncThunk('patients/addPatient', async (newPatient, { dispatch }) => {
-    const response = await axios.post('http://localhost:5000/patients', newPatient);
+    const response = await axios.post('/patients', newPatient);
     dispatch(fetchPatients());
     return response.data;
 });
 
 export const editPatient = createAsyncThunk('patients/updatePatient', async ({ id, updatedData }, { dispatch }) => {
-    const response = await axios.put(`http://localhost:5000/patients/${id}`, updatedData);
+    const response = await axios.put(`/patients/${id}`, updatedData);
     dispatch(fetchPatients());
     return response.data;
 });
 
 export const deletePatient = createAsyncThunk('patients/deletePatient', async (id, { dispatch }) => {
-    await axios.delete(`http://localhost:5000/patients/${id}`);
+    await axios.delete(`/patients/${id}`);
     dispatch(fetchPatients());
     return id;
 });
