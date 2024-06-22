@@ -2,25 +2,26 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchClinicsList = createAsyncThunk('clinic/fetchClinicsList', async () => {
-    const response = await axios.get('http://localhost:5000/clinic');
+    const response = await axios.get('/clinic');
     return response.data;
 });
 
 export const fetchClinic = createAsyncThunk('clinic/fetchClinic', async (clinicName) => {
-    const response = await axios.get(`http://localhost:5000/clinic/${clinicName}`, clinicName);
+    const response = await axios.get(`/clinic/${clinicName}`, clinicName);
     return response.data;
 });
 
 export const register = createAsyncThunk('clinic/register', async (newClinic) => {
-    const response = await axios.post('http://localhost:5000/clinic/register', newClinic);
+    const response = await axios.post('/clinic/register', newClinic);
     return response.data;
 });
 
 export const editClinic = createAsyncThunk('clinic/editClinic', async ({ clinicName, updatedData }) => {
-    const response = await axios.put(`http://localhost:5000/clinic/${clinicName}`, updatedData);
+    const response = await axios.put(`/clinic/${clinicName}`, updatedData);
     console.log(clinicName, updatedData);
     return response.data;
 });
+
 
 const initialState = {
     loading: false,

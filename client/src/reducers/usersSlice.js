@@ -2,28 +2,28 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async (clinicName) => {
-    const response = await axios.get(`http://localhost:5000/users/${clinicName}`);
+    const response = await axios.get(`/users/${clinicName}`);
     // console.log("action creator");
     return response.data;
 });
 
 export const logIn = createAsyncThunk("users/logIn", async ({ username, password }) => {
-    const response = await axios.post("http://localhost:5000/users/login", { username, password });
+    const response = await axios.post("/users/login", { username, password });
     return response.data;
 });
 
 export const signUp = createAsyncThunk('users/signUp', async (newUser) => {
-    const response = await axios.post('http://localhost:5000/users/signup', newUser);
+    const response = await axios.post('/users/signup', newUser);
     return response.data;
 });
 
 export const editAccount = createAsyncThunk('users/editAccount', async ({ username, updatedData }) => {
-    const response = await axios.put(`http://localhost:5000/users/${username}`, updatedData);
+    const response = await axios.put(`/users/${username}`, updatedData);
     return response.data;
 });
 
 export const deleteAccount = createAsyncThunk('users/deleteAccount', async (username) => {
-    await axios.delete(`http://localhost:5000/users/${username}`);
+    await axios.delete(`/users/${username}`);
     return username;
 });
 
