@@ -21,5 +21,5 @@ app.listen(PORT, () => {
 
 app.use('/patients', patientRoutes);
 app.use('/users', userRoutes);
-app.use('/clinic', clinicRoutes);
+app.use('/api/clinic', clinicRoutes);
 app.use('/schedule', scheduleRoutes);
