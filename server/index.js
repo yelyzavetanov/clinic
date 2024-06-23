@@ -6,6 +6,7 @@ const clinicRoutes = require("./routes/clinic");
 const scheduleRoutes = require("./routes/schedule");
 const path = require('path');
 require('dotenv').config();
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
