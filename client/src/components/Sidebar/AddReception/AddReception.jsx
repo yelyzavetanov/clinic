@@ -3,6 +3,7 @@ import s from "./AddReception.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import Error from "../../common/Error/Error";
 import {addReception} from "../../../reducers/scheduleSlice";
+import {generateRandomId} from "../../../idGenerator/generateRandomId";
 
 function AddReception(props) {
     const account = useSelector(state => state.user.account);
@@ -37,7 +38,7 @@ function AddReception(props) {
             setError("All fields are required.");
         } else if (props.status === "administrator") {
             dispatch(addReception({
-                id: crypto.randomUUID(),
+                id: generateRandomId(),
                 patient: addReceptionFormState.patient,
                 type: addReceptionFormState.type,
                 date: addReceptionFormState.date,
@@ -51,7 +52,7 @@ function AddReception(props) {
             props.setIsAddReceptionForm(false);
         } else if (account) {
             dispatch(addReception({
-                id: crypto.randomUUID(),
+                id: generateRandomId(),
                 patient: addReceptionFormState.patient,
                 type: addReceptionFormState.type,
                 date: addReceptionFormState.date,
@@ -96,7 +97,7 @@ function AddReception(props) {
                         value={addReceptionFormState.patient}
                         onChange={event => onFormChange(event)}
                     >
-                        {patients.map(e => <option key={crypto.randomUUID()}>{e.name}</option>)}
+                        {patients.map(e => <option key={generateRandomId()}>{e.name}</option>)}
                     </select>
                 </div>
                 <div className={s.type}>

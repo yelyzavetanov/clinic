@@ -5,6 +5,7 @@ import WeekDay from "./WeekDay/WeekDay";
 function WeekScale(props) {
     const currentWeekDay = props.weekArray[props.currentDate.getDay()-1].weekDay;
 
+
     return (
         <div className={s.weekScale}>
             {props.weekArray.map(e =>

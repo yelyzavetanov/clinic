@@ -3,6 +3,7 @@ import s from "./AddPatient.module.css";
 import GrayLine from "../../common/GrayLine/GrayLine";
 import {useDispatch, useSelector} from "react-redux";
 import {addPatient, fetchPatients} from "../../../reducers/patientsSlice";
+import {generateRandomId} from "../../../idGenerator/generateRandomId";
 
 function AddPatient(props) {
     const [name, setName] = useState("");
@@ -20,7 +21,7 @@ function AddPatient(props) {
     const generateId = () => {
         // const timestamp = Date.now();
         // const randomNum = Math.floor(Math.random() * 1000000);
-        return `${crypto.randomUUID()}`;
+        return `${generateRandomId()}`;
     }
 
     const onAddPatientButton = () => {

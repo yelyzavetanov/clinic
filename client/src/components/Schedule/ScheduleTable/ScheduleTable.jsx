@@ -3,6 +3,7 @@ import s from "./ScheduleTable.module.css";
 import ScheduleColumn from "./ScheduleColumn/ScheduleColumn";
 import {generateEmptyWeek} from "../../../scheduleFuntions/sortSchedule";
 import {format} from "date-fns";
+import {generateRandomId} from "../../../idGenerator/generateRandomId";
 
 function ScheduleTable(props) {
     // console.log(props.scheduleArray, props.mondayDate);
@@ -21,7 +22,7 @@ function ScheduleTable(props) {
                         setIsReceptionInfo={props.setIsReceptionInfo}
                         setIsAddPatientForm={props.setIsAddPatientForm}
                         setIsAddReceptionForm={props.setIsAddReceptionForm}
-                        dayInfo={e.receptions} key={crypto.randomUUID()}
+                        dayInfo={e.receptions} key={generateRandomId()}
                     />
                 )
                 : emptyWeek.map(e =>
@@ -31,7 +32,7 @@ function ScheduleTable(props) {
                         setIsReceptionInfo={props.setIsReceptionInfo}
                         setIsAddPatientForm={props.setIsAddPatientForm}
                         setIsAddReceptionForm={props.setIsAddReceptionForm}
-                        dayInfo={e.receptions} key={crypto.randomUUID()}
+                        dayInfo={e.receptions} key={generateRandomId()}
                     />)
             }
         </div>
