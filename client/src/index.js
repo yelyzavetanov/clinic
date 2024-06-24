@@ -7,8 +7,9 @@ import {Provider} from "react-redux";
 import store from "./store/store";
 import axios from 'axios';
 
+axios.defaults.baseURL = 'http://localhost:5000';
 // axios.defaults.baseURL = 'http://localhost:8010/proxy';
-axios.defaults.baseURL = 'http://3.75.176.233:5000';
+// axios.defaults.baseURL = 'http://3.75.176.233:5000';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 
