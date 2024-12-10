@@ -2,7 +2,7 @@
   "name": "clinic",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000/api",
+  "proxy": "http://3.75.176.233:5000",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,6 +11,7 @@
     "axios": "^1.6.8",
     "concurrently": "^8.2.2",
     "date-fns": "^3.6.0",
+    "http-proxy-middleware": "^3.0.0",
     "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

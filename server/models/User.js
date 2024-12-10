@@ -1,6 +1,20 @@
 const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
+
+// console.log('JWT_SECRET:', process.env.JWT_SECRET);
+//
+// const secret = process.env.JWT_SECRET;
+// const payload = { id: 1, username: 'testuser' };
+//
+// try {
+//     const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+//     console.log('Generated Token:', token);
+// } catch (error) {
+//     console.error('Error generating token:', error.message);
+// }
+
 
 class User {
     static async getAll() {
@@ -37,9 +51,12 @@ class User {
             throw new Error('Invalid password');
         }
 
+        console.log("lkdsjflkdjf");
+        console.log('JWT_SECRET inside logIn:', process.env.JWT_SECRET);
+
         const token = jwt.sign(
             { id: user.id, username: user.username },
-            process.env.JWT_SECRET,
+            process.env.MY_JWT_SECRET,
             // { expiresIn: '1h' }
         );
 

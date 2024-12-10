@@ -26,7 +26,7 @@ class Schedule {
 
     static async markReception(id, newStatus) {
         const query = 'UPDATE receptions SET status = ? WHERE id = ?';
-        const [result] = await pool.query(query, [newStatus, Number(id)]);
+        const [result] = await pool.query(query, [newStatus, id]);
         return result;
     }
 }

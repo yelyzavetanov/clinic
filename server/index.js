@@ -6,28 +6,30 @@ const clinicRoutes = require("./routes/clinic");
 const scheduleRoutes = require("./routes/schedule");
 const path = require('path');
 require('dotenv').config();
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
+// app.use(cors({origin: '*', credentials: true}));
 app.use(cors());
 app.use(express.json());
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Або '*' якщо дозволяєте доступ з будь-якої адреси
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 
 const PORT = process.env.PORT || 5000;
 
-// Налаштування статичних файлів з папки 'build'
-// app.use(express.static(path.join(__dirname, 'build')));
-
-// Обслуговування головної сторінки для всіх запитів
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-//
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
 app.use('/patients', patientRoutes);
 app.use('/users', userRoutes);
-app.use('/clinic', clinicRoutes);
+app.use('/api/clinic', clinicRoutes);
 app.use('/schedule', scheduleRoutes);

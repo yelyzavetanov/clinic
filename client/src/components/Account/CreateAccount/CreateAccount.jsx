@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import s from "./CreateAccount.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {signUp} from "../../../reducers/usersSlice";
+import {generateRandomId} from "../../../idGenerator/generateRandomId";
 
 function CreateAccount(props) {
     const [formState, setFormState] = useState({
@@ -36,7 +37,7 @@ function CreateAccount(props) {
             setError("All fields are required.");
         } else {
             dispatch(signUp({
-                id: crypto.randomUUID(),
+                id: generateRandomId(),
                 username: formState.username,
                 name: formState.name,
                 clinic: formState.clinic,

@@ -78,6 +78,9 @@
 
 .description {
     font-size: 0.9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 2.5em;
 }
 
 .time {

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import s from "./RegisterClinic.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {register} from "../../../reducers/clinicSlice";
+import {generateRandomId} from "../../../idGenerator/generateRandomId";
 
 function RegisterClinic() {
     const [clinicForm, setClinicForm] = useState({
@@ -30,7 +31,7 @@ function RegisterClinic() {
         }
 
         dispatch(register({
-            id: crypto.randomUUID(),
+            id: generateRandomId(),
             name: clinicForm.name,
             description: clinicForm.description,
             address: clinicForm.address,
