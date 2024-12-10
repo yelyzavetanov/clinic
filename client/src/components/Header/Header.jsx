@@ -10,7 +10,7 @@ function Header(props) {
             if (state.user.account) {
                 return state.user.account.username;
             } else {
-                return null
+                return null;
             }
         }
     );
